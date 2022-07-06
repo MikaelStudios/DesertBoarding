@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject[] Roads;
+    //public GameObject currentRoad;
     public Rigidbody2D rigidbody2d;
+
+
     public int runSpeed;
     public float speed;
+    public static Vector3 currentTrackPosition;
     private bool didTouchMove;
     private float touchLength;
     private float touchBeginTime;
@@ -14,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentTrackPosition = new Vector3(-1, -1, -1);
         didTouchMove = false;
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
@@ -52,5 +58,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow))
             transform.Rotate(0, 0, -5);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //spawning hills
+        if(collision.collider.CompareTag("track") && collision.gameObject.transform.position != currentTrackPosition)
+        {
+            currentTrackPosition = collision.gameObject.transform.position;
+            Vector3 target = new Vector3(currentTrackPosition.x + 42, currentTrackPosition.y - 10, 0);
+            Instantiate(Roads[Random.Range(0, Roads.Length)], target, Quaternion.identity);
+        }
     }
 }
