@@ -1561,3 +1561,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2d: {fileID: 2057988963}
   runSpeed: 8
+  speed: 1200
