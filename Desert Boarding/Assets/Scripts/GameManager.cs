@@ -5,9 +5,17 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     public Transform player;
     public TextMeshProUGUI score;
+    public float speedMultiplier;
     private float distanceX;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
