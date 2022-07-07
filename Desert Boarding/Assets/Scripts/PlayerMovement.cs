@@ -16,12 +16,16 @@ public class PlayerMovement : MonoBehaviour
     private float touchLength;
     private float touchBeginTime;
     private float tapTimeLimit = 0.2f;
+
+    public AudioClip jumpSound;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         currentTrackPosition = new Vector3(-1, -1, -1);
         didTouchMove = false;
         rigidbody2d = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,12 +53,15 @@ public class PlayerMovement : MonoBehaviour
                 touchLength = Time.time - touchBeginTime;
                 if (touchLength <= tapTimeLimit && !didTouchMove)
                     rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
+                    audioSource.PlayOneShot(jumpSound);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow)) {
             rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
+            audioSource.PlayOneShot(jumpSound);
         //rb.velocity += Vector2.up * speed;
+        }
 
         if (Input.GetKey(KeyCode.RightArrow))
             transform.Rotate(0, 0, -5);
