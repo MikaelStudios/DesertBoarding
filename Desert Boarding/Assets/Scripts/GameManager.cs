@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public Transform player;
     public TextMeshProUGUI score;
+    public float addToScore;
     public float speedMultiplier;
     private float distanceX;
     public bool isGameOver;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isGameOver = false;
+        addToScore = 0;
         FuelGuage.maxValue = 10;
         FuelGuage.minValue = 0;
         FuelGuage.value = 10;
@@ -35,7 +38,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = "score: " + (player.position.x - distanceX).ToString("00000");
+        if (!isGameOver)
+            score.text = "score: " + (player.position.x - distanceX + addToScore).ToString("00000");
     }
 
     public void Pause()
@@ -50,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        isGameOver = true;
         gameOverPanel.SetActive(true);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6287328964916693062}
   - component: {fileID: 6287328964916693063}
   - component: {fileID: 431863071404721829}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NextTrack (1)
   m_TagString: track
   m_Icon: {fileID: 0}
@@ -367,11 +367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380252978211567226, guid: 22901abfea45a1047a85cb25d4356c63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.79
+      value: 28.78
       objectReference: {fileID: 0}
     - target: {fileID: 380252978211567226, guid: 22901abfea45a1047a85cb25d4356c63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 380252978211567226, guid: 22901abfea45a1047a85cb25d4356c63, type: 3}
       propertyPath: m_LocalPosition.z
