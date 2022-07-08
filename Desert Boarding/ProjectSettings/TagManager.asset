@@ -6,11 +6,12 @@ TagManager:
   tags:
   - track
   - fuel
+  - death
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Track
   - Water
   - UI
   - 

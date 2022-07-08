@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8964801129682391805}
   - component: {fileID: 8964801129682391804}
   - component: {fileID: -5848484401571226594}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NextTrack
   m_TagString: track
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 8964801129682391803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 42.7, y: -9.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 3103134729592516893}
   - {fileID: 2984419476235346831}
@@ -483,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380252978211567226, guid: 22901abfea45a1047a85cb25d4356c63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.01
+      value: 3.97
       objectReference: {fileID: 0}
     - target: {fileID: 380252978211567226, guid: 22901abfea45a1047a85cb25d4356c63, type: 3}
       propertyPath: m_LocalPosition.z
