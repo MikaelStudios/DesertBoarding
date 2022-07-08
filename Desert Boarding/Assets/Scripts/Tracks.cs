@@ -7,7 +7,12 @@ public class Tracks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        for(int i = 2; i < transform.childCount; i++)
+        {
+            //Debug.Log("hello");
+            if (Random.Range(0, 1f) > 0.5f)
+                transform.GetChild(i).gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame

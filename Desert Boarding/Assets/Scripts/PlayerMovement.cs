@@ -31,40 +31,54 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-         rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
-
-        if (Input.touchCount > 0)
+        if (!GameManager.Instance.isGameOver)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
+
+            if (Input.touchCount > 0)
             {
-                touchBeginTime = Time.time;
-                didTouchMove = false;
-            }
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                didTouchMove = true;
-            }
-            if (Time.time - touchBeginTime >= 1.0f)
-            {
-                transform.Rotate(0, 0, -5);
-            }
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                touchLength = Time.time - touchBeginTime;
-                if (touchLength <= tapTimeLimit && !didTouchMove)
-                    rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                {
+                    touchBeginTime = Time.time;
+                    didTouchMove = false;
+                }
+                if (Input.GetTouch(0).phase == TouchPhase.Moved)
+                {
+                    didTouchMove = true;
+                }
+                if (Time.time - touchBeginTime >= 1.0f)
+                {
+                    transform.Rotate(0, 0, -5);
+                    //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
+                }
+                if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                {
+                    touchLength = Time.time - touchBeginTime;
+                    if (touchLength <= tapTimeLimit && !didTouchMove)
+                        rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
                     audioSource.PlayOneShot(jumpSound);
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
-            audioSource.PlayOneShot(jumpSound);
-        //rb.velocity += Vector2.up * speed;
-        }
+            if (GameManager.Instance.FuelGuage.value - 0.01f > 0)
+                GameManager.Instance.FuelGuage.value -= 0.01f;
+            else
+            {
+                GameManager.Instance.FuelGuage.value = 0;
+                GameManager.Instance.isGameOver = true;
+                GameManager.Instance.GameOver();
+            }
 
-        if (Input.GetKey(KeyCode.RightArrow))
-            transform.Rotate(0, 0, -5);
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
+                audioSource.PlayOneShot(jumpSound);
+                //rb.velocity += Vector2.up * speed;
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow))
+                transform.Rotate(0, 0, -5);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -77,6 +91,18 @@ public class PlayerMovement : MonoBehaviour
             float y = collision.gameObject.transform.GetChild(0).transform.position.y;
             Vector3 target = new Vector3(x + 6, y - 4, 0);
             Instantiate(Roads[Random.Range(0, Roads.Length)], target, Quaternion.identity);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("fuel"))
+        {
+            if (GameManager.Instance.FuelGuage.value + 2 <= 10)
+                GameManager.Instance.FuelGuage.value += 2;
+            else
+                GameManager.Instance.FuelGuage.value = 10;
+            Destroy(collision.gameObject);
         }
     }
 }
