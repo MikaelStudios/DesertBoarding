@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform floorPoint;
     public Transform deathPoint;
     public float floorCheckRadius;
+    public float deathCheckRadius;
     public int runSpeed;
     public int angleTurned;
     public float speed;
@@ -97,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
             if (!Physics2D.OverlapCircle(floorPoint.position, floorCheckRadius, Track))
                 isGrounded = false;
 
-            if (Physics2D.OverlapCircle(deathPoint.position, floorCheckRadius, Track))
+            if (Physics2D.OverlapCircle(deathPoint.position, deathCheckRadius, Track))
                 GameManager.Instance.GameOver();
 
             if (angleTurned <= -180)
@@ -143,8 +144,8 @@ public class PlayerMovement : MonoBehaviour
             Instantiate(Roads[Random.Range(0, Roads.Length)], target, Quaternion.identity);
         }
 
-        /*if (collision.collider.CompareTag("death"))
-            GameManager.Instance.GameOver();*/
+        if (collision.collider.CompareTag("death"))
+            GameManager.Instance.GameOver();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

@@ -10,8 +10,9 @@ public class ObstacleGenerator : MonoBehaviour
     void Start()
     {
         int random = Random.Range(0, prefabs.Length);
+        Vector3 offset = new Vector3(0, 0.15f, 0);
         
-        Instantiate(prefabs[random], transform.position, transform.rotation);
+        Instantiate(prefabs[random], transform.position - offset, transform.rotation);
     }
 
 //     public GameObject obstacle1, obstacle2, obstacle3;
