@@ -73,7 +73,9 @@ public class PlayerMovement : MonoBehaviour
         if(collision.collider.CompareTag("track") && collision.gameObject.transform.position != currentTrackPosition)
         {
             currentTrackPosition = collision.gameObject.transform.position;
-            Vector3 target = new Vector3(currentTrackPosition.x + 42, currentTrackPosition.y - 10, 0);
+            float x = collision.gameObject.transform.GetChild(0).transform.position.x;
+            float y = collision.gameObject.transform.GetChild(0).transform.position.y;
+            Vector3 target = new Vector3(x + 6, y - 4, 0);
             Instantiate(Roads[Random.Range(0, Roads.Length)], target, Quaternion.identity);
         }
     }
