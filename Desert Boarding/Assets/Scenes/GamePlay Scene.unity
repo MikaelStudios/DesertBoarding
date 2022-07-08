@@ -4605,6 +4605,7 @@ MonoBehaviour:
   floorPoint: {fileID: 1643532087}
   deathPoint: {fileID: 934504599}
   floorCheckRadius: 0.5
+  deathCheckRadius: 0.3
   runSpeed: 10
   angleTurned: 0
   speed: 1200
