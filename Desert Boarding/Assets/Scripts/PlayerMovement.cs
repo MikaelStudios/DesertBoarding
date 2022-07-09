@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private float tapTimeLimit = 0.2f;
 
     public AudioClip jumpSound;
+    public AudioClip pickupSound;
     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -96,7 +97,11 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if (!Physics2D.OverlapCircle(floorPoint.position, floorCheckRadius, Track))
+            {
                 isGrounded = false;
+                /*if (currentTrackPosition.y - transform.position.y > 10)
+                    GameManager.Instance.GameOver();*/
+            }
 
             if (Physics2D.OverlapCircle(deathPoint.position, deathCheckRadius, Track))
                 GameManager.Instance.GameOver();
@@ -104,6 +109,9 @@ public class PlayerMovement : MonoBehaviour
             if (angleTurned <= -180)
                 possibleFlip = true;
         }
+
+        /*if (GameManager.Instance.isGameOver && !GameManager.Instance.hasGameStarted)
+            transform.position = new Vector3(-7, -0.4f, 0);*/
     }
 
     public IEnumerator IncrementScore()
@@ -160,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
             else
                 GameManager.Instance.FuelGuage.value = 10;
             Destroy(collision.gameObject);
+            audioSource.PlayOneShot(pickupSound, 1f);
         }
     }
 }

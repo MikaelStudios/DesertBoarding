@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
 
     public Transform player;
     public TextMeshProUGUI score;
+    public int finalScore;
     public float addToScore;
     public float speedMultiplier;
     private float distanceX;
     public bool isGameOver;
     public Slider FuelGuage;
     public GameObject gameOverPanel;
+    public GameObject shade;
     public GameObject pauseButton;
 
     private void Awake()
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isGameOver = false;
+        finalScore = 0;
         addToScore = 0;
         FuelGuage.maxValue = 10;
         FuelGuage.minValue = 0;
@@ -40,7 +43,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (!isGameOver)
+        {
             score.text = "score: " + (player.position.x - distanceX + addToScore).ToString("00000");
+            finalScore = (int)(player.position.x - distanceX + addToScore);
+        }
     }
 
     public void Pause()
@@ -55,7 +61,10 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        PlayerPrefs.SetInt("HighScore", finalScore);
         isGameOver = true;
+        //hasGameStarted = false;
+        shade.SetActive(true);
         gameOverPanel.SetActive(true);
         pauseButton.SetActive(false);
     }
