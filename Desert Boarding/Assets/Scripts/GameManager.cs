@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private float distanceX;
     public bool isGameOver;
     public Slider FuelGuage;
+    public GameObject startPanel;
     public GameObject gameOverPanel;
     public GameObject shade;
     public GameObject pauseButton;
@@ -37,6 +38,14 @@ public class GameManager : MonoBehaviour
         FuelGuage.value = 10;
         distanceX = player.position.x;
         score.text = "score: " + (player.position.x - distanceX).ToString("00000");
+
+        if(PlayerPrefs.GetInt("FirstTime") == 0)
+        {
+            PlayerPrefs.SetInt("FirstTime", 1);
+            shade.SetActive(true);
+            startPanel.SetActive(true);
+            Pause();
+        }
     }
 
     // Update is called once per frame

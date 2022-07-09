@@ -7349,6 +7349,7 @@ MonoBehaviour:
   speedMultiplier: 0
   isGameOver: 0
   FuelGuage: {fileID: 1505264860}
+  startPanel: {fileID: 1146230934}
   gameOverPanel: {fileID: 1366271646}
   shade: {fileID: 1655762733}
   pauseButton: {fileID: 1070191897}
