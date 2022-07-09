@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
             {
                 rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
-                audioSource.PlayOneShot(jumpSound);
+                audioSource.PlayOneShot(jumpSound, 1f);
                 //rb.velocity += Vector2.up * speed;
             }
 

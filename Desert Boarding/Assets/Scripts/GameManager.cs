@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public bool isGameOver;
     public Slider FuelGuage;
     public GameObject gameOverPanel;
+    public GameObject pauseButton;
 
     private void Awake()
     {
@@ -56,5 +57,6 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = true;
         gameOverPanel.SetActive(true);
+        pauseButton.SetActive(false);
     }
 }
