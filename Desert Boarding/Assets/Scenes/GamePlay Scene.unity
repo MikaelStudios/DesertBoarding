@@ -416,7 +416,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 963194231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
         m_MethodName: LoadNextScene
         m_Mode: 5
@@ -1045,7 +1045,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194231}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_TargetAssemblyTypeName: OpenScene, Assembly-CSharp
         m_MethodName: LoadNextScene
         m_Mode: 5
         m_Arguments:
@@ -1847,7 +1847,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 963194231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
         m_MethodName: LoadNextScene
         m_Mode: 5
@@ -3276,10 +3276,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfe9879eb81a3da488fc5f6c4f7036ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 4371ee145346de3468b2054cdac45836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0
+  delay: 2
 --- !u!1 &1070191897
 GameObject:
   m_ObjectHideFlags: 0
@@ -5814,7 +5814,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 963194231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
         m_MethodName: LoadNextScene
         m_Mode: 5
@@ -6502,7 +6502,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963194231}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_TargetAssemblyTypeName: OpenScene, Assembly-CSharp
         m_MethodName: LoadNextScene
         m_Mode: 5
         m_Arguments:
@@ -7253,7 +7253,6 @@ MonoBehaviour:
   possibleFlip: 0
   jumpSound: {fileID: 8300000, guid: 5ebe5ab7aa097414fb5f97cb3b253294, type: 3}
   pickupSound: {fileID: 8300000, guid: 9adce5bbfdbefcc4fa8a4dc7dbb46c6d, type: 3}
-  bikeSound: {fileID: 8300000, guid: 951aad22ed09e4d418c2a9daf46bd8af, type: 3}
 --- !u!82 &2057988968
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7264,11 +7263,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_audioClip: {fileID: 8300000, guid: 951aad22ed09e4d418c2a9daf46bd8af, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.09
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioClip jumpSound;
     public AudioClip pickupSound;
-    public AudioClip bikeSound;
     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
         if (!GameManager.Instance.isGameOver)
         {
             rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
-            audioSource.PlayOneShot(bikeSound, 0.09f);
 
             if (Input.touchCount > 0)
             {
