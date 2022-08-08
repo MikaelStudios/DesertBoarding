@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private float touchLength;
     private float touchBeginTime;
     private float tapTimeLimit = 0.2f;
+    public float forceamount = 10f;
 
     public AudioClip jumpSound;
     public AudioClip pickupSound;
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
 
-            if (Input.touchCount > 0)
+            /*if (Input.touchCount > 0)
             {
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
@@ -81,9 +82,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameManager.Instance.FuelGuage.value = 0;
                 GameManager.Instance.GameOver();
-            }
+            }*/
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+            /*if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
             {
                 rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
                 audioSource.PlayOneShot(jumpSound, 1f);
@@ -92,9 +93,14 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.RightArrow) && !isGrounded)
             {
-                angleTurned -= 5;
-                transform.Rotate(0, 0, -5);
+                angleTurned -= 2;
+                transform.Rotate(0, 0, -2);
             }
+            if (Input.GetKey(KeyCode.LeftArrow) && !isGrounded)
+            {
+                angleTurned += 2;
+                transform.Rotate(0, 0, 2);
+            }*/
 
             if (!Physics2D.OverlapCircle(floorPoint.position, floorCheckRadius, Track))
             {
@@ -112,6 +118,40 @@ public class PlayerMovement : MonoBehaviour
 
         /*if (GameManager.Instance.isGameOver && !GameManager.Instance.hasGameStarted)
             transform.position = new Vector3(-7, -0.4f, 0);*/
+    }
+    public void JumpUp()
+    {
+        if (isGrounded)
+            {
+                rigidbody2d.AddForce(Vector2.up * forceamount, ForceMode2D.Force);
+                audioSource.PlayOneShot(jumpSound, 1f);
+                //rb.velocity += Vector2.up * speed;
+            }
+    }
+    public void FlipRight()
+    {
+        if (!isGrounded)
+            {
+                StartCoroutine(RotateBike(Vector3.forward * -23, 0.8f));
+            }
+
+    }
+    public void FlipLeft()
+    {
+        if (!isGrounded)
+            {
+                StartCoroutine(RotateBike(Vector3.forward * 23, 0.8f));
+            }
+    }
+
+    IEnumerator RotateBike(Vector3 byAngles, float inTime) 
+    {   var fromAngle = transform.rotation;
+        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+        for(var t = 0f; t < 1; t += Time.deltaTime/inTime)
+        {
+            transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
+            yield return null;
+        }
     }
 
     public IEnumerator IncrementScore()
