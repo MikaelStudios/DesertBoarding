@@ -18,19 +18,27 @@ public class PlayerMovement : MonoBehaviour
     public int runSpeed;
     public int angleTurned;
     public float speed;
+    public float jumpForce;
     public static Vector3 currentTrackPosition;
     private bool didTouchMove;
     public bool isGrounded;
     public bool possibleFlip;
+    public  bool flipright;
+    public  bool flipleft;
     private float touchLength;
     private float touchBeginTime;
     private float tapTimeLimit = 0.2f;
-    public float forceamount = 10f;
 
     public AudioClip jumpSound;
     public AudioClip pickupSound;
     AudioSource audioSource;
-    // Start is called before the first frame update
+    public static PlayerMovement instance;
+
+    public void Awake()
+    {
+        instance = this;
+    }
+    
     void Start()
     {
         angleTurned = 0;
@@ -40,81 +48,93 @@ public class PlayerMovement : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
-        if (!GameManager.Instance.isGameOver)
+        if (GameManager.Instance.isGameOver){return;}
+
+        FlipLeft();
+        FlipRight();
+        
+        rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
+
+        // Mobile Input/Controls
+        if (Input.touchCount > 0)
         {
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
-
-            /*if (Input.touchCount > 0)
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
-                {
-                    touchBeginTime = Time.time;
-                    didTouchMove = false;
-                }
-                if (Input.GetTouch(0).phase == TouchPhase.Moved)
-                {
-                    didTouchMove = true;
-                }
-                if (Time.time - touchBeginTime >= 0.3f && !isGrounded)
-                {
-                    angleTurned -= 5;
-                    transform.Rotate(0, 0, -5);
-                    //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
-                }
-                if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                {
-                    angleTurned = 0;
-                    touchLength = Time.time - touchBeginTime;
-                    if (touchLength <= tapTimeLimit && !didTouchMove && isGrounded)
-                    {
-                        rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
-                        audioSource.PlayOneShot(jumpSound);
-                    }
-                }
+                touchBeginTime = Time.time;
+                didTouchMove = false;
             }
 
-            if (GameManager.Instance.FuelGuage.value - 0.01f > 0 && isGrounded)
-                GameManager.Instance.FuelGuage.value -= 0.01f;
-            else if (isGrounded)
+            if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                GameManager.Instance.FuelGuage.value = 0;
-                GameManager.Instance.GameOver();
-            }*/
-
-            /*if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
-            {
-                rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
-                audioSource.PlayOneShot(jumpSound, 1f);
-                //rb.velocity += Vector2.up * speed;
+                didTouchMove = true;
             }
-
-            if (Input.GetKey(KeyCode.RightArrow) && !isGrounded)
+            
+            if (Time.time - touchBeginTime >= 0.3f && !isGrounded)
             {
-                angleTurned -= 2;
-                transform.Rotate(0, 0, -2);
+                angleTurned -= 5;
+                transform.Rotate(0, 0, -5);
+                //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
             }
-            if (Input.GetKey(KeyCode.LeftArrow) && !isGrounded)
+            
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
-                angleTurned += 2;
-                transform.Rotate(0, 0, 2);
-            }*/
-
-            if (!Physics2D.OverlapCircle(floorPoint.position, floorCheckRadius, Track))
-            {
-                isGrounded = false;
-                /*if (currentTrackPosition.y - transform.position.y > 10)
-                    GameManager.Instance.GameOver();*/
+                angleTurned = 0;
+                touchLength = Time.time - touchBeginTime;
+                if (touchLength <= tapTimeLimit && !didTouchMove && isGrounded)
+                {
+                    rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
+                    audioSource.PlayOneShot(jumpSound);
+                }
             }
-
-            if (Physics2D.OverlapCircle(deathPoint.position, deathCheckRadius, Track))
-                GameManager.Instance.GameOver();
-
-            if (angleTurned <= -180)
-                possibleFlip = true;
         }
+
+
+        if (GameManager.Instance.FuelGuage.value - 0.01f > 0 && isGrounded){
+            GameManager.Instance.FuelGuage.value -= 0.01f;
+        } 
+        else if (isGrounded)
+        {
+            GameManager.Instance.FuelGuage.value = 0;
+            GameManager.Instance.GameOver();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rigidbody2d.AddForce(Vector2.up * speed, ForceMode2D.Force);
+            audioSource.PlayOneShot(jumpSound, 1f);
+            //rb.velocity += Vector2.up * speed;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow) && !isGrounded)
+        {
+            RotateBike(Vector3.forward * -2, 0.5f);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) && !isGrounded)
+        {
+            RotateBike(Vector3.forward * 2, 0.5f);
+        }
+
+        if (!Physics2D.OverlapCircle(floorPoint.position, floorCheckRadius, Track))
+        {
+            isGrounded = false;
+            /*if (currentTrackPosition.y - transform.position.y > 10)
+                GameManager.Instance.GameOver();*/
+        }
+
+        if (Physics2D.OverlapCircle(deathPoint.position, deathCheckRadius, Track))
+        {
+            GameManager.Instance.GameOver();
+        }
+
+        if (angleTurned <= -180)
+        {
+            possibleFlip = true;
+        }
+
+        
 
         /*if (GameManager.Instance.isGameOver && !GameManager.Instance.hasGameStarted)
             transform.position = new Vector3(-7, -0.4f, 0);*/
@@ -123,34 +143,43 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded)
             {
-                rigidbody2d.AddForce(Vector2.up * forceamount, ForceMode2D.Force);
+                rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
                 audioSource.PlayOneShot(jumpSound, 1f);
                 //rb.velocity += Vector2.up * speed;
             }
     }
+    
     public void FlipRight()
     {
-        if (!isGrounded)
+        if (LongPressed.instance.rightButtonDown){
+            if (!isGrounded)
             {
-                StartCoroutine(RotateBike(Vector3.forward * -23, 0.8f));
+                // Rotate forwards
+                RotateBike(Vector3.forward * -2, 0.5f);
             }
-
+        }
     }
+    
     public void FlipLeft()
     {
-        if (!isGrounded)
+        if (LongPressed.instance.leftButtonDown){
+            if (!isGrounded)
             {
-                StartCoroutine(RotateBike(Vector3.forward * 23, 0.8f));
+               // Rotate backwards
+               RotateBike(Vector3.forward * 2, 0.5f);
             }
+        }
+        
     }
 
-    IEnumerator RotateBike(Vector3 byAngles, float inTime) 
-    {   var fromAngle = transform.rotation;
+    
+    private void RotateBike(Vector3 byAngles, float inTime) 
+    {   
+        var fromAngle = transform.rotation;
         var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
         for(var t = 0f; t < 1; t += Time.deltaTime/inTime)
         {
             transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
-            yield return null;
         }
     }
 
