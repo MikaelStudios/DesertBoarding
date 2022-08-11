@@ -54,11 +54,14 @@ public class PlayerMovement : MonoBehaviour
 
         FlipLeft();
         FlipRight();
+        ReduceSpeed();
+        Debug.Log("This is speed "+ rigidbody2d.velocity);
+        
         
         rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
 
         // Mobile Input/Controls
-        /*if (Input.touchCount > 0)
+       /* if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
@@ -107,12 +110,12 @@ public class PlayerMovement : MonoBehaviour
             //rb.velocity += Vector2.up * speed;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow) && !isGrounded)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             RotateBike(Vector3.forward * -2, 0.5f);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow) && !isGrounded)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             RotateBike(Vector3.forward * 2, 0.5f);
         }
@@ -120,10 +123,10 @@ public class PlayerMovement : MonoBehaviour
         if (!Physics2D.OverlapCircle(floorPoint.position, floorCheckRadius, Track))
         {
             isGrounded = false;
-            /*if (currentTrackPosition.y - transform.position.y > 10)
-                GameManager.Instance.GameOver();}*/
+            if (currentTrackPosition.y - transform.position.y > 10)
+                GameManager.Instance.GameOver();}
 
-        /*if (Physics2D.OverlapCircle(deathPoint.position, deathCheckRadius, Track))
+        if (Physics2D.OverlapCircle(deathPoint.position, deathCheckRadius, Track))
         {
             GameManager.Instance.GameOver();
         }
@@ -134,8 +137,8 @@ public class PlayerMovement : MonoBehaviour
         }*/
 
         
-
-        /*if (GameManager.Instance.isGameOver && !GameManager.Instance.hasGameStarted)
+/*
+        if (GameManager.Instance.isGameOver && !GameManager.Instance.hasGameStarted)
             transform.position = new Vector3(-7, -0.4f, 0);*/
     }
     public void JumpUp()
@@ -143,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
             {
                 rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
-                audioSource.PlayOneShot(jumpSound, 1f);
+                audioSource.PlayOneShot(jumpSound, 0.9f);
                 //rb.velocity += Vector2.up * speed;
             }
     }
@@ -151,25 +154,41 @@ public class PlayerMovement : MonoBehaviour
     public void FlipRight()
     {
         if (LongPressed.instance.rightButtonDown){
-            if (!isGrounded)
-            {
-                // Rotate forwards
-                RotateBike(Vector3.forward * -2, 0.5f);
-            }
+            Debug.Log("TRUERIGHT");
+            RotateBike(Vector3.forward * -2, 0.9f);
+            
         }
     }
     
     public void FlipLeft()
     {
         if (LongPressed.instance.leftButtonDown){
-            if (!isGrounded)
-            {
-               // Rotate backwards
-               RotateBike(Vector3.forward * 2, 0.5f);
-            }
-        }
+            // Rotate backwards
+            
+            RotateBike(Vector3.forward * 2, 1f);
+            Debug.Log("TRUE");
+            
+        } 
         
     }
+    public void ReduceSpeed()
+    {
+        
+        rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;
+    }
+    /*public void Right()
+    {
+        RotateBike(Vector3.forward * -180, 0.5f);
+        Debug.Log("TRUERIGHT");
+       
+    }
+    public void Left()
+    {
+        RotateBike(Vector3.forward * 180, 0.5f);
+        Debug.Log("TRUE");
+        
+        
+    }*/
 
     
     private void RotateBike(Vector3 byAngles, float inTime) 
