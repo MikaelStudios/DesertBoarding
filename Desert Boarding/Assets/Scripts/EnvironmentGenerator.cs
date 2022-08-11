@@ -13,7 +13,13 @@ public class EnvironmentGenerator : MonoBehaviour
     public float yMultiplier;
     public float curve;
 
+    //Sets how intense the ground bumps will get with distance
+    public float xDifficulty;
+    public float yDifficulty;
+
     public Vector3 lastPos;
+
+    public float depth;
 
     private void OnValidate()
     {
@@ -29,9 +35,18 @@ public class EnvironmentGenerator : MonoBehaviour
 
             spriteShape.spline.InsertPointAt(i, lastPos);
 
+            if (i != 0  && i != cycles - 1)
+            {
             spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Continuous);
             spriteShape.spline.SetLeftTangent(i, Vector3.left * x * curve);
             spriteShape.spline.SetRightTangent(i, Vector3.right * x * curve);
+            }
+
+            x += xDifficulty;
+            y += yDifficulty;
         }
+
+        spriteShape.spline.InsertPointAt(cycles, new Vector3(lastPos.x, transform.position.y - depth));
+        spriteShape.spline.InsertPointAt(cycles + 1, new Vector3(transform.position.x, transform.position.y - depth));
     }
 }
