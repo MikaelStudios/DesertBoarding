@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
 
         // Mobile Input/Controls
-        if (Input.touchCount > 0)
+        /*if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
@@ -121,10 +121,9 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
             /*if (currentTrackPosition.y - transform.position.y > 10)
-                GameManager.Instance.GameOver();*/
-        }
+                GameManager.Instance.GameOver();}*/
 
-        if (Physics2D.OverlapCircle(deathPoint.position, deathCheckRadius, Track))
+        /*if (Physics2D.OverlapCircle(deathPoint.position, deathCheckRadius, Track))
         {
             GameManager.Instance.GameOver();
         }
@@ -132,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
         if (angleTurned <= -180)
         {
             possibleFlip = true;
-        }
+        }*/
 
         
 
