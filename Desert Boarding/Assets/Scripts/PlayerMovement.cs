@@ -87,30 +87,28 @@ public class PlayerMovement : MonoBehaviour
     
     public void JumpUp()
     {
-        if (isGrounded)
-            {
-                //rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        //rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 //audioSource.PlayOneShot(jumpSound, 0.9f);
-                float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigidbody2d.gravityScale));
-                rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                jumping = true;
-                jumpCancelled = false;
-                jumpTime = 0;
+        float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigidbody2d.gravityScale));
+        rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        jumping = true;
+        jumpCancelled = false;
+        jumpTime = 0;
                 
-                if (jumping)
-                {
-                    jumpTime += Time.deltaTime;
-                    if (Input.GetKeyUp(KeyCode.Space))
-                    {
-                        jumpCancelled = true;
-                    }
-                    if (jumpTime > buttonTime)
-                    {
-                        jumping = false;
-                    }
-                }
-                //rb.velocity += Vector2.up * speed;
+        if (jumping)
+        {
+            jumpTime += Time.deltaTime;
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                jumpCancelled = true;
             }
+            if (jumpTime > buttonTime)
+            {
+                jumping = false;
+
+            }
+        }
+            
     }
     
     public void FlipRight()

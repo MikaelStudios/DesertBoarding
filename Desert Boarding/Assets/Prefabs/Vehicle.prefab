@@ -138,7 +138,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: b339c64c7e27a284fa58edda9eeb86bd, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
   deathPoint: {fileID: 5951314510218074873}
   floorCheckRadius: 0.5
   deathCheckRadius: 0.3
-  runSpeed: 45
+  runSpeed: 20
   angleTurned: 0
   speed: 1000
   jumpForce: 3000
@@ -397,6 +397,8 @@ MonoBehaviour:
   flipleft: 0
   jumpSound: {fileID: 8300000, guid: 5ebe5ab7aa097414fb5f97cb3b253294, type: 3}
   pickupSound: {fileID: 8300000, guid: 9adce5bbfdbefcc4fa8a4dc7dbb46c6d, type: 3}
+  jumpHeight: 90
+  buttonTime: 0.5
 --- !u!114 &5951314510859296586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,8 +415,12 @@ MonoBehaviour:
   rightButtonUp: 0
   leftButtonDown: 0
   leftButtonUp: 0
+  brakeButtonDown: 0
+  breakDown: 0
+  breakUp: 0
   rightButton: {fileID: 0}
   leftButton: {fileID: 0}
+  breakButton: {fileID: 0}
 --- !u!82 &5951314510859296578
 AudioSource:
   m_ObjectHideFlags: 0
