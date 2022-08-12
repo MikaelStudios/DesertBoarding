@@ -7,9 +7,10 @@ public class LongPressed : MonoBehaviour
 {
     
     public bool rightButtonDown, rightButtonUp;
-    public bool leftButtonDown, leftButtonUp;
+    public bool leftButtonDown, leftButtonUp, brakeButtonDown;
+    public bool breakDown, breakUp;
 
-    public Button rightButton, leftButton;
+    public Button rightButton, leftButton, breakButton;
     
     public static LongPressed instance;
     
@@ -33,6 +34,7 @@ public class LongPressed : MonoBehaviour
         rightPointerUp.eventID = EventTriggerType.PointerUp;
         rightPointerUp.callback.AddListener((e) => RightButtonPointerCallback(false));
 
+
         EventTrigger rightTrigger = rightButton.gameObject.AddComponent<EventTrigger>();
         rightTrigger.triggers.Add(rightPointerDown);
         rightTrigger.triggers.Add(rightPointerUp);
@@ -51,6 +53,21 @@ public class LongPressed : MonoBehaviour
         leftTrigger.triggers.Add(leftPointerDown);
         leftTrigger.triggers.Add(leftPointerUp);
 
+        //Brake Button Events
+        var brakeButtonUp = new EventTrigger.Entry();
+        brakeButtonUp.eventID = EventTriggerType.PointerDown;
+        brakeButtonUp.callback.AddListener((e) => BrakeButtonPointerCallback(true));
+
+        var brakeButtonDown = new  EventTrigger.Entry();
+        brakeButtonDown.eventID = EventTriggerType.PointerUp;
+        brakeButtonDown.callback.AddListener((e) => BrakeButtonPointerCallback(false));
+
+        EventTrigger brakeTrigger = breakButton.gameObject.AddComponent<EventTrigger>();
+        brakeTrigger.triggers.Add(brakeButtonDown);
+        brakeTrigger.triggers.Add(brakeButtonUp);
+
+
+
     }
 
     public void RightButtonPointerCallback(bool state)
@@ -62,6 +79,9 @@ public class LongPressed : MonoBehaviour
     {
         leftButtonDown = state;
     }
-        
+    public void BrakeButtonPointerCallback(bool state)
+    {
+        brakeButtonDown = state;
+    } 
            
 }

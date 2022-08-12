@@ -32,8 +32,18 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip pickupSound;
     AudioSource audioSource;
-    public static PlayerMovement instance;
 
+    public float jumpHeight = 500;
+    float jumpTime;
+    bool jumping;
+    bool jumpCancelled;
+    public float buttonTime = 0.5f;
+
+    
+
+
+    public static PlayerMovement instance;
+    
     public void Awake()
     {
         instance = this;
@@ -46,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         didTouchMove = false;
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        
     }
 
     private void FixedUpdate()
@@ -55,11 +66,22 @@ public class PlayerMovement : MonoBehaviour
         FlipLeft();
         FlipRight();
         ReduceSpeed();
-        Debug.Log("This is speed "+ rigidbody2d.velocity);
+        
+    
         
         
-        rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
-
+        
+        //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
+        if(Input.GetKey(KeyCode.Space))
+        {
+            ReduceSpeed();
+            
+        }
+        else
+        {
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 200f, ForceMode2D.Force);
+        }
+        
         // Mobile Input/Controls
        /* if (Input.touchCount > 0)
         {
@@ -141,12 +163,31 @@ public class PlayerMovement : MonoBehaviour
         if (GameManager.Instance.isGameOver && !GameManager.Instance.hasGameStarted)
             transform.position = new Vector3(-7, -0.4f, 0);*/
     }
+    
     public void JumpUp()
     {
         if (isGrounded)
             {
-                rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
-                audioSource.PlayOneShot(jumpSound, 0.9f);
+                //rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                //audioSource.PlayOneShot(jumpSound, 0.9f);
+                float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigidbody2d.gravityScale));
+                rigidbody2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                jumping = true;
+                jumpCancelled = false;
+                jumpTime = 0;
+                
+                if (jumping)
+                {
+                    jumpTime += Time.deltaTime;
+                    if (Input.GetKeyUp(KeyCode.Space))
+                    {
+                        jumpCancelled = true;
+                    }
+                    if (jumpTime > buttonTime)
+                    {
+                        jumping = false;
+                    }
+                }
                 //rb.velocity += Vector2.up * speed;
             }
     }
@@ -171,10 +212,13 @@ public class PlayerMovement : MonoBehaviour
         } 
         
     }
+    
     public void ReduceSpeed()
     {
+        if (LongPressed.instance.brakeButtonDown){
+            rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;}
+            
         
-        rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;
     }
     /*public void Right()
     {
