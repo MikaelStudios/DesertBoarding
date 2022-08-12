@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Desert Boarding
+  m_text: Dune Biker
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d346943d724c3b42bef4453225a3f3c, type: 2}
   m_sharedMaterial: {fileID: -2348803115145424819, guid: 8d346943d724c3b42bef4453225a3f3c, type: 2}

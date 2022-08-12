@@ -5039,9 +5039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tap screen to jump
-
-    Hold screen to do a flip'
+  m_text: "Use the buttons to control \nthe vehicle"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c4f81aea92c8404688fd75edd0c9f6a, type: 2}
   m_sharedMaterial: {fileID: 4425912697269437385, guid: 1c4f81aea92c8404688fd75edd0c9f6a, type: 2}
@@ -6069,7 +6067,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Try not to crash or run out of fuel as you ride through the desert
+  m_text: Try not to crash or run out of fuel as you run for safety
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c4f81aea92c8404688fd75edd0c9f6a, type: 2}
   m_sharedMaterial: {fileID: 4425912697269437385, guid: 1c4f81aea92c8404688fd75edd0c9f6a, type: 2}
@@ -6181,7 +6179,7 @@ MonoBehaviour:
   - {fileID: 875270353043165085, guid: 926b8caf2b4229c46adf1f5b800a4ed4, type: 3}
   nextPathPosition: {x: -15, y: 0, z: 0}
   player: {fileID: 752767895}
-  pathDrawDistance: 50
+  pathDrawDistance: 40
   pathDeleteDistance: 60
 --- !u!4 &1789476033
 Transform:
@@ -7637,6 +7635,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5951314510218074872, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_TagString
+      value: death
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951314510218074873, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951314510218074873, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.87
+      objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296580, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -7697,6 +7707,10 @@ PrefabInstance:
       propertyPath: IncreaseScore
       value: 
       objectReference: {fileID: 1481178167}
+    - target: {fileID: 5951314510859296581, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: Roads.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296583, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_SortingOrder
       value: 1
