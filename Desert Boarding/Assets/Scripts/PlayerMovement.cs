@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 200f, ForceMode2D.Force);
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
         }
         
         
