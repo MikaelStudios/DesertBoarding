@@ -180,15 +180,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //spawning hills
-        if(collision.collider.CompareTag("track") && collision.gameObject.transform.position != currentTrackPosition)
-        {
-            //isGrounded = true;
-            currentTrackPosition = collision.gameObject.transform.position;
-            float x = collision.gameObject.transform.GetChild(0).transform.position.x;
-            float y = collision.gameObject.transform.GetChild(0).transform.position.y;
-            Vector3 target = new Vector3(x + 6, y - 4, 0);
-            Instantiate(Roads[Random.Range(0, Roads.Length)], target, Quaternion.identity);
-        }
+        // if(collision.collider.CompareTag("track") && collision.gameObject.transform.position != currentTrackPosition)
+        // {
+        //     //isGrounded = true;
+        //     currentTrackPosition = collision.gameObject.transform.position;
+        //     float x = collision.gameObject.transform.GetChild(0).transform.position.x;
+        //     float y = collision.gameObject.transform.GetChild(0).transform.position.y;
+        //     Vector3 target = new Vector3(x + 6, y - 4, 0);
+        //     Instantiate(Roads[Random.Range(0, Roads.Length)], target, Quaternion.identity);
+        // }
 
         if (collision.collider.CompareTag("death"))
             GameManager.Instance.GameOver();
