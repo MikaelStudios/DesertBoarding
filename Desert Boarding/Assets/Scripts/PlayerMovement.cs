@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     public void FlipRight()
     {
         if (LongPressed.instance.rightButtonDown){
-            Debug.Log("TRUERIGHT");
+            
             RotateBike(Vector3.forward * -2, 0.9f);
             
         }
@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
             // Rotate backwards
             
             RotateBike(Vector3.forward * 2, 1f);
-            Debug.Log("TRUE");
+            
             
         } 
         

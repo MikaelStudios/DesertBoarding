@@ -8078,6 +8078,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle
       objectReference: {fileID: 0}
+    - target: {fileID: 5951314512216165473, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_TagString
+      value: road
+      objectReference: {fileID: 0}
     - target: {fileID: 5951314512216165500, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_SortingOrder
       value: 1
