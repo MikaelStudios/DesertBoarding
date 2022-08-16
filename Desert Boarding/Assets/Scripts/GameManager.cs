@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject shade;
     public GameObject pauseButton;
+    public ParticleSystem explosionParticles;
 
     private void Awake()
     {
@@ -76,5 +77,9 @@ public class GameManager : MonoBehaviour
         shade.SetActive(true);
         gameOverPanel.SetActive(true);
         pauseButton.SetActive(false);
+    }
+    public void Explode()
+    {
+        explosionParticles.Play();
     }
 }

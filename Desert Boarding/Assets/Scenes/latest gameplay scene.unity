@@ -1285,6 +1285,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415370957}
   m_CullTransparentMesh: 1
+--- !u!198 &474508146 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1876786243102217726, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+  m_PrefabInstance: {fileID: 5951314511148249710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &538927683
 GameObject:
   m_ObjectHideFlags: 0
@@ -7797,6 +7802,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1366271646}
   shade: {fileID: 1655762733}
   pauseButton: {fileID: 1070191897}
+  explosionParticles: {fileID: 474508146}
 --- !u!4 &2066269096
 Transform:
   m_ObjectHideFlags: 0
