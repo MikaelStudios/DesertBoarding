@@ -1093,7 +1093,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GamePlay Scene
+          m_StringArgument: latest gameplay scene
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1655762733}
@@ -4872,7 +4872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -297, y: -149}
+  m_AnchoredPosition: {x: -265, y: -144}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386798789
@@ -6748,7 +6748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 336, y: -108}
+  m_AnchoredPosition: {x: 336, y: -94}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705871440
@@ -7009,13 +7009,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paths:
-  - {fileID: 6709882163234801301, guid: 2a5b1455b0778a54db998d8c023e53a9, type: 3}
-  - {fileID: 6709882163234801301, guid: 2a5b1455b0778a54db998d8c023e53a9, type: 3}
-  - {fileID: 875270353043165085, guid: 926b8caf2b4229c46adf1f5b800a4ed4, type: 3}
-  nextPathPosition: {x: -15, y: 0, z: 0}
+  - {fileID: 5583287490243250826, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+  - {fileID: 5583287490243250826, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+  nextPathPosition: {x: -20, y: 0, z: 0}
   player: {fileID: 752767895}
-  pathDrawDistance: 40
-  pathDeleteDistance: 60
+  pathDrawDistance: 80
+  pathDeleteDistance: 140
 --- !u!4 &1789476033
 Transform:
   m_ObjectHideFlags: 0
@@ -7630,7 +7629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 27.15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -339, y: -58}
+  m_AnchoredPosition: {x: -344, y: -94}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2026729225
