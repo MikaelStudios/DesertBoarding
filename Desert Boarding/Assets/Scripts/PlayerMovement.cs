@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         FlipLeft();
         FlipRight();
-        ReduceSpeed();
+        IncreaseSpeed();
         //IncreaseSpeed();
         
     
@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
     
-    public void ReduceSpeed()
+    public void IncreaseSpeed()
     {
         
         if (LongPressed.instance.brakeButtonDown)
