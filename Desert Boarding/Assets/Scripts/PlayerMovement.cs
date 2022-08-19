@@ -76,17 +76,17 @@ public class PlayerMovement : MonoBehaviour
         
         
         //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
-        if(Input.GetKey(KeyCode.Space))
-        {
-            ReduceSpeed();
+        // if(Input.GetKey(KeyCode.Space))
+        // {
+        //     ReduceSpeed();
             
-        }
-        else
-        {
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
+        // }
+        // else
+        // {
+        //     rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
             
 
-        }
+        // }
         
         
     }
@@ -141,14 +141,17 @@ public class PlayerMovement : MonoBehaviour
     public void ReduceSpeed()
     {
         
-        if (LongPressed.instance.brakeButtonDown){
-       
-            AudioManager.instance.StopCarSound(); 
-            rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;}
-        else if(!LongPressed.instance.brakeButtonDown)
-        {
-            AudioManager.instance.PlayCarSound();           
-        }
+        if (LongPressed.instance.brakeButtonDown)
+            {
+              rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
+              AudioManager.instance.PlayCarSound(); 
+            // rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;
+            } 
+            else if(!LongPressed.instance.brakeButtonDown)
+            {
+              AudioManager.instance.StopCarSound(); 
+                      
+            }
             
         
     }
