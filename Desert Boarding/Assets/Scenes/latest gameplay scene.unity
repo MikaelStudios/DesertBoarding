@@ -13683,7 +13683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296581, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: runSpeed
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296581, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: IncreaseScore
@@ -13694,8 +13694,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296584, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_EnableCollision
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951314510859296584, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296586, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: leftButton
@@ -13714,8 +13718,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 913462491}
     - target: {fileID: 5951314510859296587, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_EnableCollision
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951314510859296587, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296589, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_Name
