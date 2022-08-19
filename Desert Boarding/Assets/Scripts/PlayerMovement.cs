@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
     bool jumpCancelled;
     public float buttonTime = 0.5f;
 
+    public float acceleration;
+    
+
     
 
 
@@ -66,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
         FlipLeft();
         FlipRight();
         ReduceSpeed();
+        //IncreaseSpeed();
         
     
         
@@ -80,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
+            
+
         }
         
         
@@ -134,11 +140,29 @@ public class PlayerMovement : MonoBehaviour
     
     public void ReduceSpeed()
     {
+        
         if (LongPressed.instance.brakeButtonDown){
+       
+            AudioManager.instance.StopCarSound(); 
             rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;}
+        else if(!LongPressed.instance.brakeButtonDown)
+        {
+            AudioManager.instance.PlayCarSound();           
+        }
             
         
     }
+    /*public void IncreaseSpeed()
+    {
+        
+        if (LongPressed.instance.accelerateButtonDown){
+       
+            
+            rigidbody2d.velocity += acceleration*Time.deltaTime;}
+        
+            
+        
+    }*/
     
 
     
