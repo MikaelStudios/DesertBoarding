@@ -13174,6 +13174,7 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: 9adce5bbfdbefcc4fa8a4dc7dbb46c6d, type: 3}
   jumpHeight: 500
   buttonTime: 0.5
+  acceleration: 0
 --- !u!82 &2057988968
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13688,6 +13689,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5951314510859296584, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_Suspension.m_Frequency
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296586, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: leftButton
       value: 
@@ -13704,9 +13709,17 @@ PrefabInstance:
       propertyPath: accelerateButton
       value: 
       objectReference: {fileID: 913462491}
+    - target: {fileID: 5951314510859296587, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_Suspension.m_Frequency
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296589, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_Name
       value: Vehicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951314510859296589, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5951314512216165473, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_TagString

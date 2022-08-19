@@ -9,6 +9,7 @@ TagManager:
   - death
   - Obstacle
   - road
+  - Spike
   layers:
   - Default
   - TransparentFX

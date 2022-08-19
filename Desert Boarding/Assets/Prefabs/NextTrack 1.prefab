@@ -68,7 +68,6 @@ GameObject:
   - component: {fileID: 1501515969925132596}
   - component: {fileID: 1501515969925132587}
   - component: {fileID: 1501515969925132586}
-  - component: {fileID: 2791592839686289100}
   m_Layer: 0
   m_Name: Fuel (1)
   m_TagString: fuel
@@ -167,18 +166,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2231274, y: 2.4605346}
   m_EdgeRadius: 0
---- !u!114 &2791592839686289100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501515969925132584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f785f0089e21446b2d17c7feca1494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2984419476235346835
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +178,6 @@ GameObject:
   - component: {fileID: 2984419476235346832}
   - component: {fileID: 2984419476235346833}
   - component: {fileID: 2984419476235346834}
-  - component: {fileID: 1945844792570356855}
   m_Layer: 0
   m_Name: Stone 1
   m_TagString: Untagged
@@ -312,18 +298,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &1945844792570356855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2984419476235346835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f785f0089e21446b2d17c7feca1494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6241636861621550886
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +309,6 @@ GameObject:
   - component: {fileID: 6241636861621550906}
   - component: {fileID: 6241636861621550885}
   - component: {fileID: 6241636861621550884}
-  - component: {fileID: 7274845653105080514}
   m_Layer: 0
   m_Name: Fuel
   m_TagString: fuel
@@ -434,18 +407,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2231274, y: 2.4605346}
   m_EdgeRadius: 0
---- !u!114 &7274845653105080514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6241636861621550886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f785f0089e21446b2d17c7feca1494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8212474524893020831
 GameObject:
   m_ObjectHideFlags: 0

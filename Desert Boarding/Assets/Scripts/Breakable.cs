@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BreakableRock : MonoBehaviour
+public class Breakable : MonoBehaviour
 {
    private ParticleSystem particle;
    private SpriteRenderer spriteRenderer;
