@@ -71,11 +71,7 @@ public class PlayerMovement : MonoBehaviour
         IncreaseSpeed();
         //IncreaseSpeed();
         
-    
-        
-        
-        
-        //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
+        rigidbody2d.AddForce(transform.right * 15 * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
         // if(Input.GetKey(KeyCode.Space))
         // {
         //     ReduceSpeed();
