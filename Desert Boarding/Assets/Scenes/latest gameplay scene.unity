@@ -7176,8 +7176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paths:
   - {fileID: 5583287490243250826, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
-  - {fileID: 5583287490243250826, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
   - {fileID: 2191792530408601955, guid: 6e11f28c1706d1944b8189b75d55e9f3, type: 3}
+  - {fileID: 1873330914430130221, guid: 812c1d617d42e374a9e52e5171da6428, type: 3}
   nextPathPosition: {x: -20, y: 0, z: 0}
   player: {fileID: 752767895}
   pathDrawDistance: 80
@@ -13601,49 +13601,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1876786243083951380, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 1952970103022442492, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -19.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3392689451253282895, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5951314510218074872, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_TagString
-      value: death
-      objectReference: {fileID: 0}
-    - target: {fileID: 5951314510218074873, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 5951314510218074873, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.87
-      objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296580, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296580, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5951314510859296580, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5951314510859296580, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5951314510859296580, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.23
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296580, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13683,23 +13647,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296581, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: runSpeed
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296581, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: IncreaseScore
       value: 
       objectReference: {fileID: 751928056}
-    - target: {fileID: 5951314510859296582, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296584, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_EnableCollision
-      value: 0
+      propertyPath: m_Anchor.y
+      value: -0.91
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296584, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296586, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: leftButton
@@ -13718,24 +13678,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 913462491}
     - target: {fileID: 5951314510859296587, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_EnableCollision
-      value: 0
+      propertyPath: m_Anchor.y
+      value: -0.87
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296587, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5951314510859296589, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
       propertyPath: m_Name
       value: Vehicle
       objectReference: {fileID: 0}
-    - target: {fileID: 5951314510859296589, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_TagString
-      value: Player
+    - target: {fileID: 5951314512216165501, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.92
       objectReference: {fileID: 0}
-    - target: {fileID: 5951314512216165473, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
-      propertyPath: m_TagString
-      value: road
+    - target: {fileID: 5951314512306261817, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.876
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a00371d0a02e844486b6d2849d294ba, type: 3}
