@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject[] Roads;
@@ -40,6 +40,15 @@ public class PlayerMovement : MonoBehaviour
     public float buttonTime = 0.5f;
 
     public float acceleration;
+
+    public GameObject nitrofillobject;
+    public Text ProgressIndicator;
+    public Image LoadingBar;
+    public float currentValue = 100f;
+    public float speedfill;
+    public GameObject nitroButton;
+    public GameObject noNitro;
+    public bool isNitro;
     
 
     
@@ -69,9 +78,9 @@ public class PlayerMovement : MonoBehaviour
         FlipLeft();
         FlipRight();
         IncreaseSpeed();
-        //IncreaseSpeed();
+        NitroSpeed();
         
-        rigidbody2d.AddForce(transform.right * 15 * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
+        rigidbody2d.AddForce(transform.right * 15 * Time.fixedDeltaTime * 50f, ForceMode2D.Force);
         // if(Input.GetKey(KeyCode.Space))
         // {
         //     ReduceSpeed();
@@ -144,8 +153,9 @@ public class PlayerMovement : MonoBehaviour
         
         if (LongPressed.instance.brakeButtonDown)
             {
-              rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
-              AudioManager.instance.PlayCarSound(); 
+              rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 300f, ForceMode2D.Force);
+              AudioManager.instance.PlayCarSound();
+              
             // rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;
             } 
             else if(!LongPressed.instance.brakeButtonDown)
@@ -155,6 +165,57 @@ public class PlayerMovement : MonoBehaviour
             }
             
         
+    }
+    
+    public void NitroSpeed()
+    {
+        
+        if (LongPressed.instance.nitroButtonDown)
+        {
+
+            
+            if(currentValue == 1)
+            {
+
+                nitroButton.SetActive(false);
+                nitrofillobject.SetActive(false);
+                noNitro.SetActive(true);
+
+
+            }
+            else
+            {
+                
+                isNitro = true;
+                NitroFillCar();
+                rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 500f, ForceMode2D.Force);
+
+            }
+            Debug.Log("currentValue" + currentValue);
+            // rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;
+        } 
+            
+            
+        
+    }
+ 
+    
+    // Update is called once per frame
+    public void NitroFillCar() {
+        if (currentValue <= 100) {
+            currentValue -= speedfill * Time.deltaTime;
+            
+                
+        }
+
+        
+ 
+        LoadingBar.fillAmount = currentValue / 100;
+    }
+    public void StopNitro()
+    {
+        rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 0f, ForceMode2D.Force);
+        Debug.Log("Value ");
     }
     /*public void IncreaseSpeed()
     {
@@ -179,6 +240,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
         }
     }
+   
 
     public IEnumerator IncrementScore()
     {
@@ -205,6 +267,10 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(IncrementScore());
             isGrounded = true;
             possibleFlip = false;
+        }
+        if(collision.gameObject.tag == "nitro")
+        {
+            currentValue = 100f;
         }
 
         //spawning hills

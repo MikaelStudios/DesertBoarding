@@ -10,6 +10,8 @@ TagManager:
   - Obstacle
   - road
   - Spike
+  - rock
+  - nitro
   layers:
   - Default
   - TransparentFX
