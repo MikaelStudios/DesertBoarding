@@ -8,6 +8,8 @@ public class Breakable : MonoBehaviour
    private ParticleSystem particle;
    private SpriteRenderer spriteRenderer;
    private BoxCollider2D boxCollider;
+   public GameObject mainObject;
+
 
    private void Awake()
    {
@@ -17,15 +19,32 @@ public class Breakable : MonoBehaviour
    }
 
 
-   private void OnCollisionEnter2D(Collision2D other)
+   /*private void OnCollisionEnter2D(Collision2D other)
    {
       if (other.collider.gameObject.GetComponent<PlayerMovement>() && 
       other.contacts[0].normal.x > 0.5f) 
       {
           StartCoroutine(Break());
       }
-   }
+   }*/
 
+   
+   void OnCollisionEnter2D (Collision2D collisionInfo)
+    {
+        
+        if(collisionInfo.gameObject.tag == "rock")
+        {
+            
+            bool isNitro = PlayerMovement.instance.isNitro;
+            if(isNitro)
+            {
+               mainObject.SetActive(false);
+               
+            }
+      
+            
+        }
+    }
    private IEnumerator Break()
    {
      particle.Play();

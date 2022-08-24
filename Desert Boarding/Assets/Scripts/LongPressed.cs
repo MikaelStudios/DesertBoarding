@@ -9,12 +9,12 @@ public class LongPressed : MonoBehaviour
     public bool rightButtonDown, rightButtonUp;
     public bool leftButtonDown, leftButtonUp;
     public bool brakeButtonUp , brakeButtonDown;
-    public bool accelerateButtonDown, accelerateButtonUp;
+    public bool nitroButtonDown, nitroButtonUp;
 
     public bool breakDown, breakUp;
 
 
-    public Button rightButton, leftButton, breakButton, accelerateButton;
+    public Button rightButton, leftButton, breakButton, nitroButton;
     
     public static LongPressed instance;
     
@@ -71,17 +71,17 @@ public class LongPressed : MonoBehaviour
         brakeTrigger.triggers.Add(brakeButtonUp);
 
         // Accelerate Button Events
-        var acceleratePointerDown = new  EventTrigger.Entry();
-        acceleratePointerDown.eventID = EventTriggerType.PointerDown;
-        acceleratePointerDown.callback.AddListener((e) => AccelerateButtonPointerCallback(true));
+        var nitroPointerDown = new  EventTrigger.Entry();
+        nitroPointerDown.eventID = EventTriggerType.PointerDown;
+        nitroPointerDown.callback.AddListener((e) => NitroButtonPointerCallback(true));
 
-        var acceleratePointerUp = new  EventTrigger.Entry();
-        acceleratePointerUp.eventID = EventTriggerType.PointerUp;
-        acceleratePointerUp.callback.AddListener((e) => AccelerateButtonPointerCallback(false));
+        var nitroPointerUp = new  EventTrigger.Entry();
+        nitroPointerUp.eventID = EventTriggerType.PointerUp;
+        nitroPointerUp.callback.AddListener((e) => NitroButtonPointerCallback(false));
 
-        EventTrigger accelerateTrigger = accelerateButton.gameObject.AddComponent<EventTrigger>();
-        accelerateTrigger.triggers.Add(acceleratePointerDown);
-        accelerateTrigger.triggers.Add(acceleratePointerUp);
+        EventTrigger nitroTrigger = nitroButton.gameObject.AddComponent<EventTrigger>();
+        nitroTrigger.triggers.Add(nitroPointerDown);
+        nitroTrigger.triggers.Add(nitroPointerUp);
 
 
 
@@ -100,9 +100,9 @@ public class LongPressed : MonoBehaviour
     {
         brakeButtonDown = state;
     } 
-    public void AccelerateButtonPointerCallback(bool state)
+    public void NitroButtonPointerCallback(bool state)
     {
-        accelerateButtonDown = state;
+        nitroButtonDown = state;
     }
            
 }

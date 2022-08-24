@@ -5223,7 +5223,7 @@ MonoBehaviour:
   deathPoint: {fileID: 5951314510218074873}
   floorCheckRadius: 0.5
   deathCheckRadius: 0.3
-  runSpeed: 30
+  runSpeed: 35
   angleTurned: 0
   speed: 1000
   jumpForce: 3000
@@ -5236,6 +5236,13 @@ MonoBehaviour:
   jumpHeight: 90
   buttonTime: 0.5
   acceleration: 0
+  nitrofillobject: {fileID: 0}
+  ProgressIndicator: {fileID: 0}
+  LoadingBar: {fileID: 0}
+  speedfill: 100
+  nitroButton: {fileID: 0}
+  noNitro: {fileID: 0}
+  isNitro: 0
 --- !u!114 &5951314510859296586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5254,14 +5261,14 @@ MonoBehaviour:
   leftButtonUp: 0
   brakeButtonUp: 0
   brakeButtonDown: 0
-  accelerateButtonDown: 0
-  accelerateButtonUp: 0
+  nitroButtonDown: 0
+  nitroButtonUp: 0
   breakDown: 0
   breakUp: 0
   rightButton: {fileID: 0}
   leftButton: {fileID: 0}
   breakButton: {fileID: 0}
-  accelerateButton: {fileID: 0}
+  nitroButton: {fileID: 0}
 --- !u!82 &5951314510859296578
 AudioSource:
   m_ObjectHideFlags: 0
