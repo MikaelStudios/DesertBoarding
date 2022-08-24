@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public static Vector3 currentTrackPosition;
     private bool didTouchMove;
-    public bool isGrounded;
+    public bool isGrounded = true;
     public bool possibleFlip;
     public  bool flipright;
     public  bool flipleft;
@@ -86,6 +86,11 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
+
+    public void OnCollisionExit2D()
+    {
+        isGrounded = false;
+    }
     
     public void JumpUp()
     {
@@ -116,8 +121,9 @@ public class PlayerMovement : MonoBehaviour
     public void FlipRight()
     {
         if (LongPressed.instance.rightButtonDown){
-            
-            RotateBike(Vector3.forward * -2, 0.9f);
+            transform.Rotate(0f, 0f, -6f);
+            // rigidbody2d.AddTorque(1.5f * 1.5f, ForceMode2D.Force);
+            // RotateBike(Vector3.forward * -2, 0.9f);
             
         }
     }
@@ -126,9 +132,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (LongPressed.instance.leftButtonDown){
             // Rotate backwards
-            
-            RotateBike(Vector3.forward * 2, 1f);
-            
+            transform.Rotate(0f, 0f, 6f);
+            // RotateBike(Vector3.forward * 1, 1f);
             
         } 
         
