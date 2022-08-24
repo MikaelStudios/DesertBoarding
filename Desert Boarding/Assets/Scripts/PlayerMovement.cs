@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject[] Roads;
+    // public GameObject[] Roads;
     //public GameObject currentRoad;
     public Rigidbody2D rigidbody2d;
 
-    public LayerMask Track;
+    // public LayerMask Track;
     public TextMeshProUGUI IncreaseScore;
     public Transform floorPoint;
     public Transform deathPoint;
@@ -95,11 +95,6 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
-
-    public void OnCollisionExit2D()
-    {
-        isGrounded = false;
-    }
     
     public void JumpUp()
     {
@@ -131,7 +126,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (LongPressed.instance.rightButtonDown){
             transform.Rotate(0f, 0f, -6f);
-            // rigidbody2d.AddTorque(1.5f * 1.5f, ForceMode2D.Force);
             // RotateBike(Vector3.forward * -2, 0.9f);
             
         }
