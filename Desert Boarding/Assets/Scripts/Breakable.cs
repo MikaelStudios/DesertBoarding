@@ -27,24 +27,25 @@ public class Breakable : MonoBehaviour
           StartCoroutine(Break());
       }
    }*/
-
-   
-   void OnCollisionEnter2D (Collision2D collisionInfo)
-    {
+   public void OnTriggerEnter2D(Collider2D collision)
+   {
         
-        if(collisionInfo.gameObject.tag == "rock")
-        {
+
+      if (collision.CompareTag("Player"))
+      {
+         bool isNitro = PlayerMovement.instance.isNitro;
+         if(isNitro)
+         {
+            Destroy(gameObject);
             
-            bool isNitro = PlayerMovement.instance.isNitro;
-            if(isNitro)
-            {
-               mainObject.SetActive(false);
                
-            }
-      
-            
-        }
+         }
+         
+      }
+        
     }
+   
+   
    private IEnumerator Break()
    {
      particle.Play();

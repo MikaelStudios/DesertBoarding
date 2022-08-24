@@ -12,11 +12,18 @@ public class CheckCollision : MonoBehaviour
         if(collisionInfo.gameObject.tag == "road")
         {
             explosionParticles.Play();
+
             AudioManager.instance.StopCarSound();
+            AudioManager.instance.StopNitroCarSound();
+            AudioManager.instance.StopNormalCarSound();
+            AudioManager.instance.BombCarSound();
             StartCoroutine(GameOver(1.3f));
       
             
         }
+        AudioManager.instance.StopBombCarSound();
+        AudioManager.instance.NormalCarSound();
+        
     }
     public IEnumerator GameOver(float numSeconds)
     {

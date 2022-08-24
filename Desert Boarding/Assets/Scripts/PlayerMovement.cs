@@ -48,9 +48,14 @@ public class PlayerMovement : MonoBehaviour
     public float speedfill;
     public GameObject nitroButton;
     public GameObject noNitro;
+    public GameObject nitroObject;
     public bool isNitro;
-    
+    public bool isNitroempty;
 
+    public ParticleSystem nitroparticle;
+    public ParticleSystem exhaustparticle;
+
+    
     
 
 
@@ -68,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         didTouchMove = false;
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        AudioManager.instance.NormalCarSound();
         
     }
 
@@ -80,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         IncreaseSpeed();
         NitroSpeed();
         
-        rigidbody2d.AddForce(transform.right * 15 * Time.fixedDeltaTime * 50f, ForceMode2D.Force);
+        rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
         // if(Input.GetKey(KeyCode.Space))
         // {
         //     ReduceSpeed();
@@ -146,17 +152,23 @@ public class PlayerMovement : MonoBehaviour
     {
         
         if (LongPressed.instance.brakeButtonDown)
-            {
-              rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 300f, ForceMode2D.Force);
-              AudioManager.instance.PlayCarSound();
+        {
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 300f, ForceMode2D.Force);
+            
+            AudioManager.instance.StopNormalCarSound();
+            AudioManager.instance.PlayCarSound();
+            exhaustparticle.Play();
               
             // rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;
-            } 
-            else if(!LongPressed.instance.brakeButtonDown)
-            {
-              AudioManager.instance.StopCarSound(); 
+        } 
+        else if(!LongPressed.instance.brakeButtonDown)
+        {
+            AudioManager.instance.StopCarSound(); 
+            AudioManager.instance.NormalCarSound();
+            exhaustparticle.Stop();
+
                       
-            }
+        }
             
         
     }
@@ -167,28 +179,25 @@ public class PlayerMovement : MonoBehaviour
         if (LongPressed.instance.nitroButtonDown)
         {
 
-            
-            if(currentValue == 1)
+            NitroFillCar();
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 300f, ForceMode2D.Force);
+            if(LoadingBar.fillAmount <= 0)
             {
-
+                LongPressed.instance.nitroButtonDown = false;
+                
                 nitroButton.SetActive(false);
                 nitrofillobject.SetActive(false);
                 noNitro.SetActive(true);
-
-
             }
-            else
-            {
-                
-                isNitro = true;
-                NitroFillCar();
-                rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 500f, ForceMode2D.Force);
-
-            }
-            Debug.Log("currentValue" + currentValue);
+            isNitro = true;
             // rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;
         } 
-            
+        else if (!LongPressed.instance.nitroButtonDown)
+        {
+            nitroparticle.Stop();
+            AudioManager.instance.StopNitroCarSound();
+            AudioManager.instance.NormalCarSound();
+        }
             
         
     }
@@ -196,21 +205,14 @@ public class PlayerMovement : MonoBehaviour
     
     // Update is called once per frame
     public void NitroFillCar() {
-        if (currentValue <= 100) {
-            currentValue -= speedfill * Time.deltaTime;
-            
-                
-        }
-
-        
- 
-        LoadingBar.fillAmount = currentValue / 100;
+        LoadingBar.fillAmount -= speedfill* Time.deltaTime;
+        nitroparticle.Play();
+        AudioManager.instance.NitroCarSound();
+        AudioManager.instance.StopNormalCarSound();
+        Debug.Log("currentValue " + currentValue);                
     }
-    public void StopNitro()
-    {
-        rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 0f, ForceMode2D.Force);
-        Debug.Log("Value ");
-    }
+    
+    
     /*public void IncreaseSpeed()
     {
         
@@ -264,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(collision.gameObject.tag == "nitro")
         {
-            currentValue = 100f;
+            //currentValue = 100f;
         }
 
         //spawning hills
@@ -289,12 +291,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.CompareTag("fuel"))
         {
-            if (GameManager.Instance.FuelGuage.value + 2 <= 10)
+            nitroObject.SetActive(false);
+            nitroButton.SetActive(true);
+            nitrofillobject.SetActive(true);
+            LoadingBar.fillAmount = 1.0f;
+            
+
+               
+
+            /*if (GameManager.Instance.FuelGuage.value + 2 <= 10)
                 GameManager.Instance.FuelGuage.value += 2;
             else
                 GameManager.Instance.FuelGuage.value = 10;
             Destroy(collision.gameObject);
             audioSource.PlayOneShot(pickupSound, 1f);
+        */
         }
     }
 }
