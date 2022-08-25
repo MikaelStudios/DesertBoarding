@@ -19,32 +19,33 @@ public class Breakable : MonoBehaviour
    }
 
 
-   // /*private void OnCollisionEnter2D(Collision2D other)
-   // {
-   //    if (other.collider.gameObject.GetComponent<PlayerMovement>() && 
-   //    other.contacts[0].normal.x > 0.5f) 
-   //    {
-   //        StartCoroutine(Break());
-   //    }
-   // }*/
-
-   
-   void OnCollisionEnter2D (Collision2D collisionInfo)
-    {
+   /*private void OnCollisionEnter2D(Collision2D other)
+   {
+      if (other.collider.gameObject.GetComponent<PlayerMovement>() && 
+      other.contacts[0].normal.x > 0.5f) 
+      {
+          StartCoroutine(Break());
+      }
+   }*/
+   public void OnTriggerEnter2D(Collider2D collision)
+   {
         
-        if(collisionInfo.gameObject.tag == "rock")
-        {
+
+      if (collision.CompareTag("Player"))
+      {
+         bool isNitro = PlayerMovement.instance.isNitro;
+         if(isNitro)
+         {
+            Destroy(gameObject);
             
-            bool isNitro = PlayerMovement.instance.isNitro;
-            if(isNitro)
-            {
-               mainObject.SetActive(false);
                
-            }
-      
-            
-        }
+         }
+         
+      }
+        
     }
+   
+   
    private IEnumerator Break()
    {
      particle.Play();
