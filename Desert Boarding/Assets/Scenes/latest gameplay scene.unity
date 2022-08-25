@@ -13716,14 +13716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c6a7141b1227243968ec3e7c803bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Roads:
-  - {fileID: 8964801129682391803, guid: af949df1b2c9ed64484991ed83717f99, type: 3}
-  - {fileID: 6287328964916693056, guid: 4048014634ebd85459448417805cbd18, type: 3}
-  - {fileID: 8964801129682391803, guid: 627ed85ab91818d478370052f5578d38, type: 3}
   rigidbody2d: {fileID: 2057988963}
-  Track:
-    serializedVersion: 2
-    m_Bits: 8
   IncreaseScore: {fileID: 1481178167}
   floorPoint: {fileID: 1643532087}
   deathPoint: {fileID: 934504599}

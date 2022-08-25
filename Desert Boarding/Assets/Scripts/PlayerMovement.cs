@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
+
 public class PlayerMovement : MonoBehaviour
 {
     // public GameObject[] Roads;
@@ -80,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         IncreaseSpeed();
         NitroSpeed();
         
-        rigidbody2d.AddForce(transform.right * 15 * Time.fixedDeltaTime * 50f, ForceMode2D.Force);
+        rigidbody2d.AddForce(transform.right * 15 * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
         // if(Input.GetKey(KeyCode.Space))
         // {
         //     ReduceSpeed();
@@ -125,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     public void FlipRight()
     {
         if (LongPressed.instance.rightButtonDown){
-            transform.Rotate(0f, 0f, -6f);
+            transform.Rotate(0f, 0f, -4f);
             // RotateBike(Vector3.forward * -2, 0.9f);
             
         }
@@ -135,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (LongPressed.instance.leftButtonDown){
             // Rotate backwards
-            transform.Rotate(0f, 0f, 6f);
+            transform.Rotate(0f, 0f, 4f);
             // RotateBike(Vector3.forward * 1, 1f);
             
         } 

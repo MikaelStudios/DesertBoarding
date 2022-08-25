@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/latest gameplay scene.unity
     guid: cee4c99f21cf90844ad5583b8b7ca08b
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Test latest gameplay scene 1.unity
+    guid: 25464daef17df7544ade8dd22a1128de
   m_configObjects: {}

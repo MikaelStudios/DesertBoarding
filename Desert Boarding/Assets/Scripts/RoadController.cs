@@ -28,6 +28,7 @@ public class RoadController : MonoBehaviour
         while ((nextPathPosition - player.transform.position).x < pathDrawDistance)
         {
             Transform path = paths[Random.Range(0, paths.Length)];
+            
             Transform newPath = Instantiate(path, nextPathPosition - path.Find("startpoint").position, path.rotation, transform);
 
             nextPathPosition = newPath.Find("endpoint").position;

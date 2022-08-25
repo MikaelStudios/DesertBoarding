@@ -19,14 +19,14 @@ public class Breakable : MonoBehaviour
    }
 
 
-   /*private void OnCollisionEnter2D(Collision2D other)
-   {
-      if (other.collider.gameObject.GetComponent<PlayerMovement>() && 
-      other.contacts[0].normal.x > 0.5f) 
-      {
-          StartCoroutine(Break());
-      }
-   }*/
+   // /*private void OnCollisionEnter2D(Collision2D other)
+   // {
+   //    if (other.collider.gameObject.GetComponent<PlayerMovement>() && 
+   //    other.contacts[0].normal.x > 0.5f) 
+   //    {
+   //        StartCoroutine(Break());
+   //    }
+   // }*/
 
    
    void OnCollisionEnter2D (Collision2D collisionInfo)
