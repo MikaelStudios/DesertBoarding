@@ -8381,9 +8381,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paths:
-  - {fileID: 5583287490243250826, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
   - {fileID: 2191792530408601955, guid: 6e11f28c1706d1944b8189b75d55e9f3, type: 3}
   - {fileID: 1873330914430130221, guid: 812c1d617d42e374a9e52e5171da6428, type: 3}
+  - {fileID: 5583287490243250826, guid: a46215c086bf8b545bc29943d63a417c, type: 3}
   nextPathPosition: {x: -20, y: 0, z: 0}
   player: {fileID: 752767895}
   pathDrawDistance: 80
