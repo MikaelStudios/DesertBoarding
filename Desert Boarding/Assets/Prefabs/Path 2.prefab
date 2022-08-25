@@ -532,8 +532,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 50.95829, y: -8.434341, z: 0}
-    m_Extent: {x: 57.32191, y: 11.025034, z: 0}
+    m_Center: {x: 50.95829, y: -13.942072, z: 0}
+    m_Extent: {x: 57.32191, y: 16.532764, z: 0}
 --- !u!114 &2191792530408601965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,8 +549,8 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 0
     m_ControlPoints:
-    - position: {x: -6.0652, y: -19.028988, z: 0}
-      leftTangent: {x: 0.53597355, y: -0.00047683716, z: 0}
+    - position: {x: -6.0652, y: -30.044447, z: 0}
+      leftTangent: {x: 0.53597355, y: -0.0004863739, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 2
       height: 1
@@ -709,10 +709,10 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 107.85575, y: -19.459375, z: 0}
+    - position: {x: 107.85575, y: -30.474836, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
-      rightTangent: {x: -0.5439148, y: -0.0004234314, z: 0}
-      mode: 2
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
       height: 1
       bevelCutoff: 0
       bevelSize: 0
@@ -751,7 +751,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -6.0652, y: -19.028988}
+  - {x: -6.0652, y: -30.044447}
   - {x: -6.0864735, y: -5.863463}
   - {x: -6.1306925, y: 1.608366}
   - {x: -6.1296115, y: 2.2075284}
@@ -888,13 +888,12 @@ EdgeCollider2D:
   - {x: 106.51932, y: 2.3422234}
   - {x: 107.34659, y: 2.3707356}
   - {x: 108.079346, y: 2.37502}
-  - {x: 108.077034, y: 1.600499}
-  - {x: 107.85575, y: -19.459375}
-  - {x: 95.85056, y: -19.414824}
-  - {x: 5.936175, y: -19.073973}
-  - {x: -0.39359665, y: -19.050064}
-  - {x: -4.527153, y: -19.03456}
-  - {x: -6.0652, y: -19.028988}
+  - {x: 108.077034, y: 1.4601539}
+  - {x: 107.85575, y: -30.474836}
+  - {x: 34.26651, y: -30.196154}
+  - {x: -0.3684559, y: -30.065508}
+  - {x: -4.520384, y: -30.050016}
+  - {x: -6.0652, y: -30.044447}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
