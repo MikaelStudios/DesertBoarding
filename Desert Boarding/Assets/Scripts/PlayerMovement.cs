@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject nitrofillobject;
     public Text ProgressIndicator;
     public Image LoadingBar;
+    public Image FuelBar;
     public float currentValue = 100f;
     public float speedfill;
     public GameObject nitroButton;
@@ -85,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         FlipRight();
         IncreaseSpeed();
         NitroSpeed();
+        FuelReduce();
         
         rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 100f, ForceMode2D.Force);
         // if(Input.GetKey(KeyCode.Space))
@@ -201,6 +203,7 @@ public class PlayerMovement : MonoBehaviour
             
         
     }
+
  
     
     // Update is called once per frame
@@ -210,6 +213,12 @@ public class PlayerMovement : MonoBehaviour
         AudioManager.instance.NitroCarSound();
         AudioManager.instance.StopNormalCarSound();
         Debug.Log("currentValue " + currentValue);                
+    }
+    public void FuelReduce() {
+        FuelBar.fillAmount -= 0.05f* Time.deltaTime;
+        if(FuelBar.fillAmount == 0)
+            GameManager.Instance.GameOver();
+                        
     }
     
     
@@ -294,17 +303,11 @@ public class PlayerMovement : MonoBehaviour
             nitroButton.SetActive(true);
             nitrofillobject.SetActive(true);
             LoadingBar.fillAmount = 1.0f;
-            
+        }
+        if(collision.CompareTag("topup"))
+        {
+            FuelBar.fillAmount=1.0f;
 
-               
-
-            /*if (GameManager.Instance.FuelGuage.value + 2 <= 10)
-                GameManager.Instance.FuelGuage.value += 2;
-            else
-                GameManager.Instance.FuelGuage.value = 10;
-            Destroy(collision.gameObject);
-            audioSource.PlayOneShot(pickupSound, 1f);
-        */
         }
     }
 }
