@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7801044211063350873}
   m_Layer: 0
   m_Name: fuel_can-removebg-preview
-  m_TagString: Untagged
+  m_TagString: booster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

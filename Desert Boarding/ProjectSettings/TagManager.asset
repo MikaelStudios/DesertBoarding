@@ -12,6 +12,7 @@ TagManager:
   - Spike
   - rock
   - nitro
+  - booster
   layers:
   - Default
   - TransparentFX

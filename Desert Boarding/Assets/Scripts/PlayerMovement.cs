@@ -153,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (LongPressed.instance.brakeButtonDown)
         {
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 200f, ForceMode2D.Force);
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 150f, ForceMode2D.Force);
             
             AudioManager.instance.StopNormalCarSound();
             AudioManager.instance.PlayCarSound();
