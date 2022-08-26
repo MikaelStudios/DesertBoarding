@@ -4873,10 +4873,11 @@ GameObject:
   - component: {fileID: 5157616422904373024}
   - component: {fileID: 5157616422904373055}
   - component: {fileID: 5157616422904373027}
-  - component: {fileID: 307641804733505343}
+  - component: {fileID: -4209358034833300815}
+  - component: {fileID: 2469675502475743680}
   m_Layer: 0
   m_Name: Crate
-  m_TagString: rock
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4935,7 +4936,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: cb56b400f8e6cf74bba56e6c32032f86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4973,7 +4974,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
   m_EdgeRadius: 0
---- !u!114 &307641804733505343
+--- !u!114 &-4209358034833300815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4982,7 +4983,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 5157616422904373054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bc80cfb54cd6042972c1b518762b2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 92a9341756144b548884b750bf0b9a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainObject: {fileID: 5157616422904373054}
+--- !u!50 &2469675502475743680
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157616422904373054}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.3
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

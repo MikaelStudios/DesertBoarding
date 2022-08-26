@@ -34,8 +34,9 @@ public class Breakable : MonoBehaviour
       if (collision.CompareTag("Player"))
       {
          bool isNitro = PlayerMovement.instance.isNitro;
-         if(isNitro)
+         if(!isNitro)
          {
+            Debug.Log("Box Down");
             Destroy(gameObject);
             
                

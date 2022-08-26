@@ -241,7 +241,7 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator IncrementScore()
     {
         IncreaseScore.transform.localScale = new Vector3(2, 0, 1);
-        IncreaseScore.gameObject.SetActive(true);
+       // IncreaseScore.gameObject.SetActive(true);
         //Debug.Log(IncreaseScore.transform.localScale);
         while(IncreaseScore.transform.localScale.y < 2)
         {
@@ -249,25 +249,24 @@ public class PlayerMovement : MonoBehaviour
             IncreaseScore.transform.localScale = new Vector3(IncreaseScore.transform.localScale.x, 
                 IncreaseScore.transform.localScale.y + 0.2f, IncreaseScore.transform.localScale.z);
         }
-        GameManager.Instance.addToScore += 100;
-        yield return new WaitForSeconds(0.5f);
-        IncreaseScore.gameObject.SetActive(false);
+        GameManager.Instance.addToScore += 50;
+        yield return new WaitForSeconds(1f);
+        //IncreaseScore.gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("track"))
+        if (collision.collider.CompareTag("road"))
         {
-            angleTurned = 0;
+            /*angleTurned = 0;
             if (possibleFlip)
                 StartCoroutine(IncrementScore());
             isGrounded = true;
             possibleFlip = false;
+            */
+            StartCoroutine(IncrementScore());
         }
-        if(collision.gameObject.tag == "nitro")
-        {
-            //currentValue = 100f;
-        }
+        
 
         //spawning hills
         // if(collision.collider.CompareTag("track") && collision.gameObject.transform.position != currentTrackPosition)

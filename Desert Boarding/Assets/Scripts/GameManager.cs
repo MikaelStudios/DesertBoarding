@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     public GameObject shade;
     public GameObject pauseButton;
 
-
     private void Awake()
     {
         Instance = this;
@@ -78,5 +77,4 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         pauseButton.SetActive(false);
     }
-   
 }
