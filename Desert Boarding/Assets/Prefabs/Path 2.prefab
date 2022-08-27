@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 5246101118846529301}
   - component: {fileID: 8244880483544200752}
   - component: {fileID: 9042636778399656994}
+  - component: {fileID: 4603819648774267382}
   m_Layer: 0
   m_Name: fuel
   m_TagString: topup
@@ -183,6 +184,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainObject: {fileID: 1530453771040465358}
+--- !u!114 &4603819648774267382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530453771040465358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a9341756144b548884b750bf0b9a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1569766892213415765
 GameObject:
   m_ObjectHideFlags: 0
@@ -11117,6 +11130,7 @@ GameObject:
   - component: {fileID: 331310385854918152}
   - component: {fileID: 4485404065443100461}
   - component: {fileID: 3542378092079295807}
+  - component: {fileID: 8950879195361483766}
   m_Layer: 0
   m_Name: fuel (1)
   m_TagString: topup
@@ -11228,6 +11242,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainObject: {fileID: 6442869578084245715}
+--- !u!114 &8950879195361483766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442869578084245715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a9341756144b548884b750bf0b9a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6493871068558043625
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5794565314830848796}
   - component: {fileID: 7695587719587121721}
   - component: {fileID: 7339298813373206571}
+  - component: {fileID: 1377729624}
   m_Layer: 0
   m_Name: fuel
   m_TagString: topup
@@ -123,3 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainObject: {fileID: 980316627120463303}
+--- !u!114 &1377729624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980316627120463303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a9341756144b548884b750bf0b9a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
