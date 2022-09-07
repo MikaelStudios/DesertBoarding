@@ -302,7 +302,7 @@ public class PlayerMovement : MonoBehaviour
             nitroObject.SetActive(false);
             nitroButton.SetActive(true);
             nitrofillobject.SetActive(true);
-            LoadingBar.fillAmount = 1.0f;
+            LoadingBar.fillAmount += 0.25f;
         }
         if(collision.CompareTag("topup"))
         {
