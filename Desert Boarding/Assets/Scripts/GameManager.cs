@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseButton;
     public  TextMeshProUGUI bestScore;
     public TextMeshProUGUI finalBestScore;
-
+    public TextMeshProUGUI finalgameoverScore;
     private void Awake()
     {
         Instance = this;
@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         if (!isGameOver)
         {
             score.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
+            finalgameoverScore.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
             finalScore = (int)(player.position.x - distanceX + addToScore);
             
         }
@@ -98,5 +99,6 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         pauseButton.SetActive(false);
         finalBestScore.gameObject.SetActive(true);
+        finalgameoverScore.gameObject.SetActive(true);
     }
 }
