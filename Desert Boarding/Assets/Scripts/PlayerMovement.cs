@@ -155,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (LongPressed.instance.brakeButtonDown)
         {
+            FuelBar.fillAmount -= 0.05f* Time.deltaTime;
             rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 150f, ForceMode2D.Force);
             
             AudioManager.instance.StopNormalCarSound();
@@ -180,6 +181,8 @@ public class PlayerMovement : MonoBehaviour
         
         if (LongPressed.instance.nitroButtonDown)
         {
+            FuelBar.fillAmount -= 0.08f* Time.deltaTime;
+        
 
             NitroFillCar();
             rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 300f, ForceMode2D.Force);
@@ -216,7 +219,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("currentValue " + currentValue);                
     }
     public void FuelReduce() {
-        FuelBar.fillAmount -= 0.05f* Time.deltaTime;
+        FuelBar.fillAmount -= 0.02f* Time.deltaTime;
         if(FuelBar.fillAmount == 0)
             GameManager.Instance.GameOver();
                         
@@ -300,10 +303,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.CompareTag("fuel"))
         {
-            nitroObject.SetActive(false);
+            noNitro.SetActive(false);
             nitroButton.SetActive(true);
             nitrofillobject.SetActive(true);
-            LoadingBar.fillAmount = 1.0f;
+            LoadingBar.fillAmount += 0.25f;
         }
         if(collision.CompareTag("topup"))
         {
