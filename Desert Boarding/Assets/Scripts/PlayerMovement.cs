@@ -212,6 +212,7 @@ public class PlayerMovement : MonoBehaviour
         nitroparticle.Play();
         AudioManager.instance.NitroCarSound();
         AudioManager.instance.StopNormalCarSound();
+        noNitro.SetActive(false);
         Debug.Log("currentValue " + currentValue);                
     }
     public void FuelReduce() {
@@ -302,7 +303,7 @@ public class PlayerMovement : MonoBehaviour
             nitroObject.SetActive(false);
             nitroButton.SetActive(true);
             nitrofillobject.SetActive(true);
-            LoadingBar.fillAmount += 0.25f;
+            LoadingBar.fillAmount = 1.0f;
         }
         if(collision.CompareTag("topup"))
         {

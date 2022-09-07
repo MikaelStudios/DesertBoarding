@@ -7,7 +7,7 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] KeyCode _toogleKey;
     [SerializeField] CinemachineVirtualCamera _virtualCamera;
 
-    public float _minimum = 3.5f;
+    public float _minimum = 2.5f;
     public float _maximum;
     static float t = 0f;
 
