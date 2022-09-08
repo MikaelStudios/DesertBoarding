@@ -35,16 +35,16 @@ public class Scroll : MonoBehaviour
         bigScale = new Vector3[amount];
         for(int i = 0; i < amount; i++)
         { 
-            if(i == 0) instatiatedObj[i] = Instantiate(obj[i], new Vector3(0, parentScroll.transform.position.y, 70), Quaternion.identity);
-            if(i != 0) instatiatedObj[i] = Instantiate(obj[i], new Vector3(instatiatedObj[i-1].transform.position.x + distance,
-                    instatiatedObj[i-1].transform.position.y, instatiatedObj[i-1].transform.position.z), Quaternion.identity);
+            if(i == 0) instatiatedObj[i] = Instantiate(obj[i], new Vector3(0, parentScroll.transform.position.y,0), Quaternion.identity);
+            if(i != 0)
+                instatiatedObj[i] = Instantiate(obj[i], new Vector3(instatiatedObj[i-1].transform.position.x + distance, instatiatedObj[i-1].transform.position.y, instatiatedObj[i-1].transform.position.z), Quaternion.identity);
             instatiatedObj[i].transform.parent = parentScroll.transform;
             defaultScale[i] = new Vector3(instatiatedObj[i].transform.localScale.x - 25, instatiatedObj[i].transform.localScale.y - 25, instatiatedObj[i].transform.localScale.z - 25);
             bigScale[i] = new Vector3(instatiatedObj[i].transform.localScale.x + 10, instatiatedObj[i].transform.localScale.y + 10, instatiatedObj[i].transform.localScale.z + 10);
         }
         for(int y = 0; y < amount + 1; y++)
         {
-            if(y == 0) points[y] = new Vector2(parentScroll.transform.position.x + distance / 2, parentScroll.transform.position.y);
+            if(y == 0) points[y] = new Vector2(parentScroll.transform.position.x + distance / 1, parentScroll.transform.position.y);
             if(y != 0) points[y] = new Vector2(points[y-1].x - distance, parentScroll.transform.position.y);
         }
         
