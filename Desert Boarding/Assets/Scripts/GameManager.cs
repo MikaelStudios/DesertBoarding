@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     public  TextMeshProUGUI bestScore;
     public TextMeshProUGUI finalBestScore;
     public TextMeshProUGUI finalgameoverScore;
+
+    public GameEvent OnGameOver;
+    public FloatEvent OnHighScore;
+
     private void Awake()
     {
         Instance = this;
@@ -65,6 +69,7 @@ public class GameManager : MonoBehaviour
             score.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
             finalgameoverScore.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
             finalScore = (int)(player.position.x - distanceX + addToScore);
+            OnHighScore.Raise(player.position.x - distanceX + addToScore);
             
         }
        
@@ -92,11 +97,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         PlayerPrefs.GetInt("Best Score", finalScore);
-        //PlayerPrefs.SetInt("Best Score", highScore);
+        
         isGameOver = true;
-        //hasGameStarted = false;
+       
         shade.SetActive(true);
-        gameOverPanel.SetActive(true);
+        //gameOverPanel.SetActive(true);
+        OnGameOver.Raise();
         pauseButton.SetActive(false);
         finalBestScore.gameObject.SetActive(true);
         finalgameoverScore.gameObject.SetActive(true);
