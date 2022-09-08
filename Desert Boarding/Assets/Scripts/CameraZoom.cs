@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    [SerializeField] KeyCode _toogleKey;
+    // [SerializeField] KeyCode _toogleKey;
     [SerializeField] CinemachineVirtualCamera _virtualCamera;
 
-    public float _minimum = 2.5f;
+    public float _minimum = 2f;
     public float _maximum;
     static float t = 0f;
 
@@ -19,14 +19,14 @@ public class CameraZoom : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(_toogleKey)) {
-            StopAllCoroutines();
-            StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
-        }
-        if(Input.GetKeyUp(_toogleKey)) {
-            StopAllCoroutines();
-            StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _minimum));
-        }
+        // if(Input.GetKeyDown(_toogleKey)) {
+        //     StopAllCoroutines();
+        //     StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
+        // }
+        // if(Input.GetKeyUp(_toogleKey)) {
+        //     StopAllCoroutines();
+        //     StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _minimum));
+        // }
 
         // ZoomOut();
     }
