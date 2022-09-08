@@ -100,6 +100,11 @@ public class PlayerMovement : MonoBehaviour
             
 
         // }
+        if (transform.eulerAngles.z == 20)
+        {
+            Debug.Log("Flipped right");
+                // Do something
+        }
         
         
     }
@@ -134,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (LongPressed.instance.rightButtonDown){
             transform.Rotate(0f, 0f, -4f);
+            
             // RotateBike(Vector3.forward * -2, 0.9f);
             
         }
