@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject nitrofillobject;
     public Text ProgressIndicator;
+    public GameObject OutOfFuelText;
     public Image LoadingBar;
     public Image FuelBar;
     public float currentValue = 100f;
@@ -227,7 +228,11 @@ public class PlayerMovement : MonoBehaviour
     public void FuelReduce() {
         FuelBar.fillAmount -= 0.02f* Time.deltaTime;
         if(FuelBar.fillAmount == 0)
-            GameManager.Instance.GameOver();
+        {
+           GameManager.Instance.GameOver();
+           OutOfFuelText.SetActive(true);
+        }
+            
                         
     }
     

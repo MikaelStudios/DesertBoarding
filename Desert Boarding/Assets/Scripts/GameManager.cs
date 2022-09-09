@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Best Score", finalScore);
             finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
             bestScore.gameObject.SetActive(true);
-            // confetti.SetActive(true);
             bestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
             finalBestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
     }
