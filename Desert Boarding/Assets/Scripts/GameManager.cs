@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject shade;
     public GameObject pauseButton;
+    public GameObject confetti;
     public  TextMeshProUGUI bestScore;
     public TextMeshProUGUI finalBestScore;
     public TextMeshProUGUI finalgameoverScore;
@@ -77,11 +78,9 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Best Score", finalScore);
             finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
             bestScore.gameObject.SetActive(true);
+            // confetti.SetActive(true);
             bestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
             finalBestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
-
-
-
     }
 
     public void Pause()
@@ -96,10 +95,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if(highScore < finalScore)
+           confetti.SetActive(true);
+
         PlayerPrefs.GetInt("Best Score", finalScore);
         
         isGameOver = true;
-       
+
         shade.SetActive(true);
         //gameOverPanel.SetActive(true);
         OnGameOver.Raise();
