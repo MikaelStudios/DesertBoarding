@@ -101,10 +101,9 @@ public class PlayerMovement : MonoBehaviour
             
 
         // }
-        if (transform.eulerAngles.z == 20)
+        if(!isGrounded)
         {
-            Debug.Log("Flipped right");
-                // Do something
+            Debug.Log("Not grounded");
         }
         
         
@@ -139,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
     public void FlipRight()
     {
         if (LongPressed.instance.rightButtonDown){
+            isGrounded = false;
             transform.Rotate(0f, 0f, -4f);
             
             // RotateBike(Vector3.forward * -2, 0.9f);
@@ -150,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (LongPressed.instance.leftButtonDown){
             // Rotate backwards
+            isGrounded = false;
             transform.Rotate(0f, 0f, 4f);
             // RotateBike(Vector3.forward * 1, 1f);
             
@@ -288,7 +289,9 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             possibleFlip = false;
             */
+            isGrounded = true;
             StartCoroutine(IncrementScore());
+            
         }
         
 

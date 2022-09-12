@@ -9688,6 +9688,7 @@ GameObject:
   - component: {fileID: 5951314510859296581}
   - component: {fileID: 5951314510859296586}
   - component: {fileID: 5951314510859296578}
+  - component: {fileID: 3799315194025526700}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Player
@@ -10040,16 +10041,18 @@ MonoBehaviour:
   acceleration: 0
   nitrofillobject: {fileID: 0}
   ProgressIndicator: {fileID: 0}
+  OutOfFuelText: {fileID: 0}
   LoadingBar: {fileID: 0}
-  currentValue: 100
-  speedfill: 100
+  FuelBar: {fileID: 0}
+  currentValue: 5
+  speedfill: 0.25
   nitroButton: {fileID: 0}
   noNitro: {fileID: 0}
-  nitroObject: {fileID: 0}
+  nitroObject: {fileID: 5203525804616322434, guid: 2d24153ead5567b41b3bf9f76252ea1c, type: 3}
   isNitro: 0
   isNitroempty: 0
-  nitroparticle: {fileID: 0}
-  exhaustparticle: {fileID: 0}
+  nitroparticle: {fileID: 814276379024189827}
+  exhaustparticle: {fileID: 1463355606539226526}
 --- !u!114 &5951314510859296586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10172,6 +10175,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3799315194025526700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951314510859296589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc62a6afb21e8244907b26c0b70a539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angleText: {fileID: 0}
+  m_MyObject: {fileID: 5951314510859296589}
+  m_MyOtherObject: {fileID: 0}
 --- !u!1 &5951314511664790872
 GameObject:
   m_ObjectHideFlags: 0
