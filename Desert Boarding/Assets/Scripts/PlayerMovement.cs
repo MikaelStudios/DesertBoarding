@@ -199,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
                 
                 nitroButton.SetActive(false);
                 nitrofillobject.SetActive(false);
-                noNitro.SetActive(true);
+                //noNitro.SetActive(true);
             }
             isNitro = true;
             // rigidbody2d.velocity -= rigidbody2d.velocity * 0.1f;
@@ -314,7 +314,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.CompareTag("fuel"))
         {
-            noNitro.SetActive(false);
+            //noNitro.SetActive(false);
             nitroButton.SetActive(true);
             nitrofillobject.SetActive(true);
             LoadingBar.fillAmount += 0.25f;
