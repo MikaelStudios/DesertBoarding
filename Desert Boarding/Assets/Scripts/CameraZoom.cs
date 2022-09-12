@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    [SerializeField] KeyCode _toogleKey;
+    // [SerializeField] KeyCode _toogleKey;
     [SerializeField] CinemachineVirtualCamera _virtualCamera;
 
     public float _minimum = 2f;
