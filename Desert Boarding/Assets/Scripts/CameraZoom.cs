@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    [SerializeField] KeyCode _toogleKey;
+    // [SerializeField] KeyCode _toogleKey;
     [SerializeField] CinemachineVirtualCamera _virtualCamera;
 
     public float _minimum = 2f;
@@ -40,19 +40,19 @@ public class CameraZoom : MonoBehaviour
         //    StopAllCoroutines();
         //    StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));  
         // }
-        if (!LongPressed.instance.nitroButtonDown)
-        {
-            StopAllCoroutines();
-            StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
-        }
+        // if (!LongPressed.instance.nitroButtonDown)
+        // {
+        //     StopAllCoroutines();
+        //     StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
+        // }
         
     }
 
-    // public void ZoomOut()
-    // {
-    //      StopAllCoroutines();
-    //      StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
-    // }
+    public void ZoomOut()
+    {
+         StopAllCoroutines();
+         StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
+    }
 
     public void ZoomIn()
     {
@@ -65,7 +65,7 @@ public class CameraZoom : MonoBehaviour
         t = 0f;
         while(_virtualCamera.m_Lens.OrthographicSize != end) {
             _virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(start, end, t);
-            t += Time.deltaTime;
+            t += 0.2f * Time.deltaTime;
             yield return null;
         }
         yield return null;
