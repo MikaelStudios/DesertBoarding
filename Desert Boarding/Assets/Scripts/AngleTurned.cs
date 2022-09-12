@@ -47,7 +47,11 @@ public class AngleTurned : MonoBehaviour
 
             */
             int angle =(int)m_Angle;
-            angleText.text = "Angle: " + angle;  
+            if(angle == 170)
+            {
+                number_of_flips ++;
+                angleText.text = "Angle: " + number_of_flips;  
+            }
             /*if(angle % 45 == 0 && angle != 0)
             {
                 angleText.text = "Angle: " + number_of_flips;  
