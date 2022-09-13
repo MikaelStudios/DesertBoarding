@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         AudioManager.instance.NormalCarSound();
+        isGrounded = false;
         
     }
 
@@ -101,10 +102,7 @@ public class PlayerMovement : MonoBehaviour
             
 
         // }
-        if(!isGrounded)
-        {
-            Debug.Log("Not grounded");
-        }
+        
         
         
     }
@@ -138,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
     public void FlipRight()
     {
         if (LongPressed.instance.rightButtonDown){
-            isGrounded = false;
+            //isGrounded = false;
             transform.Rotate(0f, 0f, -4f);
             
             // RotateBike(Vector3.forward * -2, 0.9f);
@@ -150,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (LongPressed.instance.leftButtonDown){
             // Rotate backwards
-            isGrounded = false;
+            //isGrounded = false;
             transform.Rotate(0f, 0f, 4f);
             // RotateBike(Vector3.forward * 1, 1f);
             
@@ -224,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
         AudioManager.instance.NitroCarSound();
         AudioManager.instance.StopNormalCarSound();
         noNitro.SetActive(false);
-        Debug.Log("currentValue " + currentValue);                
+        //Debug.Log("currentValue " + currentValue);                
     }
     public void FuelReduce() {
         FuelBar.fillAmount -= 0.02f* Time.deltaTime;

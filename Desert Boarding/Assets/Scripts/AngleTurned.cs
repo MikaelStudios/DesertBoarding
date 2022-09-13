@@ -6,65 +6,144 @@ using UnityEngine.UI;
 
 public class AngleTurned : MonoBehaviour
 {
-        //Use these to get the GameObject's positions
-    Vector2 m_MyFirstVector;
-    Vector2 m_MySecondVector;
-
-    public TextMeshProUGUI angleText;
-
-    float m_Angle;
-
-    //You must assign to these two GameObjects in the Inspector
-    public GameObject m_MyObject;
-    public GameObject m_MyOtherObject;
-    int number_of_flips = 0;
-
-    void Start()
+    private int numFrontFlips = 0;
+    private int numBackFlips = 0;
+    private bool currentlyOnGround = true;
+    private float totalRotation = 0f;
+    private Quaternion lastRotation;
+    public TextMeshProUGUI angle;
+    public void Update()
     {
-        //Initialise the Vector
-        m_MyFirstVector = Vector2.zero;
-        m_MySecondVector = Vector2.zero;
-        m_Angle = 0.0f;
-    }
-
-    void Update()
-    {
-        if(!PlayerMovement.instance.isGrounded)
+        /*if(IsGrounded()) 
         {
-            //Fetch the first GameObject's position
-            m_MyFirstVector = new Vector2(m_MyObject.transform.position.x, m_MyObject.transform.position.y);
-            //Fetch the second GameObject's position
-            m_MySecondVector = new Vector2(m_MyOtherObject.transform.position.x, m_MyOtherObject.transform.position.y);
-            //Find the angle for the two Vectors
-            m_Angle = Vector2.Angle(m_MyFirstVector, m_MySecondVector);
+            // we are on the ground no need to check rotations
+            return;
+        }*/
 
-            
-            //Log values of Vectors and angle in Console
-           /* Debug.Log("MyFirstVector: " + m_MyFirstVector);
-            Debug.Log("MySecondVector: "  + m_MySecondVector);
-            Debug.Log("Angle Between Objects: " + m_Angle);
-            
-
-            */
-            int angle =(int)m_Angle;
-            if(angle == 170)
-            {
-                number_of_flips ++;
-                angleText.text = "Angle: " + number_of_flips;  
-            }
-            /*if(angle % 45 == 0 && angle != 0)
-            {
-                angleText.text = "Angle: " + number_of_flips;  
-                number_of_flips ++;
-                Debug.Log("angle: " + angle);
-            }*/
+    // we are in the air, were we on the ground last frame?
+        if(!currentlyOnGround)
+        {
+          // last frame we were still on the ground, we need to initialize our tracking variables
+            Initialize();
         }
-    }
 
-    void OnGUI()
-    {
-        //Output the angle found above
-        GUI.Label(new Rect(25, 25, 200, 40), "Angle Between Objects" + m_Angle);
+        // we are in the air, and all the initialization is done, now check for flips
+
+        // to get the difference between to Quaterions we can multiply A with the inverse of B
+        Quaternion rotationDifference = transform.rotation * Quaternion.Inverse(lastRotation);
+        // we now have the difference as quaternion, convert it to euler angles and take the x component
+        totalRotation += rotationDifference.eulerAngles.x;
+        angle.text = "rotation: " + totalRotation;
+
+        // now check if we did a full front/back flip
+        if(totalRotation > 90f)
+        {
+            // full front flip
+            numFrontFlips += 1;
+            Debug.Log("frontflipped: " + numFrontFlips);
+            // reset the tracked variables, to start the next flip
+            Initialize();
+        } 
+        if(totalRotation < -90f)
+        {
+            // full back flip
+            numBackFlips += 1;
+            // reset the tracked variables, to start the next flip
+            Initialize();
+        } 
     }
+    private void Initialize() 
+    {
+        // reset the tracked rotation
+        totalRotation = 90f;
+        // start tracking the last rotation
+        lastRotation = transform.rotation;
+    }
+    //private bool IsGrounded()
+    //{
+        // check online for how to do that
+    //}
 }
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
