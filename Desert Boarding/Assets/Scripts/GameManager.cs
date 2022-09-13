@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
         FuelGuage.value = 10;
         distanceX = player.position.x;
         
-        // highScore = PlayerPrefs.GetInt("Best Score", finalScore);
-        // Debug.Log("highScore");
+        highScore = PlayerPrefs.GetInt("Best Score", finalScore);
+        Debug.Log("highScore");
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
         score.text = "Score: " + finalScore.ToString("00000");
         
