@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public static Vector3 currentTrackPosition;
     private bool didTouchMove;
-    public bool isGrounded = true;
+    public bool isGrounded;
     public bool possibleFlip;
     public  bool flipright;
     public  bool flipleft;
@@ -53,9 +53,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject nitroObject;
     public bool isNitro;
     public bool isNitroempty;
+    public bool Onground = true;
 
     public ParticleSystem nitroparticle;
     public ParticleSystem exhaustparticle;
+
+    public PolygonCollider2D boxCollider2d;
 
     
     
@@ -76,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         AudioManager.instance.NormalCarSound();
-        isGrounded = false;
+        isGrounded = true;
         
     }
 
@@ -135,9 +138,10 @@ public class PlayerMovement : MonoBehaviour
     
     public void FlipRight()
     {
-        if (LongPressed.instance.rightButtonDown){
-            //isGrounded = false;
+        if (IsGrounded() == true && LongPressed.instance.rightButtonDown){
+           // Onground = false;
             transform.Rotate(0f, 0f, -4f);
+            //if ((transform.rotation.eulerAngles.z > -4) && (transform.rotation.eulerAngles.z < -4))
             
             // RotateBike(Vector3.forward * -2, 0.9f);
             
@@ -146,14 +150,27 @@ public class PlayerMovement : MonoBehaviour
     
     public void FlipLeft()
     {
-        if (LongPressed.instance.leftButtonDown){
+        if (IsGrounded() == true && LongPressed.instance.leftButtonDown){
             // Rotate backwards
-            //isGrounded = false;
+            
             transform.Rotate(0f, 0f, 4f);
             // RotateBike(Vector3.forward * 1, 1f);
             
         } 
         
+    }
+    private bool IsGrounded()
+    {
+        
+        RaycastHit2D raycastHit = Physics2D.Raycast(boxCollider2d.bounds.center, Vector2.down);
+        
+        Debug.DrawRay(transform.position, Vector2.down);
+        if(raycastHit !=null)
+        {
+            return true;
+
+        }
+        return false;
     }
     
     public void IncreaseSpeed()
@@ -279,15 +296,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("road"))
+        if (isGrounded = true && collision.collider.CompareTag("road"))
         {
+            isGrounded = true;
             /*angleTurned = 0;
             if (possibleFlip)
                 StartCoroutine(IncrementScore());
             isGrounded = true;
             possibleFlip = false;
             */
-            isGrounded = true;
+            
             StartCoroutine(IncrementScore());
             
         }
