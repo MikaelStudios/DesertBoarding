@@ -19677,7 +19677,6 @@ GameObject:
   - component: {fileID: 8266969259888816633}
   - component: {fileID: 8266969259888816630}
   - component: {fileID: 8266969259888816638}
-  - component: {fileID: 1482982473942477584}
   - component: {fileID: 8266969259888816624}
   m_Layer: 0
   m_Name: Cartoon Car
@@ -19871,8 +19870,10 @@ MonoBehaviour:
   nitroObject: {fileID: 5203525804616322434, guid: 2d24153ead5567b41b3bf9f76252ea1c, type: 3}
   isNitro: 0
   isNitroempty: 0
+  Onground: 1
   nitroparticle: {fileID: 3125948617133655871}
   exhaustparticle: {fileID: 3775036363104232226}
+  boxCollider2d: {fileID: 0}
 --- !u!114 &8266969259888816630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19995,19 +19996,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1482982473942477584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8266969259888816625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc62a6afb21e8244907b26c0b70a539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angle: {fileID: 0}
 --- !u!60 &8266969259888816624
 PolygonCollider2D:
   m_ObjectHideFlags: 0
