@@ -1533,7 +1533,7 @@ MonoBehaviour:
     isUnlocked: 1
     level: 1
   - name: Ninja
-    price: 1000
+    price: 10
     index: 1
     isUnlocked: 0
     level: 2

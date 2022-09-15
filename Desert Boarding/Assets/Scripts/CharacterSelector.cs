@@ -23,7 +23,7 @@ public class CharacterSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+       
         
         
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
@@ -160,7 +160,7 @@ public class CharacterSelector : MonoBehaviour
                 Debug.Log("it is not working");
             }*/
 
-            if (vehicleCoin < finalScore)
+            if (vehicleCoin < 2000)
             {
                 buyButton.interactable = true;
 
