@@ -23,12 +23,7 @@ public class CharacterSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< HEAD
        
-=======
-        
->>>>>>> 2d0411bfed17a3cf92ea1437f28c362ed9b3ac3b
-        
         
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
         foreach (VehiclesBluePrint vehicle in vehicles)
@@ -40,10 +35,10 @@ public class CharacterSelector : MonoBehaviour
             {
                 vehicle.isUnlocked = true;
             }
-            else
+            /*else
             {
                 vehicle.isUnlocked = PlayerPrefs.GetInt(vehicle.name, 0) == 0 ? false : true;
-            }
+            }*/
 
 
             
@@ -164,7 +159,7 @@ public class CharacterSelector : MonoBehaviour
                 Debug.Log("it is not working");
             }*/
 
-            if (vehicleCoin < 2000)
+            if (vehicleCoin < finalScore)
             {
                 buyButton.interactable = true;
 
@@ -172,7 +167,7 @@ public class CharacterSelector : MonoBehaviour
             else
             {
                 buyButton.interactable = false;
-                Debug.Log("No money");
+                Debug.Log("vehicleCoin" + vehicleCoin);
             }
         }
     }
