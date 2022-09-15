@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         NitroSpeed();
         FuelReduce();
         
-        rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 150f, ForceMode2D.Force);
+        rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
         // if(Input.GetKey(KeyCode.Space))
         // {
         //     ReduceSpeed();
@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded() == true && LongPressed.instance.rightButtonDown){
            // Onground = false;
-            transform.Rotate(0f, 0f, -4f);
+            transform.Rotate(0f, 0f, -2f);
             //if ((transform.rotation.eulerAngles.z > -4) && (transform.rotation.eulerAngles.z < -4))
             
             // RotateBike(Vector3.forward * -2, 0.9f);
@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
         if (LongPressed.instance.brakeButtonDown)
         {
             FuelBar.fillAmount -= 0.05f* Time.deltaTime;
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 250f, ForceMode2D.Force);
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 280f, ForceMode2D.Force);
             
             AudioManager.instance.StopNormalCarSound();
             AudioManager.instance.PlayCarSound();
@@ -208,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
         
 
             NitroFillCar();
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 350f, ForceMode2D.Force);
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 380f, ForceMode2D.Force);
             if(LoadingBar.fillAmount <= 0)
             {
                 LongPressed.instance.nitroButtonDown = false;
