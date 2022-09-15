@@ -23,7 +23,7 @@ public class CharacterSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        
         
         
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
