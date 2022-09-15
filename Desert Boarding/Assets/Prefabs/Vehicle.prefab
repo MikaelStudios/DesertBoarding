@@ -10053,7 +10053,7 @@ MonoBehaviour:
   Onground: 1
   nitroparticle: {fileID: 814276379024189827}
   exhaustparticle: {fileID: 1463355606539226526}
-  boxCollider2d: {fileID: 0}
+  boxCollider2d: {fileID: 5951314510859296585}
 --- !u!114 &5951314510859296586
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -100,7 +100,6 @@ public class GameManager : MonoBehaviour
            confetti.SetActive(true);
 
         PlayerPrefs.GetInt("Best Score", finalScore);
-        
         isGameOver = true;
 
         shade.SetActive(true);
