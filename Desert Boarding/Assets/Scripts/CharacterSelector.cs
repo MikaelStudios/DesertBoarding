@@ -7,60 +7,174 @@ using TMPro;
 public class CharacterSelector : MonoBehaviour
 {
     
-    public static CharacterSelector Instance;
+    public static int currentIndex;
+    public GameObject[] vehicleModels;
+    public VehiclesBluePrint[] vehicles;
+    public static CharacterSelector instance;
+    public Button buyButton;
     
-    
-    public GameObject[] playerObjects;
-    public string[] names;
-    public TextMeshProUGUI characterName;
-    public int selectedCharacter = 0;
-    public string gameScene = "latest gameplay scene";
-    private string selectedCharacterDataName ="SelectedCharacter";
+    public int finalScore;
+    public TextMeshProUGUI nameofCar;
 
-    void Awake(){
-        Instance = this;
+    void Awake()
+    {
+        instance = this;
     }
+    // Start is called before the first frame update
     void Start()
     {
-        HideAllCharacters();
-        selectedCharacter = PlayerPrefs.GetInt(selectedCharacterDataName,0);
-        characterName.text = PlayerPrefs.GetString("Default", names[selectedCharacter]);
-        playerObjects[selectedCharacter].SetActive(true);
-    }
-    private void HideAllCharacters()
-    {
-        foreach(GameObject g in playerObjects)
+        PlayerPrefs.DeleteAll();
+        
+        
+        finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
+        foreach (VehiclesBluePrint vehicle in vehicles)
         {
-            g.SetActive(false);
-        }
-    }
-    public void NextCharacter()
-    {
-        playerObjects[selectedCharacter].SetActive(false);
-        selectedCharacter++;
+            nameofCar.text = " "+ vehicle.name;
 
-        if(selectedCharacter >= playerObjects.Length)
-        {
-            selectedCharacter = 0;
+            if (vehicle.name == "Vehicle1")
+
+            {
+                vehicle.isUnlocked = true;
+            }
+            else
+            {
+                vehicle.isUnlocked = PlayerPrefs.GetInt(vehicle.name, 0) == 0 ? false : true;
+            }
+
+
             
         }
-        playerObjects[selectedCharacter].SetActive(true);
-        characterName.text = names[selectedCharacter];
+        currentIndex = PlayerPrefs.GetInt("currentIndex", 0);
+
+        foreach (GameObject vehicle in vehicleModels)
+            vehicle.SetActive(false);
+        vehicleModels[currentIndex].SetActive(true);
+
     }
-    public void PreviousCharacter()
+    private void Update()
     {
-        playerObjects[selectedCharacter].SetActive(false);
-        selectedCharacter--;
-        if(selectedCharacter <0)
+        UpdateUI();
+        
+         
+    }
+
+    public void ChangeNext()
+    {
+
+        vehicleModels[currentIndex].SetActive(false);
+        currentIndex++;
+        if (currentIndex == vehicleModels.Length)
+            currentIndex = 0;
+
+        vehicleModels[currentIndex].SetActive(true);
+
+        VehiclesBluePrint vehicle = vehicles[currentIndex];
+        if (!vehicle.isUnlocked)
+            return;
+        
+        
+        PlayerPrefs.SetInt("currentIndex", currentIndex);
+    }
+    public void ChangePrevious()
+    {
+
+        vehicleModels[currentIndex].SetActive(false);
+        currentIndex--;
+        if (currentIndex == -1)
+            currentIndex = vehicleModels.Length - 1;
+
+        vehicleModels[currentIndex].SetActive(true);
+
+        VehiclesBluePrint vehicle = vehicles[currentIndex];
+        if (!vehicle.isUnlocked)
+            return;
+
+        PlayerPrefs.SetInt("currentIndex", currentIndex);
+    }
+    public void UnlockCar()
+    {
+        VehiclesBluePrint vehicle = vehicles[currentIndex];
+        PlayerPrefs.SetInt(vehicle.name, 2);
+
+        PlayerPrefs.SetInt("currentIndex", currentIndex);
+        vehicle.isUnlocked = true;
+
+       
+        
+    }
+    public void SelectedVehicles()
+    {
+        currentIndex = PlayerPrefs.GetInt("currentIndex");
+
+        foreach (GameObject vehicle in vehicleModels)
+            vehicle.SetActive(false);
+        vehicleModels[currentIndex].SetActive(true);
+
+        Debug.Log(vehicleModels[currentIndex] + "is selected");
+       
+
+    }
+
+
+    public string popupText;
+
+   [SerializeField] public int mainLevel;
+    public void  UpdateUI()
+    {
+        VehiclesBluePrint vehicle = vehicles[currentIndex];
+        int vehicleCoin = vehicle.price;
+        //int coinMan = CoinManager.instance.initialCoins;
+        
+        string text = vehicle.name;
+        nameofCar.text = " "+ text;
+      //  Debug.Log(mainLevel);
+        if (vehicle.isUnlocked)
         {
-            selectedCharacter = playerObjects.Length-1;
+            // vehicleModels[currentIndex].SetActive(true);
+            buyButton.gameObject.SetActive(false);
         }
-        playerObjects[selectedCharacter].SetActive(true);
+
+        else
+        {
+            // vehicleModels[currentIndex].SetActive(false);
+            buyButton.gameObject.SetActive(true);
+            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Get a distance of " + vehicle.price;
+            /*if (vehicle.level <= mainLevel)
+            {
+                if (vehicleCoin < 50)
+                {
+                    buyButton.interactable = true;
+
+                }
+                else
+                {
+                    buyButton.interactable = false;
+                    Debug.Log("No money");
+                }
+            }*/
+
+            /*else
+
+            {
+                buyButton.interactable = false;
+                Debug.Log("it is not working");
+            }*/
+
+            if (vehicleCoin < finalScore)
+            {
+                buyButton.interactable = true;
+
+            }
+            else
+            {
+                buyButton.interactable = false;
+                Debug.Log("No money");
+            }
+        }
     }
-    public void StartGame()
+
+   public string getName()
     {
-        PlayerPrefs.SetInt(selectedCharacterDataName, selectedCharacter);
-        PlayerPrefs.SetString("Default",names[selectedCharacter]);
-        SceneManager.LoadScene(gameScene);
+        return vehicles[PlayerPrefs.GetInt("currentIndex", 0)].name;
     }
 }

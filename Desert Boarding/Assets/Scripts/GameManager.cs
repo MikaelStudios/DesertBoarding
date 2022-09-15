@@ -47,8 +47,9 @@ public class GameManager : MonoBehaviour
         distanceX = player.position.x;
         
         highScore = PlayerPrefs.GetInt("Best Score", finalScore);
-        Debug.Log("highScore");
+        
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
+        Debug.Log("highScore"+ finalScore);
         score.text = "Score: " + finalScore.ToString("00000");
         
 
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
             score.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
             finalgameoverScore.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
             finalScore = (int)(player.position.x - distanceX + addToScore);
+            Debug.Log("Score"+ finalScore);
             OnHighScore.Raise(player.position.x - distanceX + addToScore);
             
         }
