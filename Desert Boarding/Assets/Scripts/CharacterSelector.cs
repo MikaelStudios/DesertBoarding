@@ -12,6 +12,8 @@ public class CharacterSelector : MonoBehaviour
     public VehiclesBluePrint[] vehicles;
     public static CharacterSelector instance;
     public Button buyButton;
+    public Button keyButton;
+    public TextMeshProUGUI buyButtontext;
     
     public int finalScore;
     public TextMeshProUGUI nameofCar;
@@ -24,7 +26,7 @@ public class CharacterSelector : MonoBehaviour
     void Start()
     {
        
-        
+       
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
         foreach (VehiclesBluePrint vehicle in vehicles)
         {
@@ -35,10 +37,10 @@ public class CharacterSelector : MonoBehaviour
             {
                 vehicle.isUnlocked = true;
             }
-            /*else
+            else
             {
                 vehicle.isUnlocked = PlayerPrefs.GetInt(vehicle.name, 0) == 0 ? false : true;
-            }*/
+            }
 
 
             
@@ -131,13 +133,15 @@ public class CharacterSelector : MonoBehaviour
         {
             // vehicleModels[currentIndex].SetActive(true);
             buyButton.gameObject.SetActive(false);
+
         }
 
         else
         {
             // vehicleModels[currentIndex].SetActive(false);
             buyButton.gameObject.SetActive(true);
-            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Get a distance of " + vehicle.price;
+            keyButton.gameObject.SetActive(true);
+            buyButtontext.text = "To unlock "+ vehicle.name + " drive a distance of " + vehicle.price;
             /*if (vehicle.level <= mainLevel)
             {
                 if (vehicleCoin < 50)
@@ -162,11 +166,13 @@ public class CharacterSelector : MonoBehaviour
             if (vehicleCoin < finalScore)
             {
                 buyButton.interactable = true;
+                keyButton.gameObject.SetActive(false);
 
             }
             else
             {
                 buyButton.interactable = false;
+                keyButton.gameObject.SetActive(true);
                 Debug.Log("vehicleCoin" + vehicleCoin);
             }
         }
