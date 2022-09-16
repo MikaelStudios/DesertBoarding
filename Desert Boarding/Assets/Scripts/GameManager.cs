@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         isGameOver = false;
         finalScore = 0;
         addToScore = 0;
@@ -49,17 +50,17 @@ public class GameManager : MonoBehaviour
         highScore = PlayerPrefs.GetInt("Best Score", finalScore);
         
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
-        Debug.Log("highScore"+ finalScore);
+        //Debug.Log("highScore"+ finalScore);
         score.text = "Score: " + finalScore.ToString("00000");
         
 
-        if(PlayerPrefs.GetInt("FirstTime") == 0)
+        /*if(PlayerPrefs.GetInt("FirstTime") == 0)
         {
             PlayerPrefs.SetInt("FirstTime", 1);
             shade.SetActive(true);
             startPanel.SetActive(true);
             Pause();
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
             score.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
             finalgameoverScore.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
             finalScore = (int)(player.position.x - distanceX + addToScore);
-            Debug.Log("Score"+ finalScore);
+            //Debug.Log("Score"+ finalScore);
             OnHighScore.Raise(player.position.x - distanceX + addToScore);
             
         }
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
            confetti.SetActive(true);
 
         PlayerPrefs.GetInt("Best Score", finalScore);
+        
         isGameOver = true;
 
         shade.SetActive(true);
