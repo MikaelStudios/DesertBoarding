@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using Lean.Transition;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -208,7 +208,7 @@ namespace Lean.Gui
 
 		private bool RequiredButtonPressed(PointerEventData eventData)
 		{
-			if (LeanInput.GetMouseExists() == true)
+			if (CwInput.GetMouseExists() == true)
 			{
 				if ((requiredButtons & ButtonTypes.LeftMouse) != 0 && eventData.button == PointerEventData.InputButton.Left)
 				{
@@ -226,7 +226,7 @@ namespace Lean.Gui
 				}
 			}
 
-			if (LeanInput.GetTouchCount() > 0)
+			if (CwInput.GetTouchCount() > 0)
 			{
 				if ((requiredButtons & ButtonTypes.Touch) != 0 && eventData.button == PointerEventData.InputButton.Left)
 				{
@@ -242,10 +242,11 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanButton;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
 	public class LeanButton_Editor : LeanSelectable_Editor
 	{
 		protected override void DrawSelectableSettings()

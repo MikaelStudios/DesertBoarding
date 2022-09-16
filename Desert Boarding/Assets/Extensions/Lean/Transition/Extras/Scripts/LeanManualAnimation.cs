@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Transition
 {
@@ -87,11 +87,12 @@ namespace Lean.Transition
 #if UNITY_EDITOR
 namespace Lean.Transition.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanManualAnimation;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanManualAnimation_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanManualAnimation_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

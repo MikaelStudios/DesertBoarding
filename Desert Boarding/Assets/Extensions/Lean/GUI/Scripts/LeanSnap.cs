@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-using Lean.Common;
-using FSA = UnityEngine.Serialization.FormerlySerializedAsAttribute;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -21,7 +20,7 @@ namespace Lean.Gui
 		public float HorizontalOffset { set { horizontalOffset = value; } get { return horizontalOffset; } } [SerializeField] private float horizontalOffset;
 
 		/// <summary>The spacing between each snap point in pixels.</summary>
-		public float HorizontalIntervalPixel { set { horizontalIntervalPixel = value; } get { return horizontalIntervalPixel; } } [FSA("horizontalInterval")] [SerializeField] private float horizontalIntervalPixel = 10.0f;
+		public float HorizontalIntervalPixel { set { horizontalIntervalPixel = value; } get { return horizontalIntervalPixel; } } [SerializeField] private float horizontalIntervalPixel = 10.0f;
 
 		/// <summary>The spacing between each snap point in 0..1 percent of the current RectTransform size.</summary>
 		public float HorizontalIntervalRect { set { horizontalIntervalRect = value; } get { return horizontalIntervalRect; } } [SerializeField] private float horizontalIntervalRect;
@@ -42,7 +41,7 @@ namespace Lean.Gui
 		public float VerticalOffset { set { verticalOffset = value; } get { return verticalOffset; } } [SerializeField] private float verticalOffset;
 
 		/// <summary>The spacing between each snap point in pixels.</summary>
-		public float VerticalIntervalPixel { set { verticalIntervalPixel = value; } get { return verticalIntervalPixel; } } [FSA("verticalInterval")] [SerializeField] private float verticalIntervalPixel = 10.0f;
+		public float VerticalIntervalPixel { set { verticalIntervalPixel = value; } get { return verticalIntervalPixel; } } [SerializeField] private float verticalIntervalPixel = 10.0f;
 
 		/// <summary>The spacing between each snap point in 0..1 percent of the current RectTransform size.</summary>
 		public float VerticalIntervalRect { set { verticalIntervalRect = value; } get { return verticalIntervalRect; } } [SerializeField] private float verticalIntervalRect;
@@ -100,7 +99,7 @@ namespace Lean.Gui
 			if (horizontal == true)
 			{
 				var target = position.x * intervalX + horizontalOffset;
-				var factor = LeanHelper.GetDampenFactor(horizontalSpeed, Time.deltaTime);
+				var factor = CwHelper.DampenFactor(horizontalSpeed, Time.deltaTime);
 
 				anchoredPosition.x = Mathf.Lerp(anchoredPosition.x, target, factor);
 			}
@@ -108,7 +107,7 @@ namespace Lean.Gui
 			if (vertical == true)
 			{
 				var target = position.y * intervalY + verticalOffset;
-				var factor = LeanHelper.GetDampenFactor(verticalSpeed, Time.deltaTime);
+				var factor = CwHelper.DampenFactor(verticalSpeed, Time.deltaTime);
 
 				anchoredPosition.y = Mathf.Lerp(anchoredPosition.y, target, factor);
 			}
@@ -139,11 +138,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanSnap;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanSnap_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanSnap_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

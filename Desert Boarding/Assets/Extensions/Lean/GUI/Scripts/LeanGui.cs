@@ -12,7 +12,7 @@ namespace Lean.Gui
 
 		public const string ComponentMenuPrefix = "Lean/GUI/Lean ";
 
-		public const string HelpUrlPrefix = "http://carloswilkes.github.io/Documentation/LeanGUI#";
+		public const string HelpUrlPrefix = "https://carloswilkes.com/Documentation/LeanGUI#";
 
 		public static DraggingDelegate OnDraggingCheck;
 

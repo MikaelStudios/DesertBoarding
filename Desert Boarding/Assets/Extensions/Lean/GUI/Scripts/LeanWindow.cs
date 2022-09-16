@@ -21,10 +21,11 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanWindow;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
 	public class LeanWindow_Editor : LeanToggle_Editor
 	{
 		protected override void OnInspector()

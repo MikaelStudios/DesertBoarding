@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Transition
 {
@@ -655,11 +655,12 @@ namespace Lean.Transition
 #if UNITY_EDITOR
 namespace Lean.Transition.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanTransition;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanTransition_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanTransition_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{
@@ -670,20 +671,20 @@ namespace Lean.Transition.Editor
 			Separator();
 
 			BeginDisabled(true);
-				UnityEditor.EditorGUILayout.IntField("Transition Count", LeanTransition.Count);
+				EditorGUILayout.IntField("Transition Count", LeanTransition.Count);
 			EndDisabled();
 		}
 
-		[UnityEditor.MenuItem("GameObject/Lean/Transition", false, 1)]
+		[MenuItem("GameObject/Lean/Transition", false, 1)]
 		private static void CreateLocalization()
 		{
 			var gameObject = new GameObject(typeof(LeanTransition).Name);
 
-			UnityEditor.Undo.RegisterCreatedObjectUndo(gameObject, "Create LeanTransition");
+			Undo.RegisterCreatedObjectUndo(gameObject, "Create LeanTransition");
 
 			gameObject.AddComponent<LeanTransition>();
 
-			UnityEditor.Selection.activeGameObject = gameObject;
+			Selection.activeGameObject = gameObject;
 		}
 	}
 }

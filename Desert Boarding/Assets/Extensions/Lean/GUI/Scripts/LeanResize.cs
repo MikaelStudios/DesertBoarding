@@ -226,10 +226,11 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanResize;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
 	public class LeanResize_Editor : LeanSelectable_Editor
 	{
 		protected override void DrawSelectableSettings()

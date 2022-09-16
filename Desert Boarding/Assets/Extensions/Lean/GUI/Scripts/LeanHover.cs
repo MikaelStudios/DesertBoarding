@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using Lean.Transition;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -88,11 +88,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanHover;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanHover_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanHover_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

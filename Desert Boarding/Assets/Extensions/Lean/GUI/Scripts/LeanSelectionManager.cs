@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -26,7 +26,7 @@ namespace Lean.Gui
 
 		private bool CanSelect(Selectable selectable)
 		{
-			return selectable != null && selectable.IsInteractable() == true && selectable.isActiveAndEnabled == true && selectable.navigation.mode != Navigation.Mode.None;
+			return CwHelper.Enabled(selectable) == true && selectable.IsInteractable() == true && selectable.navigation.mode != Navigation.Mode.None;
 		}
 
 		[ContextMenu("Select First Selectable")]
@@ -163,11 +163,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanSelectionManager;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanSelectionManager_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanSelectionManager_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

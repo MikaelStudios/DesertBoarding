@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -49,11 +50,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanHitbox;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanHitbox_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanHitbox_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

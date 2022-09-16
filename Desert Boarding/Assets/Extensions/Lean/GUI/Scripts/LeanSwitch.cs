@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using Lean.Transition;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -103,9 +103,9 @@ namespace Lean.Gui.Editor
 	using UnityEditor;
 	using TARGET = LeanSwitch;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanSwitch_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanSwitch_Editor : CwEditor
 	{
 		private void DrawState(TARGET tgt, TARGET[] tgts)
 		{

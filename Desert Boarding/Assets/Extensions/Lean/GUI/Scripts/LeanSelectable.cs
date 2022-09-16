@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 using Lean.Transition;
 using Lean.Common;
+using CW.Common;
 using Selectable = UnityEngine.UI.Selectable;
 
 namespace Lean.Gui
@@ -101,7 +102,7 @@ namespace Lean.Gui.Editor
 {
 	using TARGET = LeanSelectable;
 
-	public class LeanSelectable_Editor : LeanEditor
+	public class LeanSelectable_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

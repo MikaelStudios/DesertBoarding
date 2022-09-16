@@ -1,5 +1,6 @@
 using UnityEngine;
 using Lean.Common;
+using CW.Common;
 
 namespace Lean.Transition.Method
 {
@@ -42,11 +43,12 @@ namespace Lean.Transition
 #if UNITY_EDITOR
 namespace Lean.Transition.Method.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanMethod;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanMethod_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanMethod_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

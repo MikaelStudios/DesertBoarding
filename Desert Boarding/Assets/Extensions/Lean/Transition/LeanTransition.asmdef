@@ -1,14 +1,16 @@
 {
     "name": "LeanTransition",
     "references": [
-        "LeanCommon"
+        "LeanCommon",
+        "CW.Common"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

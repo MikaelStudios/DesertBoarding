@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -22,11 +22,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanSnapEvent;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanSnapEvent_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanSnapEvent_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

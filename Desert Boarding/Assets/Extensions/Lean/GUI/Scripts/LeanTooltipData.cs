@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
-	/// <summary>This component allows you to associate text with this GameObject, allowing it to be displayed from a tooltip.</summary>
+	/// <summary>This component allows you to associate text with this GameObject, allowing it to be displayed from a tooltip.
+	/// NOTE: If this component is enabled while a finger is hovered over this element, then it will not trigger the <b>OnPointerEnter</b> event.</summary>
 	[HelpURL(LeanGui.HelpUrlPrefix + "LeanTooltipData")]
 	[AddComponentMenu(LeanGui.ComponentMenuPrefix + "Tooltip Data")]
 	public class LeanTooltipData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
@@ -24,6 +25,13 @@ namespace Lean.Gui
 					LeanTooltip.HoverShow = selectable.enabled == true && selectable.interactable == true;
 				}
 			}
+		}
+
+		protected virtual void OnDisable()
+		{
+			// These aren't auto called?
+			OnPointerUp(default(PointerEventData));
+			OnPointerExit(default(PointerEventData));
 		}
 
 		public void OnPointerEnter(PointerEventData eventData)
@@ -65,11 +73,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanTooltipData;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanTooltipData_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanTooltipData_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

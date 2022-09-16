@@ -1,5 +1,5 @@
 using UnityEngine;
-using Lean.Common;
+using CW.Common;
 using System.Collections.Generic;
 
 namespace Lean.Transition
@@ -267,7 +267,7 @@ namespace Lean.Transition.Editor
 
 	[CanEditMultipleObjects]
 	[CustomEditor(typeof(TARGET), true)]
-	public class LeanMethod_Editor : LeanEditor
+	public class LeanMethod_Editor : CwEditor
 	{
 		private static List<LeanMethod> tempMethods = new List<LeanMethod>();
 

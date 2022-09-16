@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Lean.Transition;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -228,9 +228,9 @@ namespace Lean.Gui.Editor
 	using UnityEditor;
 	using TARGET = LeanOrientation;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanOrientation_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanOrientation_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

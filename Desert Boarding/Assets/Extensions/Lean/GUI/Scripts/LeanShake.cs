@@ -1,6 +1,5 @@
 using UnityEngine;
-using Lean.Common;
-using FSA = UnityEngine.Serialization.FormerlySerializedAsAttribute;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -21,7 +20,7 @@ namespace Lean.Gui
 		public float Multiplier { set { multiplier = value; } get { return multiplier; } } [SerializeField] private float multiplier = 1.0f;
 
 		/// <summary>This allows you to set the dampening of the <b>Strength</b> value. This decay slows down as it approaches 0.</summary>
-		public float Damping { set { damping = value; } get { return damping; } } [FSA("Dampening")] [SerializeField] private float damping;
+		public float Damping { set { damping = value; } get { return damping; } } [SerializeField] private float damping;
 
 		/// <summary>This allows you to set the reduction of the <b>Strength</b> value. This decay slows down at a constant rate per second.</summary>
 		public float Reduction { set { reduction = value; } get { return reduction; } } [SerializeField] private float reduction;
@@ -85,7 +84,7 @@ namespace Lean.Gui
 
 		protected virtual void Update()
 		{
-			var factor   = LeanHelper.GetDampenFactor(damping, Time.deltaTime);
+			var factor   = CwHelper.DampenFactor(damping, Time.deltaTime);
 			var position = default(Vector3);
 			var rotation = default(Vector3);
 
@@ -150,11 +149,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanShake;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanShake_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanShake_Editor : CwEditor
 	{
 		private static bool expandSpeed;
 

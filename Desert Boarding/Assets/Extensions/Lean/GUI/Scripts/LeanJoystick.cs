@@ -3,8 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using Lean.Transition;
-using Lean.Common;
-using FSA = UnityEngine.Serialization.FormerlySerializedAsAttribute;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -40,7 +39,7 @@ namespace Lean.Gui
 		/// <summary>This allows you to control how quickly the joystick handle position updates
 		/// -1 = instant.
 		/// NOTE: This is for visual purposes only, the actual joystick <b>ScaledValue</b> will instantly update.</summary>
-		public float Damping { set { damping = value; } get { return damping; } } [FSA("Dampening")] [SerializeField] private float damping = 5.0f;
+		public float Damping { set { damping = value; } get { return damping; } } [SerializeField] private float damping = 5.0f;
 
 		/// <summary>If you only want the smooth <b>Dampening</b> to apply when the joystick is returning to the center, then you can enable this.</summary>
 		public bool SnapWhileHeld { set { snapWhileHeld = value; } get { return snapWhileHeld; } } [SerializeField] private bool snapWhileHeld = true;
@@ -97,6 +96,12 @@ namespace Lean.Gui
 		[System.NonSerialized]
 		private bool lastValueSet;
 
+		[System.NonSerialized]
+		private Vector2 nextValue;
+
+		[System.NonSerialized]
+		private bool nextValueSet;
+
 		public RectTransform CachedRectTransform
 		{
 			get
@@ -111,6 +116,18 @@ namespace Lean.Gui
 			}
 		}
 
+		public void OverrideNextValue(Vector2 value)
+		{
+			nextValue    = value;
+			nextValueSet = true;
+		}
+
+		public void IncrementNextValue(Vector2 delta)
+		{
+			nextValue   += delta;
+			nextValueSet = true;
+		}
+
 		protected virtual void Update()
 		{
 			var value = Vector2.zero;
@@ -120,6 +137,11 @@ namespace Lean.Gui
 				value = lastValue;
 			}
 
+			if (nextValueSet == true)
+			{
+				value = nextValue;
+			}
+
 			if (pointer != null)
 			{
 				if (IsInteractable() == true)
@@ -127,24 +149,6 @@ namespace Lean.Gui
 					if (RectTransformUtility.ScreenPointToLocalPointInRectangle(CachedRectTransform, pointer.position, pointer.pressEventCamera, out value) == true)
 					{
 						value -= offset;
-
-						// Clamp value
-						if (shape == ShapeType.Box)
-						{
-							value.x = Mathf.Clamp(value.x, -size.x, size.x);
-							value.y = Mathf.Clamp(value.y, -size.y, size.y);
-						}
-						else if (shape == ShapeType.Circle)
-						{
-							if (value.sqrMagnitude > radius * radius)
-							{
-								value = value.normalized * radius;
-							}
-						}
-						else if (shape == ShapeType.CircleEdge)
-						{
-							value = value.normalized * radius;
-						}
 					}
 				}
 				else
@@ -153,8 +157,23 @@ namespace Lean.Gui
 				}
 			}
 
-			lastValue    = value;
-			lastValueSet = true;
+			// Clamp value to current shape
+			if (shape == ShapeType.Box)
+			{
+				value.x = Mathf.Clamp(value.x, -size.x, size.x);
+				value.y = Mathf.Clamp(value.y, -size.y, size.y);
+			}
+			else if (shape == ShapeType.Circle)
+			{
+				if (value.sqrMagnitude > radius * radius)
+				{
+					value = value.normalized * radius;
+				}
+			}
+			else if (shape == ShapeType.CircleEdge)
+			{
+				value = value.normalized * radius;
+			}
 
 			// Update scaledValue
 			if (shape == ShapeType.Box)
@@ -175,17 +194,25 @@ namespace Lean.Gui
 			if (handle != null)
 			{
 				var anchoredPosition = handle.anchoredPosition;
-				var factor           = LeanHelper.GetDampenFactor(damping, Time.deltaTime);
+				var factor           = CwHelper.DampenFactor(damping, Time.deltaTime);
 
-				if (snapWhileHeld == true && pointer != null)
+				if (snapWhileHeld == true)
 				{
-					factor = 1.0f;
+					if (pointer != null || nextValueSet == true)
+					{
+						factor = 1.0f;
+					}
 				}
 
 				anchoredPosition = Vector2.Lerp(anchoredPosition, value + offset, factor);
 
 				handle.anchoredPosition = anchoredPosition;
 			}
+
+			lastValue    = value;
+			lastValueSet = true;
+			nextValue    = value;
+			nextValueSet = false;
 
 			// Update relative position
 			if (relativeToOrigin == true && relativeRect != null)
@@ -196,7 +223,7 @@ namespace Lean.Gui
 			// Fire event
 			if (onSet != null)
 			{
-				onSet.Invoke(ScaledValue);
+				onSet.Invoke(scaledValue);
 			}
 		}
 
@@ -251,10 +278,11 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanJoystick;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(LeanJoystick))]
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(LeanJoystick))]
 	public class LeanJoystick_Editor : LeanSelectable_Editor
 	{
 		protected override void DrawSelectableSettings()

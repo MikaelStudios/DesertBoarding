@@ -1,6 +1,5 @@
 using UnityEngine;
-using Lean.Common;
-using FSA = UnityEngine.Serialization.FormerlySerializedAsAttribute;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -15,10 +14,10 @@ namespace Lean.Gui
 		public bool Horizontal { set { horizontal = value; } get { return horizontal; } } [SerializeField] private bool horizontal;
 
 		/// <summary>The minimum value in pixels.</summary>
-		public float HorizontalPixelMin { set { horizontalPixelMin = value; } get { return horizontalPixelMin; } } [FSA("horizontalMin")] [SerializeField] private float horizontalPixelMin = -100.0f;
+		public float HorizontalPixelMin { set { horizontalPixelMin = value; } get { return horizontalPixelMin; } } [SerializeField] private float horizontalPixelMin = -100.0f;
 
 		/// <summary>The maximum value in pixels.</summary>
-		public float HorizontalPixelMax { set { horizontalPixelMax = value; } get { return horizontalPixelMax; } } [FSA("horizontalMax")] [SerializeField] private float horizontalPixelMax = 100.0f;
+		public float HorizontalPixelMax { set { horizontalPixelMax = value; } get { return horizontalPixelMax; } } [SerializeField] private float horizontalPixelMax = 100.0f;
 
 		/// <summary>The minimum value in 0..1 percent of the current RectTransform size.</summary>
 		public float HorizontalRectMin { set { horizontalRectMin = value; } get { return horizontalRectMin; } } [SerializeField] private float horizontalRectMin;
@@ -36,10 +35,10 @@ namespace Lean.Gui
 		public bool Vertical { set { vertical = value; } get { return vertical; } } [SerializeField] private bool vertical;
 
 		/// <summary>The minimum value in pixels.</summary>
-		public float VerticalPixelMin { set { verticalPixelMin = value; } get { return verticalPixelMin; } } [FSA("verticalMin")] [SerializeField] private float verticalPixelMin = -100.0f;
+		public float VerticalPixelMin { set { verticalPixelMin = value; } get { return verticalPixelMin; } } [SerializeField] private float verticalPixelMin = -100.0f;
 
 		/// <summary>The maximum value in pixels.</summary>
-		public float VerticalPixelMax { set { verticalPixelMax = value; } get { return verticalPixelMax; } } [FSA("verticalMax")] [SerializeField] private float verticalPixelMax = 100.0f;
+		public float VerticalPixelMax { set { verticalPixelMax = value; } get { return verticalPixelMax; } } [SerializeField] private float verticalPixelMax = 100.0f;
 
 		/// <summary>The minimum value in 0..1 percent of the current RectTransform size.</summary>
 		public float VerticalRectMin { set { verticalRectMin = value; } get { return verticalRectMin; } } [SerializeField] private float verticalRectMin;
@@ -137,11 +136,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanConstrainAnchoredPosition;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanConstrainAnchoredPosition_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanConstrainAnchoredPosition_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{
@@ -156,7 +156,7 @@ namespace Lean.Gui.Editor
 					Draw("horizontalPixelMax", "The maximum value in pixels.", "Pixel Max");
 					Draw("horizontalRectMin", "The minimum value in 0..1 percent of the current RectTransform size.", "Rect Min");
 					Draw("horizontalRectMax", "The maximum value in 0..1 percent of the current RectTransform size.", "Rect Max");
-					Draw("horizontalParentMin", "The maximum value in 0..1 percent of the parent RectTransform size.", "Parent Min");
+					Draw("horizontalParentMin", "The minimum value in 0..1 percent of the parent RectTransform size.", "Parent Min");
 					Draw("horizontalParentMax", "The maximum value in 0..1 percent of the parent RectTransform size.", "Parent Min");
 				EndIndent();
 			}
@@ -170,9 +170,9 @@ namespace Lean.Gui.Editor
 				BeginIndent();
 					Draw("verticalPixelMin", "The minimum value in pixels.", "Pixel Min");
 					Draw("verticalPixelMax", "The maximum value in pixels.", "Pixel Max");
-					Draw("verticalRectMin", "The maximum value in 0..1 percent of the current RectTransform size.", "Rect Min");
+					Draw("verticalRectMin", "The minimum value in 0..1 percent of the current RectTransform size.", "Rect Min");
 					Draw("verticalRectMax", "The maximum value in 0..1 percent of the current RectTransform size.", "Rect Max");
-					Draw("verticalParentMin", "The maximum value in 0..1 percent of the parent RectTransform size.", "Parent Min");
+					Draw("verticalParentMin", "The minimum value in 0..1 percent of the parent RectTransform size.", "Parent Min");
 					Draw("verticalParentMax", "The maximum value in 0..1 percent of the parent RectTransform size.", "Parent Min");
 				EndIndent();
 			}

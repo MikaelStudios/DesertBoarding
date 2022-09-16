@@ -260,7 +260,7 @@ namespace Lean.Transition.Editor
 
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
-			var player   = LeanHelper.GetObjectFromSerializedProperty<LeanPlayer>(property.serializedObject.targetObject, property);
+			var player   = LeanCommon.GetObjectFromSerializedProperty<LeanPlayer>(property.serializedObject.targetObject, property);
 			var sObject  = property.serializedObject;
 			var sEntries = property.FindPropertyRelative("entries");
 
@@ -418,7 +418,7 @@ namespace Lean.Transition.Editor
 
 			foreach (var targetObject in sObject.targetObjects)
 			{
-				var player = LeanHelper.GetObjectFromSerializedProperty<LeanPlayer>(targetObject, sPlayer);
+				var player = LeanCommon.GetObjectFromSerializedProperty<LeanPlayer>(targetObject, sPlayer);
 
 				if (player != null)
 				{

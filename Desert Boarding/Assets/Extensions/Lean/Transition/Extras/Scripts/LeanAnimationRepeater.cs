@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Lean.Common;
-using FSA = UnityEngine.Serialization.FormerlySerializedAsAttribute;
 
 namespace Lean.Transition
 {
@@ -15,13 +14,13 @@ namespace Lean.Transition
 		public int RemainingCount { set { remainingCount = value; } get { return remainingCount; } } [SerializeField] protected int remainingCount = -1;
 
 		/// <summary>When this reaches 0, the transitions will begin.</summary>
-		public float RemainingTime { set { remainingTime = value; } get { return remainingTime; } } [SerializeField] [FSA("RemainingTime")] protected float remainingTime = 1.0f;
+		public float RemainingTime { set { remainingTime = value; } get { return remainingTime; } } [SerializeField] protected float remainingTime = 1.0f;
 
 		/// <summary>When <b>RemainingTime</b> reaches 0, it will bet set to this value.</summary>
-		public float TimeInterval { set { timeInterval = value; } get { return timeInterval; } } [SerializeField] [FSA("TimeInterval")] private float timeInterval = 3.0f;
+		public float TimeInterval { set { timeInterval = value; } get { return timeInterval; } } [SerializeField] private float timeInterval = 3.0f;
 
 		/// <summary>The event will execute when the transitions begin.</summary>
-		public UnityEvent OnAnimation { get { if (onAnimation == null) onAnimation = new UnityEvent(); return onAnimation; } } [SerializeField] [FSA("OnAnimation")] protected UnityEvent onAnimation;
+		public UnityEvent OnAnimation { get { if (onAnimation == null) onAnimation = new UnityEvent(); return onAnimation; } } [SerializeField] protected UnityEvent onAnimation;
 
 		protected virtual void Start()
 		{
@@ -68,10 +67,11 @@ namespace Lean.Transition
 #if UNITY_EDITOR
 namespace Lean.Transition.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanAnimationRepeater;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
 	public class LeanAnimationRepeater_Editor : LeanManualAnimation_Editor
 	{
 		protected override void OnInspector()

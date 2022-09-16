@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Transition.Editor
 {
@@ -91,7 +91,7 @@ namespace Lean.Transition.Editor
 
 	[CanEditMultipleObjects]
 	[CustomEditor(typeof(LeanBuilder))]
-	public class LeanBuilder_Editor : LeanEditor
+	public class LeanBuilder_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

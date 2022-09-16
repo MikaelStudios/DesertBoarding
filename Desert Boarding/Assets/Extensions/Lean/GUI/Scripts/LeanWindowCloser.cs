@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -85,7 +86,7 @@ namespace Lean.Gui
 		{
 			if (this == Instances[0])
 			{
-				if (LeanInput.GetDown(CloseKey) == true)
+				if (CwInput.GetKeyWentDown(CloseKey) == true)
 				{
 					CloseTopMost();
 				}
@@ -104,11 +105,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanWindowCloser;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanWindowCloser_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanWindowCloser_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{

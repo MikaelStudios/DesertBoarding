@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using Lean.Transition;
-using Lean.Common;
+using CW.Common;
 
 namespace Lean.Gui
 {
@@ -179,11 +179,12 @@ namespace Lean.Gui
 #if UNITY_EDITOR
 namespace Lean.Gui.Editor
 {
+	using UnityEditor;
 	using TARGET = LeanSelectionHighlight;
 
-	[UnityEditor.CanEditMultipleObjects]
-	[UnityEditor.CustomEditor(typeof(TARGET))]
-	public class LeanSelectionHighlight_Editor : LeanEditor
+	[CanEditMultipleObjects]
+	[CustomEditor(typeof(TARGET))]
+	public class LeanSelectionHighlight_Editor : CwEditor
 	{
 		protected override void OnInspector()
 		{
@@ -195,7 +196,7 @@ namespace Lean.Gui.Editor
 
 			Draw("showTransitions", "This allows you to perform a transition when the highlight begins. You can create a new transition GameObject by right clicking the transition name, and selecting Create. For example, the <b>Graphic.color Transition (LeanGraphicColor)</b> component can be used to change the color.\n\nNOTE: Any transitions you perform here must be reverted in the Hide Transitions setting using a matching transition component.");
 			Draw("hideTransitions", "This allows you to perform a transition when the highlight ends. You can create a new transition GameObject by right clicking the transition name, and selecting Create. For example, the <b>Graphic.color Transition (LeanGraphicColor)</b> component can be used to change the color.\n\nNOTE: Any transitions you perform here must be reverted in the Show Transitions setting using a matching transition component.");
-			
+
 			Separator();
 
 			Draw("onShow", "This allows you to perform an action when the highlight starts.");
