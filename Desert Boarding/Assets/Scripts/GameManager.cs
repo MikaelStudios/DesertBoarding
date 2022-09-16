@@ -83,7 +83,11 @@ public class GameManager : MonoBehaviour
             bestScore.gameObject.SetActive(true);
             bestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
             finalBestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
+            Debug.Log("highScore " + highScore);
+            Debug.Log("finalScore " + finalScore);
     }
+
+    
 
     public void Pause()
     {
