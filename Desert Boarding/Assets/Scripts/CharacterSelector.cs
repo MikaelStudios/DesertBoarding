@@ -133,6 +133,7 @@ public class CharacterSelector : MonoBehaviour
         {
             // vehicleModels[currentIndex].SetActive(true);
             buyButton.gameObject.SetActive(false);
+            keyButton.gameObject.SetActive(false);
 
         }
 
