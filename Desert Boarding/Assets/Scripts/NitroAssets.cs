@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NitroAssets : MonoBehaviour
 {
+    public ParticleSystem particle;
    
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,7 +14,9 @@ public class NitroAssets : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            particle.Play();
+            //Destroy(gameObject);
+
         }
         
     }
