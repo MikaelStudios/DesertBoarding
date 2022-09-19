@@ -18,6 +18,8 @@ public class CharacterSelector : MonoBehaviour
     public int finalScore;
     public TextMeshProUGUI nameofCar;
 
+    public string gameScene;
+
     void Awake()
     {
         instance = this;
@@ -112,6 +114,7 @@ public class CharacterSelector : MonoBehaviour
         vehicleModels[currentIndex].SetActive(true);
 
         Debug.Log(vehicleModels[currentIndex] + "is selected");
+        SceneManager.LoadScene(gameScene);
        
 
     }
