@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform target;
+    public Transform[] target;
+    //public GameObject vehicle;
 
     public Vector3 offset;
 
     private void LateUpdate()
     {
-        Vector3 newPos = target.position + offset;
-        newPos.z = transform.position.z;
-        transform.position = newPos;
+        foreach (Transform veh in target)
+        {
+            Vector3 newPos = veh.position + offset;
+            newPos.z = transform.position.z;
+            transform.position = newPos;
+        }
     }
     
 }
