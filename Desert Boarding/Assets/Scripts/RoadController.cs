@@ -6,9 +6,10 @@ public class RoadController : MonoBehaviour
 {
     public Transform[] paths;
     public Vector3 nextPathPosition;
-    public GameObject player;
+    public GameObject[] player;
     public float pathDrawDistance;
     public float pathDeleteDistance;
+    public int currentIndex;
 
     // Transform target;
 
@@ -28,13 +29,17 @@ public class RoadController : MonoBehaviour
 
     void LoadParts()
     {
-        while ((nextPathPosition - player.transform.position).x < pathDrawDistance)
+        currentIndex = PlayerPrefs.GetInt("currentIndex", 0);
+        foreach (GameObject vehicle in player)
         {
-            Transform path = paths[Random.Range(0, paths.Length)];
-            
-            Transform newPath = Instantiate(path, nextPathPosition - path.Find("startpoint").position, path.rotation, transform);
+            while ((nextPathPosition - vehicle.transform.position).x < pathDrawDistance)
+            {
+                Transform path = paths[Random.Range(0, paths.Length)];
+                
+                Transform newPath = Instantiate(path, nextPathPosition - path.Find("startpoint").position, path.rotation, transform);
 
-            nextPathPosition = newPath.Find("endpoint").position;
+                nextPathPosition = newPath.Find("endpoint").position;
+            }
         }
     }
 
@@ -42,12 +47,15 @@ public class RoadController : MonoBehaviour
     {
         if(transform.childCount > 0)
         {
-            Transform path = transform.GetChild(0);
-            Vector3 diff = player.transform.position - path.position;
+            foreach (GameObject vehicle in player)
+            { 
+                Transform path = transform.GetChild(0);
+                Vector3 diff = vehicle.transform.position - path.position;
 
-            if(diff.x > pathDeleteDistance)
-            {
-                Destroy(path.gameObject);
+                if(diff.x > pathDeleteDistance)
+                {
+                    Destroy(path.gameObject);
+                }
             }
         }
     }
