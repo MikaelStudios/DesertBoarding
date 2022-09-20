@@ -971,11 +971,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3049904305795400647, guid: baeea387f53c90d4685952b7a3603284, type: 3}
   m_PrefabInstance: {fileID: 1412402277}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &301673763 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1877506958852442286, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
-  m_PrefabInstance: {fileID: 1877506958559438221}
-  m_PrefabAsset: {fileID: 0}
 --- !u!50 &301673768 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 1877506958852442277, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
@@ -991,7 +986,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
   m_PrefabInstance: {fileID: 1877506958559438221}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301673763}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6c6a7141b1227243968ec3e7c803bde, type: 3}
@@ -1107,12 +1102,12 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 482775765}
   m_Follow: {fileID: 482775765}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 6.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1133,7 +1128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308762770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -109.85995, y: 0.9662874, z: -10}
+  m_LocalPosition: {x: -109.19994, y: 0.9662874, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 386970662}
@@ -1614,6 +1609,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1877506958852442279, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
   m_PrefabInstance: {fileID: 482775763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &482775768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+  m_PrefabInstance: {fileID: 482775763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482775764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c6a7141b1227243968ec3e7c803bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &521188563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4261110104543467667, guid: df4592f1e283a0845b47ee8cdf118e61, type: 3}
@@ -3594,19 +3600,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 790939609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308762773}
-        m_TargetAssemblyTypeName: CameraZoom, Assembly-CSharp
-        m_MethodName: ZoomOut
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &790939609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4330,7 +4324,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4354,7 +4348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -109.85995, y: 0.9662874, z: -10}
+  m_LocalPosition: {x: -109.19994, y: 0.9662874, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1644979428}
@@ -4471,7 +4465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9ae525014e7eb4791fcd38bcd9873e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 482775765}
   offset: {x: 7.1, y: 0, z: 0}
 --- !u!114 &963194231
 MonoBehaviour:
@@ -4755,7 +4749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1024478653
 Transform:
   m_ObjectHideFlags: 0
@@ -5543,21 +5537,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 301673771}
+      - m_Target: {fileID: 482775768}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: IncreaseSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 308762773}
-        m_TargetAssemblyTypeName: CameraZoom, Assembly-CSharp
-        m_MethodName: ZoomOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6243,19 +6225,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1386798790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308762773}
-        m_TargetAssemblyTypeName: CameraZoom, Assembly-CSharp
-        m_MethodName: ZoomIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1386798790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8183,7 +8153,7 @@ MonoBehaviour:
   - {fileID: 1873330914430130221, guid: 812c1d617d42e374a9e52e5171da6428, type: 3}
   - {fileID: 5583287490243250826, guid: a46215c086bf8b545bc29943d63a417c, type: 3}
   nextPathPosition: {x: -20, y: 0, z: 0}
-  player: {fileID: 301673763}
+  player: {fileID: 482775764}
   pathDrawDistance: 80
   pathDeleteDistance: 140
 --- !u!4 &1789476033
@@ -13868,19 +13838,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2026729226}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308762773}
-        m_TargetAssemblyTypeName: CameraZoom, Assembly-CSharp
-        m_MethodName: ZoomIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2026729226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14570,7 +14528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4467a1c9065fcc042bdd7aab91810555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 301673770}
+  player: {fileID: 482775765}
   score: {fileID: 751928056}
   finalScore: 0
   highScore: 0
@@ -14920,7 +14878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2136134309
 Transform:
   m_ObjectHideFlags: 0

@@ -10,10 +10,13 @@ public class RoadController : MonoBehaviour
     public float pathDrawDistance;
     public float pathDeleteDistance;
 
+    // Transform target;
+
     // Start is called before the first frame update
     void Start()
     {
         LoadParts();
+        // target = player.transform;
     }
 
     // Update is called once per frame

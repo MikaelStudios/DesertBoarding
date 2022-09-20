@@ -22,6 +22,7 @@ public class CameraZoom : MonoBehaviour
     {
        _minimum = _virtualCamera.m_Lens.OrthographicSize;
        _maximum = _minimum * 2;
+       ZoomOut();
     }
 
     public void Update()
@@ -45,7 +46,7 @@ public class CameraZoom : MonoBehaviour
         //     StopAllCoroutines();
         //     StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
         // }
-        StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
+        // StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
 
         
     }
@@ -53,13 +54,20 @@ public class CameraZoom : MonoBehaviour
     public void ZoomOut()
     {
         StopAllCoroutines();
-        StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
+        StartCoroutine(DelayZoom());
+        // StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
     }
 
     public void ZoomIn()
     {
         StopAllCoroutines();
         StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _minimum));
+    }
+
+    IEnumerator DelayZoom()
+    {
+        yield return new WaitForSeconds(2);
+        StartCoroutine(Lerp(_virtualCamera.m_Lens.OrthographicSize, _maximum));
     }
 
     IEnumerator Lerp(float start, float end)
