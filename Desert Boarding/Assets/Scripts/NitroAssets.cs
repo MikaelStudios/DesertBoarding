@@ -14,10 +14,16 @@ public class NitroAssets : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
+            
+            StartCoroutine(Destroy());
             particle.Play();
-            //Destroy(gameObject);
 
         }
         
+    }
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Destroy(gameObject);
     }
 }
