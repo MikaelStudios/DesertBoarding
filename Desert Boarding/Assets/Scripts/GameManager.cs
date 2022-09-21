@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public Transform[] player;
+    public Transform player;
     public TextMeshProUGUI score;
     public int finalScore;
     public int highScore;
@@ -45,10 +45,7 @@ public class GameManager : MonoBehaviour
         FuelGuage.maxValue = 10;
         FuelGuage.minValue = 0;
         FuelGuage.value = 10;
-        foreach(Transform playerDistance in player)
-        {
-            distanceX = playerDistance.position.x;
-        }
+        distanceX = PlayerMovement.instance.distanceX;
         
         highScore = PlayerPrefs.GetInt("Best Score", finalScore);
         
@@ -72,14 +69,21 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.GetInt("Best Score", finalScore);
         if (!isGameOver)
         {
-            foreach(Transform playerDistance in player)
+            float newposition = PlayerMovement.instance.distanceX;
+            score.gameObject.SetActive(true);
+            score.text = "Score: " + (100+(newposition - distanceX) + addToScore).ToString("0000");
+            if(score.text =="Score: " +100.ToString("0000"))
             {
-                score.text = "Score: " + (playerDistance.position.x - distanceX + addToScore).ToString("0000");
-                finalgameoverScore.text = "Score: " + (playerDistance.position.x - distanceX + addToScore).ToString("0000");
-                finalScore = (int)(playerDistance.position.x - distanceX + addToScore);
-                //Debug.Log("Score"+ finalScore);
-                OnHighScore.Raise(playerDistance.position.x - distanceX + addToScore);
+                score.text = "Score: 0000";
             }
+            else
+            {
+                score.text = "Score: " + (100+(newposition - distanceX) + addToScore).ToString("0000");
+            }
+            finalgameoverScore.text = "Score: " + (newposition - distanceX + addToScore).ToString("0000");
+            finalScore = (int)(newposition - distanceX + addToScore);
+                //Debug.Log("Score"+ finalScore);
+            OnHighScore.Raise(newposition - distanceX + addToScore);
             
         }
        

@@ -61,12 +61,13 @@ public class PlayerMovement : MonoBehaviour
     public PolygonCollider2D boxCollider2d;
 
     
-    
-
+    public float speedometer = 0.0f;
 
     public static PlayerMovement instance;
     Animator anim;
     public GameObject nitroObjectButton, leftbutton, rightbutton, acceleratorbutton;
+    public Transform player;
+    public float distanceX;
     
     public void Awake()
     {
@@ -87,18 +88,21 @@ public class PlayerMovement : MonoBehaviour
         leftbutton.SetActive(false);
         rightbutton.SetActive(false);
         acceleratorbutton.SetActive(false);
+        //PlayerScore();
 
         
     }
 
     private void FixedUpdate()
     {
+
         if (GameManager.Instance.isGameOver){return;}
         
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("CrossTour"))
         {
             rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
-
+            
+            PlayerRigidbody();
             if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
             {
                 
@@ -106,11 +110,13 @@ public class PlayerMovement : MonoBehaviour
                 leftbutton.SetActive(true);
                 rightbutton.SetActive(true);
                 acceleratorbutton.SetActive(true);
+                PlayerScore();
                 FlipLeft();
                 FlipRight();
                 IncreaseSpeed();
                 NitroSpeed();
                 FuelReduce();
+
         }
     }
         //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
@@ -270,6 +276,14 @@ public class PlayerMovement : MonoBehaviour
         }
             
                         
+    }
+    public void PlayerScore()
+    {
+        distanceX = player.position.x;
+    }
+    public void PlayerRigidbody()
+    {
+        speedometer = rigidbody2d.velocity.magnitude * 3.6f;
     }
     
     
