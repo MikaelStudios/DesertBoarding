@@ -65,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     public static PlayerMovement instance;
+    Animator anim;
+    public GameObject nitroObjectButton, leftbutton, rightbutton, acceleratorbutton;
     
     public void Awake()
     {
@@ -80,20 +82,38 @@ public class PlayerMovement : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         AudioManager.instance.NormalCarSound();
         isGrounded = true;
+        anim = GetComponent<Animator>();
+        nitroObjectButton.SetActive(false);
+        leftbutton.SetActive(false);
+        rightbutton.SetActive(false);
+        acceleratorbutton.SetActive(false);
+
         
     }
 
     private void FixedUpdate()
     {
         if (GameManager.Instance.isGameOver){return;}
-
-        FlipLeft();
-        FlipRight();
-        IncreaseSpeed();
-        NitroSpeed();
-        FuelReduce();
         
-        rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("CrossTour"))
+        {
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
+
+            if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+            {
+                
+                nitroObjectButton.SetActive(true);
+                leftbutton.SetActive(true);
+                rightbutton.SetActive(true);
+                acceleratorbutton.SetActive(true);
+                FlipLeft();
+                FlipRight();
+                IncreaseSpeed();
+                NitroSpeed();
+                FuelReduce();
+        }
+    }
+        //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
         // if(Input.GetKey(KeyCode.Space))
         // {
         //     ReduceSpeed();
@@ -336,7 +356,7 @@ public class PlayerMovement : MonoBehaviour
             //noNitro.SetActive(false);
             nitroButton.SetActive(true);
             nitrofillobject.SetActive(true);
-            LoadingBar.fillAmount += 0.25f;
+            LoadingBar.fillAmount += 1f;
         }
         if(collision.CompareTag("topup"))
         {

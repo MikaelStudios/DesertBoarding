@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public Transform player;
+    public Transform[] player;
     public TextMeshProUGUI score;
     public int finalScore;
     public int highScore;
@@ -45,7 +45,10 @@ public class GameManager : MonoBehaviour
         FuelGuage.maxValue = 10;
         FuelGuage.minValue = 0;
         FuelGuage.value = 10;
-        distanceX = player.position.x;
+        foreach(Transform playerDistance in player)
+        {
+            distanceX = playerDistance.position.x;
+        }
         
         highScore = PlayerPrefs.GetInt("Best Score", finalScore);
         
@@ -69,11 +72,14 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.GetInt("Best Score", finalScore);
         if (!isGameOver)
         {
-            score.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
-            finalgameoverScore.text = "Score: " + (player.position.x - distanceX + addToScore).ToString("0000");
-            finalScore = (int)(player.position.x - distanceX + addToScore);
-            //Debug.Log("Score"+ finalScore);
-            OnHighScore.Raise(player.position.x - distanceX + addToScore);
+            foreach(Transform playerDistance in player)
+            {
+                score.text = "Score: " + (playerDistance.position.x - distanceX + addToScore).ToString("0000");
+                finalgameoverScore.text = "Score: " + (playerDistance.position.x - distanceX + addToScore).ToString("0000");
+                finalScore = (int)(playerDistance.position.x - distanceX + addToScore);
+                //Debug.Log("Score"+ finalScore);
+                OnHighScore.Raise(playerDistance.position.x - distanceX + addToScore);
+            }
             
         }
        
