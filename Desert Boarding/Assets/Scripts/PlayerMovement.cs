@@ -84,10 +84,10 @@ public class PlayerMovement : MonoBehaviour
         AudioManager.instance.NormalCarSound();
         isGrounded = true;
         anim = GetComponent<Animator>();
-        nitroObjectButton.SetActive(false);
-        leftbutton.SetActive(false);
-        rightbutton.SetActive(false);
-        acceleratorbutton.SetActive(false);
+        nitroObjectButton.SetActive(true);
+        leftbutton.SetActive(true);
+        rightbutton.SetActive(true);
+        acceleratorbutton.SetActive(true);
         //PlayerScore();
 
         
@@ -106,10 +106,10 @@ public class PlayerMovement : MonoBehaviour
             if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
             {
                 
-                nitroObjectButton.SetActive(true);
-                leftbutton.SetActive(true);
-                rightbutton.SetActive(true);
-                acceleratorbutton.SetActive(true);
+                // nitroObjectButton.SetActive(true);
+                // leftbutton.SetActive(true);
+                // rightbutton.SetActive(true);
+                // acceleratorbutton.SetActive(true);
                 PlayerScore();
                 FlipLeft();
                 FlipRight();
