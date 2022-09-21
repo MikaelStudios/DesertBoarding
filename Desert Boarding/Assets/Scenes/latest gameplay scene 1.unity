@@ -3943,7 +3943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713904896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.2, y: -0.81777, z: 10}
+  m_LocalPosition: {x: 21.4, y: -0.81777, z: 10}
   m_LocalScale: {x: 2.2546875, y: 2.9312482, z: 1}
   m_Children:
   - {fileID: 582150371}
@@ -8024,7 +8024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644979427}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.2, y: 8.8, z: 10}
+  m_LocalPosition: {x: -11.2, y: 7.05, z: 10}
   m_LocalScale: {x: 2.0958, y: 1.9429, z: 1}
   m_Children: []
   m_Father: {fileID: 963194228}
@@ -9302,7 +9302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -710, y: -34}
+  m_AnchoredPosition: {x: -741, y: -34}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925007073
@@ -16761,8 +16761,12 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9126290932176853536, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
+      propertyPath: m_UseMotor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126290932176853536, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9126290932176853537, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: leftButton
@@ -16781,8 +16785,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1386798789}
     - target: {fileID: 9126290932176853539, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
+      propertyPath: m_UseMotor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126290932176853539, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 10
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126290932176853539, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9126290932176853542, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: m_Name
