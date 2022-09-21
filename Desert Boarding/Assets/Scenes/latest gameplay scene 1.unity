@@ -4387,7 +4387,7 @@ MonoBehaviour:
   vehicleModels:
   - {fileID: 482775764}
   - {fileID: 1254644742511038142}
-  - {fileID: 1567687750}
+  - {fileID: 8533367016058093745}
   virtualCamera:
   - {fileID: 308762770}
   - {fileID: 485911596}
@@ -4408,6 +4408,7 @@ Transform:
   - {fileID: 521188563}
   - {fileID: 289342746}
   - {fileID: 8056514776918627474}
+  - {fileID: 8533367016058093752}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16940,6 +16941,143 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ac5b2ec9fa4b2941a538e4432c618a1, type: 3}
+--- !u!1001 &4665199060282679672
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 854752081}
+    m_Modifications:
+    - target: {fileID: 648656850888290780, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: damageVehicleText
+      value: 
+      objectReference: {fileID: 238689432}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -119.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: FuelBar
+      value: 
+      objectReference: {fileID: 642578758}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: noNitro
+      value: 
+      objectReference: {fileID: 307723517}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: LoadingBar
+      value: 
+      objectReference: {fileID: 1706390243}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: leftbutton
+      value: 
+      objectReference: {fileID: 2026729223}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: nitroButton
+      value: 
+      objectReference: {fileID: 790939606}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: rightbutton
+      value: 
+      objectReference: {fileID: 1386798787}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: IncreaseScore
+      value: 
+      objectReference: {fileID: 78259907}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: OutOfFuelText
+      value: 
+      objectReference: {fileID: 22805521}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: nitrofillobject
+      value: 
+      objectReference: {fileID: 1186697697}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: acceleratorbutton
+      value: 
+      objectReference: {fileID: 1164057228}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: nitroObjectButton
+      value: 
+      objectReference: {fileID: 1186697697}
+    - target: {fileID: 3950362506677920201, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_Name
+      value: Mini Copper
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920201, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920206, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: leftButton
+      value: 
+      objectReference: {fileID: 2026729225}
+    - target: {fileID: 3950362506677920206, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: breakButton
+      value: 
+      objectReference: {fileID: 1164057230}
+    - target: {fileID: 3950362506677920206, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: nitroButton
+      value: 
+      objectReference: {fileID: 790939608}
+    - target: {fileID: 3950362506677920206, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: rightButton
+      value: 
+      objectReference: {fileID: 1386798789}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
 --- !u!1001 &7332209962140546475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17288,4 +17426,14 @@ Transform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1895386026552961125, guid: 6b39245ad3e7dad41b1653c4d5ac1db0, type: 3}
   m_PrefabInstance: {fileID: 7932325252935032099}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8533367016058093745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3950362506677920201, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+  m_PrefabInstance: {fileID: 4665199060282679672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8533367016058093752 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+  m_PrefabInstance: {fileID: 4665199060282679672}
   m_PrefabAsset: {fileID: 0}
