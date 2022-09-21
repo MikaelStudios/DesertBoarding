@@ -7,6 +7,7 @@ using TMPro;
 public class Speedometer : MonoBehaviour
 {
     public Rigidbody2D target;
+    
 
     public float maxSpeed = 0.0f;
 
