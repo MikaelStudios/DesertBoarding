@@ -89,7 +89,7 @@ SpriteShapeRenderer:
   m_SortingOrder: 10
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: 1d816056868a74b4db72775d1dee2223, type: 3}
+  m_ShapeTexture: {fileID: 2800000, guid: e32a8e6f31df27a4ea7ef085e4a65a7d, type: 3}
   m_Sprites:
   - {fileID: 21300000, guid: 89b8b06acff18024e8dd7c1f0960b8d0, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a9341756144b548884b750bf0b9a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 0}
+  particle: {fileID: 8680621679145075122}
 --- !u!1001 &941780281845414447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1542,6 +1542,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8459487716120443804, guid: 3961eaaa1be74a94b9b7627bb89e430e, type: 3}
   m_PrefabInstance: {fileID: 941780281845414447}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &8680621679145075122 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8459487716120443805, guid: 3961eaaa1be74a94b9b7627bb89e430e, type: 3}
+  m_PrefabInstance: {fileID: 941780281845414447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1160357990699094141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1607,7 +1612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157616422904373054, guid: f08f8f59128123c4aa1ff720ce8a2320, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5157616422904373055, guid: f08f8f59128123c4aa1ff720ce8a2320, type: 3}
       propertyPath: m_SortingOrder
@@ -1637,15 +1642,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!114 &1160357990140049194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157616422904373054, guid: f08f8f59128123c4aa1ff720ce8a2320, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5157616422904373055, guid: f08f8f59128123c4aa1ff720ce8a2320, type: 3}
       propertyPath: m_SortingOrder
@@ -1754,15 +1759,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!114 &8822135322598530618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1841,7 +1846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157616422904373054, guid: f08f8f59128123c4aa1ff720ce8a2320, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5157616422904373055, guid: f08f8f59128123c4aa1ff720ce8a2320, type: 3}
       propertyPath: m_SortingOrder
@@ -1871,15 +1876,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!114 &2757310785005900436
 MonoBehaviour:
   m_ObjectHideFlags: 0
