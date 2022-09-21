@@ -1226,7 +1226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308762770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 135.67, y: -2.14, z: -10}
+  m_LocalPosition: {x: 138.26999, y: -2.14, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 386970662}
@@ -1611,6 +1611,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1877506958852442277, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+      propertyPath: m_Mass
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: player
       value: 
@@ -1933,7 +1937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485911596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 135.67, y: -2.14, z: -10}
+  m_LocalPosition: {x: 138.26999, y: -2.14, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 213454982}
@@ -3858,7 +3862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709011509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 135.67, y: -2.14, z: -10}
+  m_LocalPosition: {x: 136.79001, y: -2.14, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 546739561}
@@ -3902,7 +3906,7 @@ MonoBehaviour:
   m_Follow: {fileID: 521188563}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 13
+    OrthographicSize: 12
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -4970,7 +4974,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 13
+  orthographic size: 12
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4994,7 +4998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -102.729996, y: 2.14, z: -10}
+  m_LocalPosition: {x: -101.60999, y: 2.14, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1644979428}
@@ -15783,6 +15787,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1144782424424232191, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_Mass
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144782424424232191, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144782424424232191, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160357990140049174, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_Mass
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160357990140049174, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160357990140049174, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3187176190732132992, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
       propertyPath: m_Points.Array.size
       value: 115
@@ -16645,6 +16673,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583287490243250826, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639675733971114017, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_Mass
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639675733971114017, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639675733971114017, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6991244786956175229, guid: 05f145d61983f5540bf306b8e48f4813, type: 3}
