@@ -16108,7 +16108,7 @@ MonoBehaviour:
   score: {fileID: 751928056}
   finalScore: 0
   highScore: 0
-  addToScore: 0
+  addToScore: 50
   speedMultiplier: 0
   isGameOver: 0
   FuelGuage: {fileID: 1505264860}
