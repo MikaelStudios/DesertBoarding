@@ -25,13 +25,13 @@ public class SaveData : MonoBehaviour
     {
         highScore = PlayerPrefs.GetInt("Best Score", finalScore);
         Debug.Log(highScore);
-        submitButton.gameObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Submit();
+        
     }
 
     public void SendScore()
@@ -42,8 +42,5 @@ public class SaveData : MonoBehaviour
             PlayerPrefs.SetInt("Best Score", finalScore);
             HighScores.UploadScore(myName.text, finalScore);
     }
-    public void Submit()
-    {
-        enterName.text = " "+ myName;
-    }
+    
 }
