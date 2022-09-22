@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "22738280789",
+    "project_id": "keke-rush",
+    "storage_bucket": "keke-rush.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22738280789:android:8a783f463619c8e3b8cfdc",
+        "android_client_info": {
+          "package_name": "com.maliyo.kekerush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22738280789-r5gtkim4cbd8gajtahdip1474eufstjc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.maliyo.kekerush",
+            "certificate_hash": "8ab5865c4f7280aaffe0c656df097e01a41d638b"
+          }
+        },
+        {
+          "client_id": "22738280789-l0m2evhno0kumf1ougc43es0gaq6amuv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkCVaID7sYho6S7UYG5chCNMhd9LJGj2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22738280789-l0m2evhno0kumf1ougc43es0gaq6amuv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
