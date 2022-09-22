@@ -1646,6 +1646,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2026729223}
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+      propertyPath: nitroAmount
+      value: 580
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: nitroButton
       value: 
       objectReference: {fileID: 790939606}
@@ -1673,6 +1677,10 @@ PrefabInstance:
       propertyPath: nitroObjectButton
       value: 
       objectReference: {fileID: 1186697697}
+    - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+      propertyPath: accelerationAmount
+      value: 380
+      objectReference: {fileID: 0}
     - target: {fileID: 1877506958852442279, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -15941,6 +15949,8 @@ MonoBehaviour:
   acceleratorbutton: {fileID: 0}
   player: {fileID: 0}
   distanceX: 0
+  accelerationAmount: 0
+  nitroAmount: 0
 --- !u!82 &2057988968
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16621,6 +16631,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2026729223}
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
+      propertyPath: nitroAmount
+      value: 680
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: nitroButton
       value: 
       objectReference: {fileID: 790939606}
@@ -16656,6 +16670,10 @@ PrefabInstance:
       propertyPath: nitroObjectButton
       value: 
       objectReference: {fileID: 1186697697}
+    - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
+      propertyPath: accelerationAmount
+      value: 480
+      objectReference: {fileID: 0}
     - target: {fileID: 9126290932176853551, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -17054,6 +17072,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2026729223}
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: nitroAmount
+      value: 780
+      objectReference: {fileID: 0}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: nitroButton
       value: 
       objectReference: {fileID: 790939606}
@@ -17081,13 +17103,17 @@ PrefabInstance:
       propertyPath: nitroObjectButton
       value: 
       objectReference: {fileID: 1186697697}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: accelerationAmount
+      value: 580
+      objectReference: {fileID: 0}
     - target: {fileID: 3950362506677920201, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: m_Name
       value: Mini Copper
       objectReference: {fileID: 0}
     - target: {fileID: 3950362506677920201, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3950362506677920206, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: leftButton

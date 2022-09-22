@@ -68,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject nitroObjectButton, leftbutton, rightbutton, acceleratorbutton;
     public Transform player;
     public float distanceX;
+    public float accelerationAmount;
+    public float nitroAmount;
     
     public void Awake()
     {
@@ -205,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
         if (LongPressed.instance.brakeButtonDown)
         {
             FuelBar.fillAmount -= 0.05f* Time.deltaTime;
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 280f, ForceMode2D.Force);
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * accelerationAmount, ForceMode2D.Force);
             
             AudioManager.instance.StopNormalCarSound();
             AudioManager.instance.PlayCarSound();
@@ -234,7 +236,7 @@ public class PlayerMovement : MonoBehaviour
         
 
             NitroFillCar();
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 380f, ForceMode2D.Force);
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * nitroAmount, ForceMode2D.Force);
             if(LoadingBar.fillAmount <= 0)
             {
                 LongPressed.instance.nitroButtonDown = false;
