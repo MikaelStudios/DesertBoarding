@@ -6,7 +6,8 @@ using GooglePlayGames;
 public class LeaderBoard : MonoBehaviour
 {
     // the Leaderboard ID as it is on the Google Play Developer Console
-    private string KekeRushLeaderboardID = "";
+	[Header("Leaderboard ID")]
+    public string KekeRushLeaderboardID;
 
     // Show LeaderBoard - attach this to a button
 	public void ShowLeaderBoardBtn() // ! attach this a button that opens the leaderboard
