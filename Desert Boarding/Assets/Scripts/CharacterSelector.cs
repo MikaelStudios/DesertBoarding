@@ -138,15 +138,15 @@ public class CharacterSelector : MonoBehaviour
             // vehicleModels[currentIndex].SetActive(true);
             buyButton.gameObject.SetActive(false);
             keyButton.gameObject.SetActive(false);
-            locked.gameObject.SetActive(false);
+            
 
         }
 
         else
         {
             // vehicleModels[currentIndex].SetActive(false);
-            // buyButton.gameObject.SetActive(true);
-            locked.gameObject.SetActive(true);
+            buyButton.gameObject.SetActive(true);
+            
             keyButton.gameObject.SetActive(true);
             buyButtontext.text = "To unlock "+ vehicle.name + " drive a distance of " + vehicle.price;
             /*if (vehicle.level <= mainLevel)

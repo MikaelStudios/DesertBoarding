@@ -1839,12 +1839,12 @@ MonoBehaviour:
     isUnlocked: 1
     level: 1
   - name: Ninja
-    price: 10
+    price: 500
     index: 1
     isUnlocked: 0
     level: 2
   - name: Turbo
-    price: 10000
+    price: 1000
     index: 2
     isUnlocked: 0
     level: 3
