@@ -4026,8 +4026,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 1
-  m_LookAt: {fileID: 521188563}
-  m_Follow: {fileID: 521188563}
+  m_LookAt: {fileID: 8533367016058093752}
+  m_Follow: {fileID: 8533367016058093752}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 12
@@ -17113,7 +17113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3950362506677920201, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3950362506677920206, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: leftButton
