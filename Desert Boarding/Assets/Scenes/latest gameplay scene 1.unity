@@ -275,6 +275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 963194228}
     m_Modifications:
+    - target: {fileID: 6737754181502152864, guid: df73482c6eb3fbc488ad7e603d662662, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6737754181502152865, guid: df73482c6eb3fbc488ad7e603d662662, type: 3}
       propertyPath: m_Name
       value: CountDown
@@ -1909,7 +1913,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482775764}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 20dba73df69bde3479c1bf2ba422ea85, type: 2}
   m_CullingMode: 0
@@ -2264,10 +2268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635a3c0bc546a11498612432d1dabf23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 380252978211567206, guid: a451507fa5e1a7546a5d03531c1d2e4a, type: 3}
-  - {fileID: 380252978211567206, guid: a451507fa5e1a7546a5d03531c1d2e4a, type: 3}
-  - {fileID: 380252978211567206, guid: a451507fa5e1a7546a5d03531c1d2e4a, type: 3}
 --- !u!212 &556229391
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16160,6 +16160,8 @@ MonoBehaviour:
   shade: {fileID: 1655762733}
   pauseButton: {fileID: 1070191897}
   confetti: {fileID: 675367909104265396}
+  confettiForDistanceApplaud: {fileID: 0}
+  distanceApplaudPanel: {fileID: 0}
   bestScore: {fileID: 1925007073}
   finalBestScore: {fileID: 1361431587}
   finalgameoverScore: {fileID: 1431186027}

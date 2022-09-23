@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
         leftbutton.interactable = false;
         rightbutton.interactable = false;
         acceleratorbutton.interactable = false;
+        
         //PlayerScore();
 
         
@@ -102,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         if (GameManager.Instance.isGameOver){return;}
-        StartCoroutine(ShowCountDown(100f));
+        StartCoroutine(ShowCountDown(5f));
         
         
     }
@@ -186,6 +187,8 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
     public IEnumerator ShowCountDown(float time) {
+        yield return new WaitForSecondsRealtime(time); //Wait 1 second
+        anim.Play("CrossTour");
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("CrossTour"))
         {
             rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
@@ -208,7 +211,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
         
-        yield return new WaitForSecondsRealtime(time); //Wait 1 second
+        
   
 }
     public void IncreaseSpeed()
