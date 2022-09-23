@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public GameEvent OnGameOver;
     public FloatEvent OnHighScore;
+    public GameObject[] vehicles;
 
     private void Awake()
     {
@@ -48,7 +49,11 @@ public class GameManager : MonoBehaviour
         FuelGuage.maxValue = 10;
         FuelGuage.minValue = 0;
         FuelGuage.value = 10;
-        distanceX = PlayerMovement.instance.distanceX;
+        foreach( GameObject veh in vehicles)
+        {
+            distanceX = veh.transform.position.x;
+        }
+
         
         highScore = PlayerPrefs.GetInt("Best Score", finalScore);
         // PlayerPrefs.DeleteAll();
@@ -56,7 +61,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("highScore"+ finalScore);
         score.text = "Score: " + finalScore.ToString("00000");
         
-        distanceApplaudPanel.SetActive(true);
+        //distanceApplaudPanel.SetActive(true);
 
         /*if(PlayerPrefs.GetInt("FirstTime") == 0)
         {
@@ -75,7 +80,7 @@ public class GameManager : MonoBehaviour
         {
             float newposition = PlayerMovement.instance.distanceX;
             score.gameObject.SetActive(true);
-            score.text = "Score: " + (100+(newposition - distanceX) + addToScore).ToString("0000");
+            score.text = "Score: " + ((newposition - distanceX) + addToScore).ToString("0000");
             /*if(score.text =="Score: " +100)
             {
                 score.text = "Score: 0000";

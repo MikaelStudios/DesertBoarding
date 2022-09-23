@@ -28,14 +28,13 @@ public class CharacterSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-       
+        
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
         foreach (VehiclesBluePrint vehicle in vehicles)
         {
             nameofCar.text = " "+ vehicle.name;
 
-            if (vehicle.name == "Vehicle1")
+            if (vehicle.name == "Keke")
 
             {
                 vehicle.isUnlocked = true;

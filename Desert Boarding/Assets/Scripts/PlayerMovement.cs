@@ -103,7 +103,17 @@ public class PlayerMovement : MonoBehaviour
     {
 
         if (GameManager.Instance.isGameOver){return;}
-        StartCoroutine(ShowCountDown(5f));
+        nitroObjectButton.interactable = true;
+        leftbutton.interactable = true;
+        rightbutton.interactable = true;
+        acceleratorbutton.interactable = true;
+        PlayerRigidbody();
+        PlayerScore();
+        FlipLeft();
+        FlipRight();
+        IncreaseSpeed();
+        NitroSpeed();
+        FuelReduce();
         
         
     }
