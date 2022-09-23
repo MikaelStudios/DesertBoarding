@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
            confetti.SetActive(true);
 
         PlayerPrefs.GetInt("Best Score", finalScore);
-        
+        LeaderBoard.instance.UpdateLeaderboardScore(highScore);
         isGameOver = true;
 
         shade.SetActive(true);

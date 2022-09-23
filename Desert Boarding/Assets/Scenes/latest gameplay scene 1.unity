@@ -17510,7 +17510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618799862616899354, guid: 5bd3d05953bf04e4aa170545d1e931c4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2618799862616899357, guid: 5bd3d05953bf04e4aa170545d1e931c4, type: 3}
       propertyPath: leftButton
