@@ -8,7 +8,7 @@ public class CountTimer : MonoBehaviour
     public float timeRemaining = 10;
 
     public bool timerIsRunning = false;
-    public TextMeshProUGUI disvar;
+    public Text disvar;
     public AudioSource countdown;
     public GameObject countdownPanel;
 
@@ -44,15 +44,23 @@ public class CountTimer : MonoBehaviour
             {
 
                 timeRemaining -= Time.deltaTime;
-                if(timeRemaining == 0){
-                    disvar.text = "GO!";
-                }
-                Debug.Log("timeRemaining" +timeRemaining);
+
+                
+                
 
             }
+            
 
-            double b = System.Math.Round (timeRemaining); 
-            disvar.text = b.ToString ();
+            double b = System.Math.Round (timeRemaining);
+            if(b == 0)
+            {
+                disvar.text = "GO!";
+            
+            }
+            else
+            {
+                disvar.text = b.ToString ();
+            }
 
             if(timeRemaining<0)
 
@@ -60,7 +68,8 @@ public class CountTimer : MonoBehaviour
 
                 Debug.Log("Time has run out!");
 
-                timeRemaining = 0;
+                
+                disvar.text = "GO!";
 
                 timerIsRunning = false;
                 countdownPanel.SetActive(false);

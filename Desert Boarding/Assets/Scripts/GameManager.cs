@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
         
         highScore = PlayerPrefs.GetInt("Best Score", finalScore);
-        // PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
         //Debug.Log("highScore"+ finalScore);
         score.text = "Score: " + finalScore.ToString("00000");
@@ -96,24 +96,31 @@ public class GameManager : MonoBehaviour
             
         }
        
+        
+        else if(isGameOver)
+        {
+            confettiForDistanceApplaud.SetActive(false);
+            distanceApplaudPanel.SetActive(false);
+        }
         if(highScore < finalScore)
-            PlayerPrefs.SetInt("Best Score", finalScore);
+        {   PlayerPrefs.SetInt("Best Score", finalScore);
             finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
             bestScore.gameObject.SetActive(true);
             bestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
             finalBestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
             Debug.Log("highScore " + highScore);
             Debug.Log("finalScore " + finalScore);
+        }
         
     }
     
-    void LateUpdate()
+    /*void LateUpdate()
     {
         if(finalScore > highScore)
            {
               StartCoroutine(DistanceApplaud());
            }
-    }
+    }*/
     
 
     public void Pause()
@@ -140,15 +147,14 @@ public class GameManager : MonoBehaviour
         pauseButton.SetActive(false);
         finalBestScore.gameObject.SetActive(true);
         finalgameoverScore.gameObject.SetActive(true);
-        confettiForDistanceApplaud.SetActive(false);
-        distanceApplaudPanel.SetActive(false);
+        
         LeaderBoard.Instance.UpdateLeaderboardScore(highScore);
     }
 
     private IEnumerator DistanceApplaud()
     {
         confettiForDistanceApplaud.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(0);
         confettiForDistanceApplaud.SetActive(false);
         distanceApplaudPanel.SetActive(false);
     }
