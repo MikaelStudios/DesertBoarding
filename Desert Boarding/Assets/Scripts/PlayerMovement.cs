@@ -89,10 +89,7 @@ public class PlayerMovement : MonoBehaviour
         AudioManager.instance.NormalCarSound();
         isGrounded = true;
         anim = GetComponent<Animator>();
-        nitroObjectButton.interactable = false;
-        leftbutton.interactable = false;
-        rightbutton.interactable = false;
-        acceleratorbutton.interactable = false;
+        
         
         //PlayerScore();
 
@@ -103,10 +100,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         if (GameManager.Instance.isGameOver){return;}
-        nitroObjectButton.interactable = true;
-        leftbutton.interactable = true;
-        rightbutton.interactable = true;
-        acceleratorbutton.interactable = true;
+        
         PlayerRigidbody();
         PlayerScore();
         FlipLeft();

@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource carSound;
     public AudioSource nitroSound;
     public AudioSource bombSound;
+    public AudioSource countdown;
 
     public static AudioManager instance;
     
@@ -50,5 +51,9 @@ public class AudioManager : MonoBehaviour
     public void StopNitroCarSound()
     {
         nitroSound.Stop();
+    }
+    public void PlayCountDown()
+    {
+        countdown.Play();
     }
 }
