@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject confettiForDistanceApplaud;
     public GameObject distanceApplaudPanel;
-
     public TextMeshProUGUI bestScore;
     public TextMeshProUGUI finalBestScore;
     public TextMeshProUGUI finalgameoverScore;
@@ -57,6 +56,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("highScore"+ finalScore);
         score.text = "Score: " + finalScore.ToString("00000");
         
+        distanceApplaudPanel.SetActive(true);
 
         /*if(PlayerPrefs.GetInt("FirstTime") == 0)
         {
@@ -99,12 +99,16 @@ public class GameManager : MonoBehaviour
             finalBestScore.text = "BEST SCORE: "+ finalScore.ToString("00000");
             Debug.Log("highScore " + highScore);
             Debug.Log("finalScore " + finalScore);
-
-        if(finalScore > highScore) 
-           StartCoroutine(DistanceApplaud());
         
     }
-
+    
+    void LateUpdate()
+    {
+        if(finalScore > highScore)
+           {
+              StartCoroutine(DistanceApplaud());
+           }
+    }
     
 
     public void Pause()
@@ -132,14 +136,15 @@ public class GameManager : MonoBehaviour
         pauseButton.SetActive(false);
         finalBestScore.gameObject.SetActive(true);
         finalgameoverScore.gameObject.SetActive(true);
+        confettiForDistanceApplaud.SetActive(false);
+        distanceApplaudPanel.SetActive(false);
     }
 
     private IEnumerator DistanceApplaud()
     {
         confettiForDistanceApplaud.SetActive(true);
-        distanceApplaudPanel.gameObject.SetActive(true);
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(5);
         confettiForDistanceApplaud.SetActive(false);
-        distanceApplaudPanel.gameObject.SetActive(false);
+        distanceApplaudPanel.SetActive(false);
     }
 }
