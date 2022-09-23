@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class NitroAssets : MonoBehaviour
 {
     public ParticleSystem particle;
+
+    public AudioSource audioSource;
    
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,6 +19,7 @@ public class NitroAssets : MonoBehaviour
             
             StartCoroutine(Destroy());
             particle.Play();
+            audioSource.Play();
 
         }
         
