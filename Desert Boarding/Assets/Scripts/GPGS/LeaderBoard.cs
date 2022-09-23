@@ -28,6 +28,8 @@ public class LeaderBoard : MonoBehaviour
 	{
 		// Social.ShowLeaderboardUI(); // code to show all Leaderboards
 
+		Debug.Log("Show LeaderBoard Pressed");
+
 		PlayGamesPlatform.Instance.ShowLeaderboardUI(KekeRushLeaderboardID); // specific Leaderboard
 	}
 
