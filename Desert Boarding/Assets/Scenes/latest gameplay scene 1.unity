@@ -1339,6 +1339,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &389872574 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 820039941840410613, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+  m_PrefabInstance: {fileID: 4665199060282679672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &393557275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1649,7 @@ PrefabInstance:
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: leftbutton
       value: 
-      objectReference: {fileID: 2026729223}
+      objectReference: {fileID: 2026729225}
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: nitroAmount
       value: 580
@@ -1656,7 +1661,7 @@ PrefabInstance:
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: rightbutton
       value: 
-      objectReference: {fileID: 1386798787}
+      objectReference: {fileID: 1386798789}
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: IncreaseScore
       value: 
@@ -1666,17 +1671,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22805521}
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+      propertyPath: nitroparticle
+      value: 
+      objectReference: {fileID: 715817246}
+    - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+      propertyPath: exhaustparticle
+      value: 
+      objectReference: {fileID: 862738667}
+    - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: nitrofillobject
       value: 
       objectReference: {fileID: 1186697697}
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: acceleratorbutton
       value: 
-      objectReference: {fileID: 1164057228}
+      objectReference: {fileID: 1164057230}
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: nitroObjectButton
       value: 
-      objectReference: {fileID: 1186697697}
+      objectReference: {fileID: 790939608}
     - target: {fileID: 1877506958852442278, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: accelerationAmount
       value: 380
@@ -1781,9 +1794,17 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2863694113292391242, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2863694114131672722, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863694114131672722, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4887966528133561952, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
       propertyPath: looping
@@ -4076,6 +4097,11 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &715817246 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2863694114131672722, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+  m_PrefabInstance: {fileID: 482775763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &732178620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4449,7 +4475,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 790939609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &790939609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4856,6 +4894,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856862529}
   m_CullTransparentMesh: 1
+--- !u!198 &862738667 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2863694113292391242, guid: 8e55d80224cc72842ba9678c3a434653, type: 3}
+  m_PrefabInstance: {fileID: 482775763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &867105655
 GameObject:
   m_ObjectHideFlags: 0
@@ -5538,6 +5581,11 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!198 &964081247 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 820039939929274925, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+  m_PrefabInstance: {fileID: 4665199060282679672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &964230441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8034,11 +8082,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df4592f1e283a0845b47ee8cdf118e61, type: 3}
---- !u!1 &1567687750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4261110104543467668, guid: df4592f1e283a0845b47ee8cdf118e61, type: 3}
-  m_PrefabInstance: {fileID: 1567687749}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613878427
 GameObject:
   m_ObjectHideFlags: 0
@@ -9344,7 +9387,7 @@ MonoBehaviour:
   player:
   - {fileID: 482775764}
   - {fileID: 1254644742511038142}
-  - {fileID: 1567687750}
+  - {fileID: 8533367016058093745}
   pathDrawDistance: 80
   pathDeleteDistance: 140
   currentIndex: 0
@@ -16629,7 +16672,7 @@ PrefabInstance:
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: leftbutton
       value: 
-      objectReference: {fileID: 2026729223}
+      objectReference: {fileID: 2026729225}
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: nitroAmount
       value: 680
@@ -16641,7 +16684,7 @@ PrefabInstance:
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: rightbutton
       value: 
-      objectReference: {fileID: 1386798787}
+      objectReference: {fileID: 1386798789}
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: IncreaseScore
       value: 
@@ -16653,11 +16696,11 @@ PrefabInstance:
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: nitroparticle
       value: 
-      objectReference: {fileID: 1254644742511038145}
+      objectReference: {fileID: 389872574}
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: exhaustparticle
       value: 
-      objectReference: {fileID: 1254644742511038144}
+      objectReference: {fileID: 964081247}
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: nitrofillobject
       value: 
@@ -16665,11 +16708,11 @@ PrefabInstance:
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: acceleratorbutton
       value: 
-      objectReference: {fileID: 1164057228}
+      objectReference: {fileID: 1164057230}
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: nitroObjectButton
       value: 
-      objectReference: {fileID: 1186697697}
+      objectReference: {fileID: 790939608}
     - target: {fileID: 9126290932176853550, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
       propertyPath: accelerationAmount
       value: 480
@@ -16744,16 +16787,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!198 &1254644742511038144 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4632358872847888636, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
-  m_PrefabInstance: {fileID: 1254644742511038141}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1254644742511038145 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8216700716509955972, guid: b257d7304415d454f9cf95767fee7f52, type: 3}
-  m_PrefabInstance: {fileID: 1254644742511038141}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1877506958559438221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16995,6 +17028,14 @@ PrefabInstance:
       propertyPath: damageVehicleText
       value: 
       objectReference: {fileID: 238689432}
+    - target: {fileID: 820039939929274925, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 820039941840410613, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3950362506677920192, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -17070,7 +17111,7 @@ PrefabInstance:
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: leftbutton
       value: 
-      objectReference: {fileID: 2026729223}
+      objectReference: {fileID: 2026729225}
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: nitroAmount
       value: 780
@@ -17082,7 +17123,7 @@ PrefabInstance:
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: rightbutton
       value: 
-      objectReference: {fileID: 1386798787}
+      objectReference: {fileID: 1386798789}
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: IncreaseScore
       value: 
@@ -17092,17 +17133,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22805521}
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: boxCollider2d
+      value: 
+      objectReference: {fileID: 8533367016058093746}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: nitroparticle
+      value: 
+      objectReference: {fileID: 389872574}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+      propertyPath: exhaustparticle
+      value: 
+      objectReference: {fileID: 964081247}
+    - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: nitrofillobject
       value: 
       objectReference: {fileID: 1186697697}
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: acceleratorbutton
       value: 
-      objectReference: {fileID: 1164057228}
+      objectReference: {fileID: 1164057230}
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: nitroObjectButton
       value: 
-      objectReference: {fileID: 1186697697}
+      objectReference: {fileID: 790939608}
     - target: {fileID: 3950362506677920193, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
       propertyPath: accelerationAmount
       value: 580
@@ -17485,6 +17538,11 @@ RectTransform:
 --- !u!1 &8533367016058093745 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3950362506677920201, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
+  m_PrefabInstance: {fileID: 4665199060282679672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &8533367016058093746 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3950362506677920202, guid: 0467a9b8b2e58cf42b64b893933b7665, type: 3}
   m_PrefabInstance: {fileID: 4665199060282679672}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8533367016058093752 stripped

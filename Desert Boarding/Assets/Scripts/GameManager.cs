@@ -72,14 +72,14 @@ public class GameManager : MonoBehaviour
             float newposition = PlayerMovement.instance.distanceX;
             score.gameObject.SetActive(true);
             score.text = "Score: " + (100+(newposition - distanceX) + addToScore).ToString("0000");
-            if(score.text =="Score: " +100)
+            /*if(score.text =="Score: " +100)
             {
                 score.text = "Score: 0000";
             }
             else
             {
                 score.text = "Score: " + (100+(newposition - distanceX) + addToScore).ToString("0000");
-            }
+            }*/
             finalgameoverScore.text = "Score: " + (newposition - distanceX + addToScore).ToString("0000");
             finalScore = (int)(newposition - distanceX + addToScore);
                 //Debug.Log("Score"+ finalScore);

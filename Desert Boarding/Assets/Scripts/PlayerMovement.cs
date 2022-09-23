@@ -65,7 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
     Animator anim;
-    public GameObject nitroObjectButton, leftbutton, rightbutton, acceleratorbutton;
+    public Button nitroObjectButton;
+    public Button leftbutton;
+    public Button rightbutton;
+    public Button acceleratorbutton;
     public Transform player;
     public float distanceX;
     public float accelerationAmount;
@@ -86,10 +89,10 @@ public class PlayerMovement : MonoBehaviour
         AudioManager.instance.NormalCarSound();
         isGrounded = true;
         anim = GetComponent<Animator>();
-        nitroObjectButton.SetActive(true);
-        leftbutton.SetActive(true);
-        rightbutton.SetActive(true);
-        acceleratorbutton.SetActive(true);
+        nitroObjectButton.interactable = false;
+        leftbutton.interactable = false;
+        rightbutton.interactable = false;
+        acceleratorbutton.interactable = false;
         //PlayerScore();
 
         
@@ -99,27 +102,9 @@ public class PlayerMovement : MonoBehaviour
     {
 
         if (GameManager.Instance.isGameOver){return;}
+        StartCoroutine(ShowCountDown(100f));
         
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("CrossTour"))
-        {
-            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
-            
-            PlayerRigidbody();
-            if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
-            {
-                
-                // nitroObjectButton.SetActive(true);
-                // leftbutton.SetActive(true);
-                // rightbutton.SetActive(true);
-                // acceleratorbutton.SetActive(true);
-                PlayerScore();
-                FlipLeft();
-                FlipRight();
-                IncreaseSpeed();
-                NitroSpeed();
-                FuelReduce();
-
-        }
+        
     }
         //rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
         // if(Input.GetKey(KeyCode.Space))
@@ -136,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         
         
         
-    }
+  
     
     // public void JumpUp()
     // {
@@ -200,7 +185,32 @@ public class PlayerMovement : MonoBehaviour
         }
         return false;
     }
-    
+    public IEnumerator ShowCountDown(float time) {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("CrossTour"))
+        {
+            rigidbody2d.AddForce(transform.right * runSpeed * Time.fixedDeltaTime * 180f, ForceMode2D.Force);
+            
+            PlayerRigidbody();
+            if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+            {
+                
+                nitroObjectButton.interactable = true;
+                leftbutton.interactable = true;
+                rightbutton.interactable = true;
+                acceleratorbutton.interactable = true;
+                PlayerScore();
+                FlipLeft();
+                FlipRight();
+                IncreaseSpeed();
+                NitroSpeed();
+                FuelReduce();
+            }
+
+        }
+        
+        yield return new WaitForSecondsRealtime(time); //Wait 1 second
+  
+}
     public void IncreaseSpeed()
     {
         

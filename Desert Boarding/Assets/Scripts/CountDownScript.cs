@@ -17,7 +17,7 @@ public class CountDownScript : MonoBehaviour
     IEnumerator CountdownToStart()
     {
         Time.timeScale = 0;
-        float pauseTime = Time.realtimeSinceStartup + 4f;
+        float pauseTime = Time.realtimeSinceStartup + 1f;
         while (Time.realtimeSinceStartup < pauseTime)
             yield return 0;
             Countdown.gameObject.SetActive(false);
