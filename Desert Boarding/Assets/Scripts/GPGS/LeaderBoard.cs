@@ -5,6 +5,12 @@ using GooglePlayGames;
 
 public class LeaderBoard : MonoBehaviour
 {
+	public static LeaderBoard instance;
+
+	public void Awake()
+	{
+		instance = this;
+	}
     // the Leaderboard ID as it is on the Google Play Developer Console
 	[Header("Leaderboard ID")]
     public string KekeRushLeaderboardID;
@@ -18,13 +24,13 @@ public class LeaderBoard : MonoBehaviour
 	}
 
     // Updating each player's Leaderboard Score
-	public void UpdateLeaderboardScore()
+	public void UpdateLeaderboardScore(int leaderboardScoreValue )
 	{
         // Get the value from anywhere you want
         // ! => Get the value from the game
-        var leaderboardScoreValue = "100";
+        // var leaderboardScoreValue = "100";
 
-		Social.ReportScore(int.Parse(leaderboardScoreValue), KekeRushLeaderboardID, (bool success) => {
+		Social.ReportScore(leaderboardScoreValue, KekeRushLeaderboardID, (bool success) => {
 			// handle success or failure
             //if (success){Debug.Log("Score Updated");}
             //else{Debug.Log("Score Not Updated");}
