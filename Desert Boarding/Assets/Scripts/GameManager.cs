@@ -132,7 +132,6 @@ public class GameManager : MonoBehaviour
            confetti.SetActive(true);
 
         PlayerPrefs.GetInt("Best Score", finalScore);
-        LeaderBoard.instance.UpdateLeaderboardScore(highScore);
         isGameOver = true;
 
         shade.SetActive(true);
@@ -143,6 +142,7 @@ public class GameManager : MonoBehaviour
         finalgameoverScore.gameObject.SetActive(true);
         confettiForDistanceApplaud.SetActive(false);
         distanceApplaudPanel.SetActive(false);
+        LeaderBoard.Instance.UpdateLeaderboardScore(highScore);
     }
 
     private IEnumerator DistanceApplaud()

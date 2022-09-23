@@ -5,11 +5,19 @@ using GooglePlayGames;
 
 public class LeaderBoard : MonoBehaviour
 {
-	public static LeaderBoard instance;
+	public static LeaderBoard Instance;
 
-	public void Awake()
+	private void Awake()
 	{
-		instance = this;
+		if (Instance == null)
+		   {
+		     Instance = this;
+			 DontDestroyOnLoad(gameObject);
+		   }
+		else
+		{
+			Destroy(gameObject);
+		}
 	}
     // the Leaderboard ID as it is on the Google Play Developer Console
 	[Header("Leaderboard ID")]
