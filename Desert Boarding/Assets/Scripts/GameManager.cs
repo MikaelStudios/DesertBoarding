@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         finalBestScore.gameObject.SetActive(true);
         finalgameoverScore.gameObject.SetActive(true);
         
-        LeaderBoard.Instance.UpdateLeaderboardScore(highScore);
+        //LeaderBoard.Instance.UpdateLeaderboardScore(highScore);
     }
 
     private IEnumerator DistanceApplaud()
