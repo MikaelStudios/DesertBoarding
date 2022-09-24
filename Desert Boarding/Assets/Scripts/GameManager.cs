@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject confettiForDistanceApplaud;
     public GameObject distanceApplaudPanel;
+    public GameObject notificationSound;
     public TextMeshProUGUI bestScore;
     public TextMeshProUGUI finalBestScore;
     public TextMeshProUGUI finalgameoverScore;
@@ -162,5 +163,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         confettiForDistanceApplaud.SetActive(false);
         distanceApplaudPanel.SetActive(false);
+        notificationSound.SetActive(false);
     }
 }
