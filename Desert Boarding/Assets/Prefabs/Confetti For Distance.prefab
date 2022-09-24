@@ -4908,6 +4908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3001504342020234827}
+  - component: {fileID: 7624003676023338290}
   m_Layer: 5
   m_Name: Confetti For Distance
   m_TagString: Untagged
@@ -4937,6 +4938,25 @@ RectTransform:
   m_AnchoredPosition: {x: 9.000462, y: 181.70154}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &7624003676023338290
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098044894277993401}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4cb7ffd78fc9414c955fc723a61bc62, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6773405101275228246
 GameObject:
   m_ObjectHideFlags: 0
@@ -9843,9 +9863,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3001504342020234827}
     m_Modifications:
+    - target: {fileID: 4043959025764273842, guid: 6d147d7141531514b84c006db69007d6, type: 3}
+      propertyPath: m_text
+      value: 'You have a new score record
+
+
+        Keep cruising!!'
+      objectReference: {fileID: 0}
     - target: {fileID: 4422243694943746920, guid: 6d147d7141531514b84c006db69007d6, type: 3}
       propertyPath: m_Name
       value: Distance Applaud
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422243694943746920, guid: 6d147d7141531514b84c006db69007d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4422243694943746921, guid: 6d147d7141531514b84c006db69007d6, type: 3}
       propertyPath: m_Pivot.x
@@ -9931,7 +9962,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4422243694943746932, guid: 6d147d7141531514b84c006db69007d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6d147d7141531514b84c006db69007d6, type: 3}
 --- !u!224 &4426331956785393445 stripped
 RectTransform:

@@ -403,7 +403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109589956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 134.65799, y: -2.14, z: -10}
+  m_LocalPosition: {x: 138.538, y: -2.14, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 1126412838}
@@ -441,13 +441,13 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 15
   m_StandbyUpdate: 1
   m_LookAt: {fileID: 4467376166170443630}
   m_Follow: {fileID: 4467376166170443630}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12
+    OrthographicSize: 13
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -716,7 +716,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205819019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 134.65799, y: -2.14, z: -10}
+  m_LocalPosition: {x: 138.538, y: -2.14, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 1343211586}
@@ -754,13 +754,13 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 15
   m_StandbyUpdate: 1
   m_LookAt: {fileID: 5958214182811787085}
   m_Follow: {fileID: 5958214182811787085}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12
+    OrthographicSize: 13
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 15
   m_StandbyUpdate: 1
   m_LookAt: {fileID: 2271388502016925352}
   m_Follow: {fileID: 2271388502016925352}
@@ -1496,7 +1496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308762770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 135.67, y: -2.14, z: -10}
+  m_LocalPosition: {x: 138.26999, y: -2.14, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 386970662}
@@ -2216,7 +2216,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 15
   m_StandbyUpdate: 1
   m_LookAt: {fileID: 3950362506650478048}
   m_Follow: {fileID: 3950362506650478048}
@@ -2243,7 +2243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485911596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 135.93799, y: -2.14, z: -10}
+  m_LocalPosition: {x: 138.538, y: -2.14, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 213454982}
@@ -4237,7 +4237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709011509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 134.65799, y: -2.14, z: -10}
+  m_LocalPosition: {x: 138.538, y: -2.14, z: -10}
   m_LocalScale: {x: 0.65, y: 1, z: 1}
   m_Children:
   - {fileID: 546739561}
@@ -4275,13 +4275,13 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 15
   m_StandbyUpdate: 1
   m_LookAt: {fileID: 2925889571323256168}
   m_Follow: {fileID: 2925889571323256168}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12
+    OrthographicSize: 13
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5778,7 +5778,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 13
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -5802,7 +5802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -103.742, y: 2.14, z: -10}
+  m_LocalPosition: {x: -99.862, y: 2.14, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1644979428}
@@ -6354,6 +6354,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1026438316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4426331956785393444, guid: 096ef9165be679d4090dde1e16473509, type: 3}
+  m_PrefabInstance: {fileID: 4047765255897476260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1051805285
 GameObject:
   m_ObjectHideFlags: 0
@@ -17081,7 +17086,7 @@ MonoBehaviour:
   pauseButton: {fileID: 1070191897}
   confetti: {fileID: 675367909104265396}
   confettiForDistanceApplaud: {fileID: 7624003676023338289}
-  distanceApplaudPanel: {fileID: 7624003676023338289}
+  distanceApplaudPanel: {fileID: 1026438316}
   bestScore: {fileID: 1925007073}
   finalBestScore: {fileID: 1361431587}
   finalgameoverScore: {fileID: 1431186027}
@@ -18235,13 +18240,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4047765254314662654, guid: 096ef9165be679d4090dde1e16473509, type: 3}
+      propertyPath: m_text
+      value: '500 distance covered
+
+
+        Keep cruising!!'
+      objectReference: {fileID: 0}
     - target: {fileID: 4426331956785393444, guid: 096ef9165be679d4090dde1e16473509, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4426331956785393446, guid: 096ef9165be679d4090dde1e16473509, type: 3}
       propertyPath: m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4426331956785393446, guid: 096ef9165be679d4090dde1e16473509, type: 3}
       propertyPath: m_RaycastTarget
@@ -19304,14 +19316,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7442801202935772567, guid: 6b39245ad3e7dad41b1653c4d5ac1db0, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932325252067040835, guid: 6b39245ad3e7dad41b1653c4d5ac1db0, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570827267622276482, guid: 6b39245ad3e7dad41b1653c4d5ac1db0, type: 3}
-      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
