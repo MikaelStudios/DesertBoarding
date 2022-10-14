@@ -11,8 +11,11 @@ public class AudioManager : MonoBehaviour
     public AudioSource bombSound;
     public AudioSource countdown;
     
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 768dcffdc96f48d768c9f56df336ffbe287e9065
     public static AudioManager instance;
     
     public void Awake()
@@ -24,6 +27,7 @@ public class AudioManager : MonoBehaviour
     {
         
     }
+
 
     public void PlayCarSound()
     {

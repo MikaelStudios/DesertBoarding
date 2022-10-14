@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    
+    private string shareMessage; 
 
     public Transform player;
     public TextMeshProUGUI score;
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject confettiForDistanceApplaud;
     public GameObject distanceApplaudPanel;
+    public GameObject notificationSound;
     public TextMeshProUGUI bestScore;
     public TextMeshProUGUI finalBestScore;
     public TextMeshProUGUI finalgameoverScore;
@@ -56,20 +60,24 @@ public class GameManager : MonoBehaviour
 
         
         highScore = PlayerPrefs.GetInt("Best Score", finalScore);
-        //PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
         finalScore = PlayerPrefs.GetInt("Best Score", finalScore);
         //Debug.Log("highScore"+ finalScore);
         score.text = "Score: " + finalScore.ToString("00000");
         
-        //distanceApplaudPanel.SetActive(true);
-
-        /*if(PlayerPrefs.GetInt("FirstTime") == 0)
+        if(PlayerPrefs.GetInt("FirstTime") == 0 && finalScore > highScore)
         {
-            PlayerPrefs.SetInt("FirstTime", 1);
-            shade.SetActive(true);
-            startPanel.SetActive(true);
-            Pause();
-        }*/
+              PlayerPrefs.SetInt("FirstTime", 1);
+              distanceApplaudPanel.SetActive(false);
+              confettiForDistanceApplaud.SetActive(false);
+        }
+        // if(PlayerPrefs.GetInt("FirstTime") == 0)
+        // {
+        //     PlayerPrefs.SetInt("FirstTime", 1);
+            // shade.SetActive(true);
+            // startPanel.SetActive(true);
+            // Pause();
+        // } 
     }
 
     // Update is called once per frame
@@ -88,7 +96,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 score.text = "Score: " + (100+(newposition - distanceX) + addToScore).ToString("0000");
-            }*/
+            } */
             finalgameoverScore.text = "Score: " + (newposition - distanceX + addToScore).ToString("0000");
             finalScore = (int)(newposition - distanceX + addToScore);
                 //Debug.Log("Score"+ finalScore);
@@ -111,16 +119,17 @@ public class GameManager : MonoBehaviour
             Debug.Log("highScore " + highScore);
             Debug.Log("finalScore " + finalScore);
         }
-        
+
     }
     
-    /*void LateUpdate()
+    void LateUpdate()
     {
-        if(finalScore > highScore)
-           {
-              StartCoroutine(DistanceApplaud());
-           }
-    }*/
+        if (finalScore > 500 && finalScore > highScore)
+        {
+            StartCoroutine(DistanceApplaud());
+        }
+       
+    }
     
 
     public void Pause()
@@ -154,8 +163,41 @@ public class GameManager : MonoBehaviour
     private IEnumerator DistanceApplaud()
     {
         confettiForDistanceApplaud.SetActive(true);
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(3);
         confettiForDistanceApplaud.SetActive(false);
         distanceApplaudPanel.SetActive(false);
+        notificationSound.SetActive(false);
+    }
+
+    //Social Media Share
+    public void PressToShare()
+    {
+    shareMessage = "Whoa! i can't believe i scored " + finalScore.ToString() + " in  Keke Rush!";
+
+    StartCoroutine(TakeScreenshotAndShare());
+    }
+
+    private IEnumerator TakeScreenshotAndShare()
+    {
+	    yield return new WaitForEndOfFrame();
+
+	    Texture2D ss = new Texture2D( Screen.width, Screen.height, TextureFormat.RGB24, false );
+	    ss.ReadPixels( new Rect( 0, 0, Screen.width, Screen.height ), 0, 0 );
+	    ss.Apply();
+
+	    string filePath = Path.Combine( Application.temporaryCachePath, "shared img.png" );
+	    File.WriteAllBytes( filePath, ss.EncodeToPNG() );
+
+	    // To avoid memory leaks
+	    Destroy( ss );
+
+	    new NativeShare().AddFile( filePath )
+		.SetSubject( "Keke Rush" ).SetText( shareMessage ).SetUrl( "https://github.com/yasirkula/UnityNativeShare" )
+		.SetCallback( ( result, shareTarget ) => Debug.Log( "Share result: " + result + ", selected app: " + shareTarget ) )
+		.Share();
+
+	    // Share on WhatsApp only, if installed (Android only)
+	    if( NativeShare.TargetExists( "com.whatsapp" ) )
+		new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
     }
 }
