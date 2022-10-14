@@ -5,7 +5,7 @@ using GooglePlayGames;
 
 public class LeaderBoard : MonoBehaviour
 {
-	public static LeaderBoard Instance;
+	/*public static LeaderBoard Instance;
 
 	private void Awake()
 	{
@@ -45,5 +45,5 @@ public class LeaderBoard : MonoBehaviour
             //if (success){Debug.Log("Score Updated");}
             //else{Debug.Log("Score Not Updated");}
 		});
-	}
+	}*/
 }

@@ -10,12 +10,19 @@ public class AudioManager : MonoBehaviour
     public AudioSource nitroSound;
     public AudioSource bombSound;
     public AudioSource countdown;
+    
+    
 
     public static AudioManager instance;
     
     public void Awake()
     {
         instance = this;
+    }
+    
+    public void Update()
+    {
+        
     }
 
     public void PlayCarSound()

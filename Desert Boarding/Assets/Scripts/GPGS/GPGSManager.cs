@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms;
 public class GPGSManager : MonoBehaviour
 {
     // Play Games Configuration
-    private PlayGamesClientConfiguration clientConfiguration;
+    /*private PlayGamesClientConfiguration clientConfiguration;
 
     // UI Info and Status Texts
     public Text status;
@@ -73,5 +73,5 @@ public class GPGSManager : MonoBehaviour
 
         // Debug Text
         Debug.Log("# Signed Out Successfully");
-    }
+    }*/
 }
